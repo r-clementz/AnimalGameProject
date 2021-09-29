@@ -4,7 +4,13 @@ public class Animal {
    // private String name;
     private String sex;
     public int healthLevel;
-    public Animal(){}
+    //Should we have name here as null and player give a name later?
+    public Animal(String sex){
+        this.sex=sex;
+        this.healthLevel = healthLevel;
+
+
+    }
 
     public void eat(){}
     public void die(){}
@@ -13,12 +19,48 @@ public class Animal {
 //5 sub animal  classes
 class Dog extends Animal{
 
+    public Dog(String sex) {
+        super(sex);
+    }
+
     public void eat(){}
     public void die(){}
 
 
 }
-class Cat extends Animal{}
-class Unicorn extends Animal{}
-class Rabbit extends Animal{}
-class Bat extends Animal{}
+class Cat extends Animal{
+    public Cat(String sex) {
+        super(sex);
+    }
+
+    public void eat(){}
+    public void die(){}
+
+}
+class Unicorn extends Animal{
+    public Unicorn (String sex) {
+        super(sex);
+    }
+
+    public void eat(){}
+    public void die(){}
+
+}
+class Rabbit extends Animal{
+    public Rabbit(String sex) {
+        super(sex);
+    }
+
+    public void eat(){}
+    public void die(){}
+
+}
+class Bat extends Animal{
+    public Bat(String sex) {
+        super(sex);
+    }
+
+    public void eat(){}
+    public void die(){}
+
+}
