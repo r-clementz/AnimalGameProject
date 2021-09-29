@@ -15,7 +15,7 @@ public class Animal {
         this.healthLevel = healthLevel;
     }
     public void eat(){}
-    public int getOriginalHL(){return healthMeter;}
+    public int getOriginalHL(){return healthLevel;}
     public void lowerEnergy(){}
     public void gainMoreEnergy(){}
     public void die(){}

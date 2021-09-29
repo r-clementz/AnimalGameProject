@@ -73,7 +73,7 @@ public class Store {
         int i =player.animalList.indexOf(storeAnimalStock.get(numberPicked));
         storeAnimalStock.remove(numberPicked);//removed from store stock
         //update info
-        player.animalList.get(i).healthMeter = healthLv;
+        player.animalList.get(i).healthLevel = healthLv;
         System.out.println("Now the animal is added. Please give a name to your animal");
         String givenName = console.next();
         player.animalList.get(i).name = givenName;
