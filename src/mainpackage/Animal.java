@@ -1,66 +1,138 @@
 package mainpackage;
 //superclass Animal
 public class Animal {
-   // private String name;
+    public String name;
+    private String breed;
     private String sex;
+    public double originalPrice;
     public int healthLevel;
-    //Should we have name here as null and player give a name later?
-    public Animal(String sex){
-        this.sex=sex;
+
+    public Animal(String breed,String sex, int originalprice) {
+        this.name=name;
+        this.breed=breed;
+        this.sex= sex;
+        this.originalPrice =originalprice;
         this.healthLevel = healthLevel;
+    }
+    public void eat(){}
+    public int getOriginalHL(){return healthMeter;}
+    public void lowerEnergy(){}
+    public void gainMoreEnergy(){}
+    public void die(){}
+    public void babyborn(Animal animal,Player player) {
+        int sexDecision = (int) (Math.random() * 1);
+        switch (sexDecision) {
+            case 0:
+                System.out.println("you got a baby boy!");
+                if (animal instanceof Dog) {
+                    player.animalList.add(new Dog("", "male", 0));
+                } else if (animal instanceof Unicorn) {
+                    player.animalList.add(new Unicorn("", "male", 0));
+                } else if (animal instanceof Rabbit) {
+                    player.animalList.add(new Rabbit("", "male", 0));
+                } else if (animal instanceof Bat) {
+                    player.animalList.add(new Bat("", "male", 0));
+                }
+                break;
 
+            case 1: {
+                System.out.println("you got a baby girl!");
+                if (animal instanceof Dog) {
+                    player.animalList.add(new Dog("", "female", 0));
+                } else if (animal instanceof Unicorn) {
+                    player.animalList.add(new Unicorn("", "female", 0));
+                } else if (animal instanceof Rabbit) {
+                    player.animalList.add(new Rabbit("", "female", 0));
+                } else if (animal instanceof Bat) {
+                    player.animalList.add(new Bat("", "female", 0));
+                }
+                break;
+            }
 
+        }
+    }
+    public String getAnimalsSex(){
+        return this.sex;
     }
 
-    public void eat(){}
-    public void die(){}
-
 }
-//5 sub animal  classes
 class Dog extends Animal{
 
-    public Dog(String sex) {
-        super(sex);
+
+    public Dog (String breed,String sex,int originalprice) {
+        super(breed,sex,originalprice);
+
     }
-
     public void eat(){}
-    public void die(){}
-
-
-}
-class Cat extends Animal{
-    public Cat(String sex) {
-        super(sex);
+    @Override
+    public int getOriginalHL(){
+        this.healthLevel = 200;
+        return healthLevel;
     }
-
-    public void eat(){}
+    public void lowerEnergy(){}
+    public void gainMoreEnergy(){}
     public void die(){}
-
 }
+
+
+class Cat  extends Animal{
+
+    public Cat (String breed,String sex,int originalprice) {
+        super(breed,sex,originalprice);
+    }
+    public void eat(){}
+    @Override
+    public int getOriginalHL(){
+        this.healthLevel = 100;
+        return healthLevel;}
+    public void lowerEnergy(){}
+    public void gainMoreEnergy(){}
+    public void die(){}
+}
+
 class Unicorn extends Animal{
-    public Unicorn (String sex) {
-        super(sex);
+    Unicorn(String breed,String sex,int originalprice) {
+        super(breed,sex,originalprice);
     }
 
     public void eat(){}
+    @Override
+    public int getOriginalHL(){
+        this.healthLevel = 400;
+        return healthLevel;
+    }
+    public void lowerEnergy(){}
+    public void gainMoreEnergy(){}
     public void die(){}
-
 }
 class Rabbit extends Animal{
-    public Rabbit(String sex) {
-        super(sex);
+    Rabbit (String breed,String sex,int originalprice) {
+        super(breed,sex,originalprice);
     }
 
     public void eat(){}
+    @Override
+    public int getOriginalHL(){
+        this.healthLevel = 60;
+        return healthLevel;
+    }
+    public void lowerEnergy(){}
+    public void gainMoreEnergy(){}
     public void die(){}
-
 }
 class Bat extends Animal{
-    public Bat(String sex) {
-        super(sex);
+    Bat(String breed,String sex,int originalprice) {
+        super(breed,sex,originalprice);
     }
 
     public void eat(){}
+    @Override
+    public int getOriginalHL(){
+        this.healthLevel = 80;
+        return healthLevel;
+    }
+    public void lowerEnergy(){}
+    public void gainMoreEnergy(){}
     public void die(){}
-
+}
 }

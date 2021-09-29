@@ -115,7 +115,7 @@ public class Store {
         int choiceToSell = console.nextInt();
         Animal animalToSell =player.animalList.get(choiceToSell);
         //check helath Lv of animal going to be sold
-        int currentHealth = animalToSell.healthMeter;
+        int currentHealth = animalToSell.healthLevel;
         double deal=0;
         //price depends on the health meter
         if (currentHealth == currentHealth) {//100% HL = 100% price
