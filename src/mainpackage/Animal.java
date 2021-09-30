@@ -18,8 +18,7 @@ public abstract class Animal {
         return healthLevel;
     }
 
-    public void eat(Food food) {
-    }
+    public void eat(Food food) {}
 
     public void seeIfBecameFull() { // Health Lv can't be more than Original
         if (this.healthLevel <= this.getOriginalHL()) {
@@ -27,14 +26,20 @@ public abstract class Animal {
             System.out.println(this.name +": I got full! ");
         }
     }
-    public void gainMoreEnergy (Food food, int amountOfFood) {
+    public void gainMoreEnergy (Food food, int amountOfFood) {}
+    public void updateHealthStatus(Player player){
+        for (int i=0; i<player.animalList.size();i++){
+            player.animalList.get(i).healthLevel=  (int)(player.animalList.get(i).healthLevel*0.9);
+            if(player.animalList.get(i).healthLevel==0){
+                player.animalList.get(i).die(player);
+            }
         }
+    }
 
-        public void lowerEnergy () {
-        }
-
-        public void die () {
-        }
+    public void die (Player player) {
+        System.out.println(this + "is dead:( You can't reach" + this + " anymore");
+        player.animalList.remove(this);
+    }
 
         public void babyborn (Animal animal, Player player){
             int sexDecision = (int) (Math.random() * 1);
@@ -114,8 +119,8 @@ class Dog extends Animal{
             this.healthLevel= this.healthLevel+5*amountOfFood;
         }
     }
-    public void lowerEnergy(){}
-    public void die(){}
+    public void updateHealthStatus(Player player){}
+    public void die(Player player){}
 }
 
 
@@ -156,12 +161,10 @@ class Cat extends Animal { // meat milk
     }
 
 
-    public void lowerEnergy() {
-    }
-
-
-    public void die(){}
+    public void updateHealthStatus(Player player){}
+    public void die(Player player){}
 }
+
 class Unicorn extends Animal{  //all
     Unicorn(String sex, int originalprice)  {
         super(sex,originalprice);
@@ -183,8 +186,8 @@ class Unicorn extends Animal{  //all
         this.healthLevel= this.healthLevel+5*amountOfFood;
     }
 
-    public void lowerEnergy(){}
-    public void die(){}
+    public void updateHealthStatus(Player player){}
+    public void die(Player player){}
 }
 
 class Rabbit extends Animal{
@@ -217,10 +220,10 @@ class Rabbit extends Animal{
         this.healthLevel= this.healthLevel+15*amountOfFood;
     }
 
-    public void lowerEnergy(){}
-
-    public void die(){}
+    public void updateHealthStatus(Player player){}
+    public void die(Player player){}
 }
+
 class Bat extends Animal{
     Bat(String sex, int originalprice)  {
         super(sex,originalprice);
@@ -249,7 +252,6 @@ class Bat extends Animal{
     public void gainMoreEnergy(Food food, int amountOfFood){
         this.healthLevel= this.healthLevel+15*amountOfFood;
     }
-
-    public void lowerEnergy(){}
-    public void die(){}
+    public void updateHealthStatus(Player player){}
+    public void die(Player player){}
 }
