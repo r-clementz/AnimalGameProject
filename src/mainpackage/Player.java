@@ -73,8 +73,18 @@ public class Player {
         System.out.println("Please choose food to give.");
         int indexPicked2 = console.nextInt();
         Food foodPicked = this.foodStock.get(indexPicked2);
+        //Show amount of food exists
+        System.out.println("You have "+ foodPicked.amount + "kg of "+foodPicked);
+        System.out.println("Please choose the amount you'd like to give.");
+        //player chooses the amount
+        int amountPicked = console.nextInt();
         //update stock
-        this.foodStock.remove(foodPicked);
+        if (amountPicked == foodPicked.amount){
+            this.foodStock.remove(foodPicked);
+        }
+        else{
+            foodPicked.amount= foodPicked.amount -amountPicked;
+        }
         //animal eats food and gain energy if it can eat food chosen
         animalPicked.eat(foodPicked);
         //show updated energy

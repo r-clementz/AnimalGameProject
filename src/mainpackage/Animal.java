@@ -219,4 +219,3 @@ class Bat extends Animal{
     public void gainMoreEnergy(){}
     public void die(){}
 }
-}
