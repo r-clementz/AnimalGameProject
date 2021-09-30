@@ -18,33 +18,33 @@ public class Player {
         console = new Scanner(System.in);
     }
 
-    public void createPlayers (int numberOfPlayers){
-        switch (numberOfPlayers) {
-
-            case 2:
-                Player player1 = new Player("player1");
-                Player player2 = new Player("player2");
-                System.out.println("Now we have :" + player1 + player2 );
-                break;
-            case 3:
-                player1 = new Player("player1");
-                player2 = new Player("player2");
-                Player player3 = new Player("player3");
-                System.out.println("Now we have :" + player1 + player2 +player3);
-                break;
-            case 4:
-                player1 = new Player("player1");
-                player2 = new Player("player2");
-                player3 = new Player("player3");
-                Player player4 = new Player("player4");
-                System.out.println("Now we have :" + player1 + player2 +player3 +player4 );
-                break;
-            default:
-                System.out.println("Invalid input! ");
-                break;
-
-        }
-    }
+//    public void createPlayers (int numberOfPlayers){
+//        switch (numberOfPlayers) {
+//
+//            case 2:
+//                Player player1 = new Player("player1");
+//                Player player2 = new Player("player2");
+//                System.out.println("Now we have :" + player1 + player2 );
+//                break;
+//            case 3:
+//                player1 = new Player("player1");
+//                player2 = new Player("player2");
+//                Player player3 = new Player("player3");
+//                System.out.println("Now we have :" + player1 + player2 +player3);
+//                break;
+//            case 4:
+//                player1 = new Player("player1");
+//                player2 = new Player("player2");
+//                player3 = new Player("player3");
+//                Player player4 = new Player("player4");
+//                System.out.println("Now we have :" + player1 + player2 +player3 +player4 );
+//                break;
+//            default:
+//                System.out.println("Invalid input! ");
+//                break;
+//
+//        }
+//    }
 
 
     public void seeAnimalList() {
@@ -75,11 +75,8 @@ public class Player {
         Food foodPicked = this.foodStock.get(indexPicked2);
         //update stock
         this.foodStock.remove(foodPicked);
-
-        //animal eats food
-        animalPicked.eat();
-        //animal gain health level
-        animalPicked.gainMoreEnergy();
+        //animal eats food and gain energy if it can eat food chosen
+        animalPicked.eat(foodPicked);
         //show updated energy
         System.out.println("Now " + animalPicked + "'s health is " + animalPicked.healthLevel);
     }
@@ -107,13 +104,14 @@ public class Player {
         }
         // fill the requirement (same animal, different sex)
         else {
-            int possibilty = (int) (Math.random() * 1);
-            switch (possibilty) {
+            int possibility = (int) (Math.random() * 1);
+            switch (possibility) {
                 case 0:
                     System.out.println("pairing was unsuccessful");
                     break;
                 case 1: // pairing succeeded
                     pair1.babyborn(pair1,this);
+                    break;
             }
         }
     }

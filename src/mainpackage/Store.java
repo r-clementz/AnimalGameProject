@@ -17,30 +17,30 @@ public class Store {
     }
     public void createStoreAnimalList() {
         //Dogs
-        storeAnimalStock.add(new Dog("labrador", "male", 40));
-        storeAnimalStock.add(new Dog("labrador", "male", 40));
-        storeAnimalStock.add(new Dog("labrador", "male", 55));
-        storeAnimalStock.add(new Dog("labrador", "male", 60));
+        storeAnimalStock.add(new Dog("male", 40));
+        storeAnimalStock.add(new Dog( "male", 40));
+        storeAnimalStock.add(new Dog( "male", 40));
+        storeAnimalStock.add(new Dog( "male", 40));
         //Cats
-        storeAnimalStock.add(new Cat("", "male", 60));
-        storeAnimalStock.add(new Cat("labrador", "male", 60));
-        storeAnimalStock.add(new Cat("labrador", "male", 45));
-        storeAnimalStock.add(new Cat("labrador", "male", 45));
+        storeAnimalStock.add(new Cat("male", 60));
+        storeAnimalStock.add(new Cat("male", 60));
+        storeAnimalStock.add(new Cat("male", 60));
+        storeAnimalStock.add(new Cat("male", 60));
         //Unicorn
-        storeAnimalStock.add(new Unicorn("labrador", "male", 100));
-        storeAnimalStock.add(new Unicorn("labrador", "male", 100));
-        storeAnimalStock.add(new Unicorn("labrador", "male", 100));
-        storeAnimalStock.add(new Unicorn("labrador", "male", 100));
+        storeAnimalStock.add(new Unicorn( "male", 100));
+        storeAnimalStock.add(new Unicorn( "male", 100));
+        storeAnimalStock.add(new Unicorn( "male", 100));
+        storeAnimalStock.add(new Unicorn( "male", 100));
         //Rabbit
-        storeAnimalStock.add(new Rabbit("labrador", "male", 30));
-        storeAnimalStock.add(new Rabbit("labrador", "male", 30));
-        storeAnimalStock.add(new Rabbit("labrador", "male", 25));
-        storeAnimalStock.add(new Rabbit("labrador", "male", 25));
+        storeAnimalStock.add(new Rabbit("male", 30));
+        storeAnimalStock.add(new Rabbit("male", 30));
+        storeAnimalStock.add(new Rabbit("male", 30));
+        storeAnimalStock.add(new Rabbit("male", 30));
         //Bat
-        storeAnimalStock.add(new Bat("labrador", "male", 20));
-        storeAnimalStock.add(new Bat("labrador", "male", 20));
-        storeAnimalStock.add(new Bat("labrador", "male", 15));
-        storeAnimalStock.add(new Bat("labrador", "male", 15));
+        storeAnimalStock.add(new Bat( "male", 20));
+        storeAnimalStock.add(new Bat( "male", 20));
+        storeAnimalStock.add(new Bat( "male", 20));
+        storeAnimalStock.add(new Bat( "male", 20));
     }
     public Food[] getStoreFoodStock() {
         storeFoodStock[1] = new Veggies("Carrot", 3);
@@ -117,14 +117,14 @@ public class Store {
         //check helath Lv of animal going to be sold
         int currentHealth = animalToSell.healthLevel;
         double deal=0;
-        //price depends on the health meter
+        //price depends on the health meter health percentage = orignal price* health%
         if (currentHealth == currentHealth) {//100% HL = 100% price
             deal= animalToSell.originalPrice;
             player.animalList.remove(animalToSell); //removed from players list
             storeAnimalStock.add(animalToSell);// added to store again
             player.money= player.money+(int)deal;// player get money
         }
-        else if ((currentHealth<=currentHealth*90)&&(currentHealth>=currentHealth*60)) {
+        else if ((currentHealth<=currentHealth*0.9)&&(currentHealth>=currentHealth*60)) {
             //90-60% = 50% price
             deal= animalToSell.originalPrice/2;
             player.animalList.remove(animalToSell); //removed from players list
