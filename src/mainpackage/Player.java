@@ -49,12 +49,12 @@ public class Player {
 
     public void seeAnimalList() {
         System.out.println("Here are animals in your list ");
-        for (int i = 1; i <= this.animalList.size(); i++) {
+        for (int i = 0; i <= this.animalList.size(); i++) {
             System.out.println(i + ". :\t" + this.animalList.get(i));
         }
     }
     public void seeFoodlist(){
-        for (int i = 1; i <= this.foodStock.size(); i++) {
+        for (int i = 0; i <= this.foodStock.size(); i++) {
             System.out.println(i + ". :\t" + this.foodStock.get(i));
         }
     }
