@@ -18,8 +18,8 @@ public class Player {
         console = new Scanner(System.in);
     }
 
-    public void createPlayers (int numnerOfPlayers){
-        switch (numnerOfPlayers) {
+    public void createPlayers (int numberOfPlayers){
+        switch (numberOfPlayers) {
 
             case 2:
                 Player player1 = new Player("player1");
