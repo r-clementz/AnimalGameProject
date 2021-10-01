@@ -71,45 +71,8 @@ public class Game {
         }
 
         //After this game play loop the score (money) needs to be summed up and the winner/scoreboard display
-
-
-
-
-
-
-
-
-
+        System.out.println("Här ska vi bara avgöra vem som vann, easy peasy!");
 
     }
-
-//    public void createPlayers(int numberOfPlayer){ // IDEA
-//        switch(numberOfPlayer){
-//            case 2:
-//                players[1]= new Player("player1");
-//                players[1].giveNickName();
-//                players[2]= new Player("player2");
-//                players[2].giveNickName();
-//                break;
-//            case 3:
-//                players[1]= new Player("player1");
-//                players[1].giveNickName();
-//                players[2]= new Player("player2");
-//                players[2].giveNickName();
-//                players[3]= new Player("player2");
-//                players[3].giveNickName();
-//                break;
-//            case 4:
-//                players[1]= new Player("player1");
-//                players[1].giveNickName();
-//                players[2]= new Player("player2");
-//                players[2].giveNickName();
-//                players[3]= new Player("player2");
-//                players[3].giveNickName();
-//                players[4]= new Player("player1");
-//                players[4].giveNickName();
-//                break;
-//        }
-//    }
 
 }
