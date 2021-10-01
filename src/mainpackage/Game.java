@@ -36,13 +36,8 @@ public class Game {
         for (int i =1; i <= numberOfPlayers; i++) {
             System.out.println("Player " +i +" please enter your name: ");
             String name = console.next();
-            Player in = new Player(name); //Money?
+            Player in = new Player(name, 10_000); //Money?
             players.add(in);
-        }
-
-        //This is just a test to see we actually generate players
-        for (Player player : players) {
-            System.out.println(player);
         }
 
         System.out.println("Please choose how many (5-30) rounds you want to play: ");
@@ -56,7 +51,8 @@ public class Game {
 
             //This is our INNER game loop of what a player does on their round
             for (int j = 1; j <= numberOfPlayers; j++) {
-                System.out.println("Player " +j + " what do you want to do?");
+                System.out.println(players.get(j-1));
+                System.out.println("What do you want to do?");
                 System.out.println("1. Buy animal(s)\t2. Buy food\t3.Feed animal(s)\t4. Breed animals\t5. Sell animal(s)");
                 menuChoice = console.nextInt();
             }
