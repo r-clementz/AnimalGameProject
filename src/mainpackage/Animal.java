@@ -16,14 +16,9 @@ public abstract class Animal {
     }
 
     public void eat(Food food) {}
+    public void gainMoreEnergy(Food food, int amountOfFood){}
 
-    public void seeIfBecameFull() { // Health Lv can't be more than Original
-        if (this.healthLevel <= this.getOriginalHL()) {
-            this.healthLevel = getOriginalHL();
-            System.out.println(this.name +": I got full! ");
-        }
-    }
-    public void gainMoreEnergy (Food food, int amountOfFood) {}
+
     public void updateHealthStatus(Player player){
         for (int i=0; i<player.animalList.size();i++){
             player.animalList.get(i).healthLevel=  (int)(player.animalList.get(i).healthLevel*0.9);
@@ -128,7 +123,7 @@ class Cat extends Animal { // meat milk
     }
 
     @Override
-    public int getOriginalHL(){
+    public int getOriginalHL() {
         this.healthLevel = 100;
         return healthLevel;
     }
@@ -148,19 +143,21 @@ class Cat extends Animal { // meat milk
     }
 
     @Override
-    public void gainMoreEnergy(Food food, int amountOfFood){
+    public void gainMoreEnergy(Food food, int amountOfFood) {
         if (food instanceof Meat) {
-            this.healthLevel= this.healthLevel+10*amountOfFood;
-        }
-        else {
-            this.healthLevel= this.healthLevel+5*amountOfFood;
+            this.healthLevel = this.healthLevel + 10 * amountOfFood;
+        } else {
+            this.healthLevel = this.healthLevel + 5 * amountOfFood;
         }
     }
 
 
-    public void updateHealthStatus(Player player){}
-    public void die(Player player){}
+    public void updateHealthStatus(Player player) {
+    }
+
+    public void die(Player player) {}
 }
+
 
 class Unicorn extends Animal{  //all
     public Unicorn(String name, String sex)  {
