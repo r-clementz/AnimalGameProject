@@ -14,6 +14,7 @@ public class Game {
     //private Store store;
     //private Animal animal;
     public ArrayList<Player> players;
+    public int menuChoice;
 
 
     public Game(){
@@ -51,12 +52,13 @@ public class Game {
         for (int i = 1; i <= numberOfRounds; i++ ) {
             //Then we play the game for the chosen number of rounds
             //This print is just a test to eliminate logic errors
-            System.out.print("Round number: " + i);
+            System.out.println("Round number: " + i);
 
             //This is our INNER game loop of what a player does on their round
             for (int j = 1; j <= numberOfPlayers; j++) {
                 System.out.println("Player " +j + " what do you want to do?");
-
+                System.out.println("1. Buy animal(s)\t2. Buy food\t3.Feed animal(s)\t4. Breed animals\t5. Sell animal(s)");
+                menuChoice = console.nextInt();
             }
         }
 
