@@ -50,9 +50,14 @@ public class Game {
         //Basic OUTER gameplay loop for chosen number of rounds
         for (int i = 1; i <= numberOfRounds; i++ ) {
             //Then we play the game for the chosen number of rounds
-
             //This print is just a test to eliminate logic errors
             System.out.print("Round number: " + i);
+
+            //This is our INNER game loop of what a player does on their round
+            for (int j = 1; j <= numberOfPlayers; j++) {
+                System.out.println("Player " +j + " what do you want to do?");
+
+            }
         }
 
         //After this game play loop the score (money) needs to be summed up and the winner/scoreboard display
