@@ -148,7 +148,37 @@ public class Store {
 
 
     public void sellAnimal(Player player) {
+        //Show all animals in player's list
+        System.out.println("Please choose which Animal you'd like to sell.");
+        for (int i=0; i<player.animalList.size();i++){
+            System.out.println(i+"."+player.animalList.get(i));
+        }
+        int indexChosen = console.nextInt();//player choose index for animal to sell
+        Animal animalToSell= player.animalList.get(indexChosen);
+        int currentHealth = animalToSell.healthLevel;
+        int priceToSell=0;
+        if (currentHealth == animalToSell.getOriginalHL()){
+            priceToSell= animalToSell.price;
+        }
+        else if(currentHealth >= (animalToSell.getOriginalHL()/2)){ //Health Lv is more than 50%
+            priceToSell=  animalToSell.price/2;
+        }
+        else if (currentHealth < (animalToSell.getOriginalHL()/2)){//Health Lv is less than 50%
+            priceToSell= animalToSell.price/4;
+        }
+        System.out.println(animalToSell + " can be sold for "+ priceToSell+" kr.\n Would you still like to sell?\n 1.Yes 2.No");
+        int lastChoice = console.nextInt();
+        switch (lastChoice){
+            case 1://Yes
+                player.animalList.remove(animalToSell);
+                player.money= player.money+priceToSell;
+                System.out.println(animalToSell+" is sold now!");
+                break;
+            case 2://No
+                System.out.println("OK, see you next time!");
+        }
     }
+
     public void showAnimalMenu(){
         System.out.println("Please Choose the number for animal you'd like to buy");
         System.out.println("1.Dog 2. Cat  3. Unicorn 4. Rabbit 5. Bat ");
