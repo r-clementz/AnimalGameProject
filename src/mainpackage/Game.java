@@ -36,13 +36,13 @@ public class Game {
         for (int i =1; i <= numberOfPlayers; i++) {
             System.out.println("Player " +i +" please enter your name: ");
             String name = console.next();
-            Player in = new Player(name); //Money?
+            Player in = new Player(name, 10_000); //Money?
             players.add(in);
         }
 
         //This is just a test to see we actually generate players
         for (Player player : players) {
-            System.out.println(player);
+            System.out.println(player.toString());
         }
 
         System.out.println("Please choose how many (5-30) rounds you want to play: ");

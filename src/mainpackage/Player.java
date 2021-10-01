@@ -4,48 +4,19 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
-    private String name;
+    private String playerName;
     public int money;
     public ArrayList<Animal> animalList;
     public ArrayList<Food> foodStock;
     public Scanner console;
 
-    public Player(String name) {
-        this.name = name;
-        this.money = 500;
+    public Player(String playerName, int money) {
+        this.playerName = playerName;
+        this.money = money;
         animalList = new ArrayList<>();
         foodStock = new ArrayList<>();
         console = new Scanner(System.in);
     }
-
-//    public void createPlayers (int numberOfPlayers){
-//        switch (numberOfPlayers) {
-//
-//            case 2:
-//                Player player1 = new Player("player1");
-//                Player player2 = new Player("player2");
-//                System.out.println("Now we have :" + player1 + player2 );
-//                break;
-//            case 3:
-//                player1 = new Player("player1");
-//                player2 = new Player("player2");
-//                Player player3 = new Player("player3");
-//                System.out.println("Now we have :" + player1 + player2 +player3);
-//                break;
-//            case 4:
-//                player1 = new Player("player1");
-//                player2 = new Player("player2");
-//                player3 = new Player("player3");
-//                Player player4 = new Player("player4");
-//                System.out.println("Now we have :" + player1 + player2 +player3 +player4 );
-//                break;
-//            default:
-//                System.out.println("Invalid input! ");
-//                break;
-//
-//        }
-//    }
-
 
     public void seeAnimalList() {
         System.out.println("Here are animals in your list ");
@@ -128,4 +99,8 @@ public class Player {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Hello " + playerName + " you have this much " + money + " money.";
+    }
 }
