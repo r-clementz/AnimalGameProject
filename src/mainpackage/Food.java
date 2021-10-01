@@ -2,12 +2,10 @@ package mainpackage;
 
 public class Food {
     public String name;
-    public int price;
     public int amount;
 
-    public Food (String name,int price){
+    public Food (String name,int amount){
         this.name=name;
-        this.price=price;
         this.amount=amount;
 
     }
@@ -15,20 +13,20 @@ public class Food {
 }
 class Veggies extends Food{
 
-    public Veggies(String name,int price) {
-        super(name,price);
+    public Veggies(String name,int amount) {
+        super(name,amount);
     }
 
 }
 class Meat extends Food{
 
-    public Meat(String name,int price) {
-        super(name,price);
+    public Meat(String name,int amount) {
+        super(name,amount);
     }
 }
 class Milk extends Food {
 
-    public Milk(String name,int price) {
-        super(name,price);
+    public Milk(String name,int amount) {
+        super(name,amount);
     }
 }

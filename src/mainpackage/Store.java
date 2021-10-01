@@ -10,7 +10,6 @@ public class Store {
 
     public Store() {
         console = new Scanner(System.in);
-
     }
 
     public void buyAnimal(Player player) {
@@ -69,25 +68,85 @@ public class Store {
         for (int x = 0; x <= animalChoices.size(); x++) { //get each animal from the list and do payment
             int moneyleft = player.money - animalChoices.get(x).price;
             if (moneyleft == 0) {
-                System.out.println("Now you run out of all money!");// if money=0
+                System.out.println("You can't buy more than you can afford! Try another time. ");// if money=0
                 player.money = currentMoney; //payment reset and no animal will be sold
             } else {
                 player.animalList.addAll(animalChoices);
                 System.out.println("Now all animals are added to your list");
                 System.out.println("You have " + player.money + "kr left.");
+            }
+        }
+    }
 
+    public void buyFood(Player player) {
+        ArrayList<Food> foodChoices = new ArrayList<>();
+        boolean playerWannaBuy = true;
+        while (playerWannaBuy) {
+            showFoodMenu();
+            switch (showFoodMenu()) {
+                case 1: //Veggie
+                    System.out.println("1.Carrot (3kr) 2. Cabbage(5kr) 3.Potato (3kr)");
+                    int vegChoice = console.nextInt();
+                    System.out.println("How much you'd like? (kg)");
+                    int vegAmount = console.nextInt();
+                    if (vegChoice == 1) {
+                        foodChoices.add(new Veggies("Carrot", vegAmount));
+                        player.money = player.money - vegAmount * 3;
+                    }
+                    else if (vegChoice == 2) {
+                        foodChoices.add(new Veggies("Cabbage", vegAmount));
+                        player.money = player.money - vegAmount * 5;
+                    }
+                    else if (vegChoice == 3) {
+                        foodChoices.add(new Veggies("Potato", vegAmount));
+                        player.money = player.money - vegAmount * 3;
+                    }
+                    break;
+                case 2: //Meat
+                    System.out.println("1.Chicken(12kr) 2. Beef(25kr)");
+                    int meatChoice = console.nextInt();
+                    System.out.println("How much you'd like?(kg)");
+                    int meatAmount = console.nextInt();
+                    if (meatChoice == 1) {
+                        foodChoices.add(new Meat("Chicken", meatAmount));
+                        player.money = player.money - meatAmount * 12;
+                    }
+                    else if (meatChoice == 2) {
+                        foodChoices.add(new Meat("Beef", meatAmount));
+                        player.money = player.money - meatAmount * 25;
+                    }
+                    break;
+
+                case 3://Milk
+                    System.out.println("1.Cow milk (10kr) 2. Oat milk(12kr)");
+                    int milkChoice = console.nextInt();
+                    System.out.println("How much you'd like?(Liter)");
+                    int milkAmount = console.nextInt();
+                    if (milkChoice == 1) {
+                        foodChoices.add(new Milk("Cow milk", milkAmount));
+                        player.money = player.money - milkAmount * 10;
+                    }
+                    else if (milkChoice == 2) {
+                        foodChoices.add(new Milk("Oat milk", milkAmount));
+                        player.money = player.money - milkAmount * 12;
+                    }
+                    break;
+            }
+            System.out.println("If you'd like to finish buying, input 0");
+            if ((player.money == 0)) {
+                playerWannaBuy = false;
+                System.out.println("You can't buy more than you can afford! Try another time. "); // player get no food
+            }
+            else if (showFoodMenu() == 0) {
+                playerWannaBuy = false;
+                player.foodStock.addAll(foodChoices);
             }
 
+
         }
-
     }
 
 
-
-
-    public void buyFood(){
-
-    }
     public void sellAnimal(Player player) {
     }
     public void showAnimalMenu(){
@@ -96,11 +155,12 @@ public class Store {
         System.out.println("The price for each Animal: 1.50kr 2.40kr 3.100kr 4.30kr 5.20kr");
     }
 
-    public void showFoodMenu(){
+    public int showFoodMenu(){
         System.out.println("Please choose the number for Food you'd like to buy");
         System.out.println("1. Veggies 2. Meat 3. Milk");
         int foodChoice = console.nextInt();
-        System.out.println("Please choose which ");
+        System.out.println("Which one you'd like to get?");
+        return foodChoice;
     }
 
 
