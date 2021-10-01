@@ -11,8 +11,7 @@ public class Store {
     }
     public void buyAnimal(Player player) {
         //Show 5 different choices of animal
-        System.out.println("Please Choose the number for animal you'd like to buy");
-        System.out.println("1.Dog 2. Cat 3. Unicorn 4. Rabbit 5. Bat");
+
         //player choose animal
         int animalChoice= console.nextInt();
         // Player choose sex for animal
@@ -36,6 +35,11 @@ public class Store {
     }
 
     public void sellAnimal(Player player) {
+    }
+    public void showAnimalMenu(){
+        System.out.println("Please Choose the number for animal you'd like to buy");
+        System.out.println("1.Dog 2. Cat  3. Unicorn 4. Rabbit 5. Bat ");
+        System.out.println("The price for each Animal: 1.50kr 2.40kr 3.100kr 4.30kr 5.20kr");
     }
 
 
