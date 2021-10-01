@@ -59,7 +59,7 @@ public class Player {
         //animal eats food and gain energy if it can eat food chosen
         animalPicked.eat(foodPicked);
         animalPicked.gainMoreEnergy(foodPicked,amountPicked);
-        animalPicked.seeIfBecameFull();
+        //animalPicked.seeIfBecameFull(); //COMMENTED OUT just to be able to run program
         //show updated energy
         System.out.println("Now " + animalPicked + "'s health is " + animalPicked.healthLevel);
     }
