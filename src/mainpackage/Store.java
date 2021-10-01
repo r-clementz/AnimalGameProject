@@ -10,10 +10,8 @@ public class Store {
         console = new Scanner(System.in);
     }
     public void buyAnimal(Player player) {
-        //Show 5 different choices of animal
-
-        //player choose animal
-        int animalChoice= console.nextInt();
+        showAnimalMenu(); //Show 5 different choices of animal
+        int animalChoice= console.nextInt(); //player choose animal
         // Player choose sex for animal
         System.out.println("Male(1) or Female(2)? ");
         int sexChoice = console.nextInt();
@@ -23,9 +21,42 @@ public class Store {
 
         switch(animalChoice) {
             case 1: //Dog
-                if(sexChoice==1) {//male
-                    player.animalList.add(new Dog (animalName,"male"))
+                if (sexChoice == 1) {//male
+                    player.animalList.add(new Dog(animalName, "male"));
+                } else {//female
+                    player.animalList.add(new Dog(animalName, "female"));
                 }
+                break;
+            case 2: //Cat
+                if (sexChoice == 1) {//male
+                    player.animalList.add(new Cat(animalName, "male"));
+                } else {//female
+                    player.animalList.add(new Cat(animalName, "female"));
+                }
+                break;
+            case 3: //Unicorn
+                if (sexChoice == 1) {//male
+                    player.animalList.add(new Unicorn(animalName, "male"));
+                } else {//female
+                    player.animalList.add(new Unicorn(animalName, "female"));
+                }
+                break;
+            case 4: //Rabbit
+                if (sexChoice == 1) {//male
+                    player.animalList.add(new Rabbit(animalName, "male"));
+                } else {//female
+                    player.animalList.add(new Rabbit(animalName, "female"));
+                }
+                break;
+            case 5: //Bat
+                if (sexChoice == 1) {//male
+                    player.animalList.add(new Bat(animalName, "male"));
+                } else {//female
+                    player.animalList.add(new Bat(animalName, "female"));
+                }
+                break;
+            }
+        System.out.println("Now the animal is added to your list! ");
         }
     }
 
