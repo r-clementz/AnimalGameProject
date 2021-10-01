@@ -2,15 +2,12 @@ package mainpackage;
 //superclass Animal
 public abstract class Animal {
     public String name;
-    private String breed;
     private String sex;
-    public double originalPrice;
     public int healthLevel;
 
-    public Animal(String sex, int originalprice) {
+    public Animal(String name, String sex) {
         this.name = name;
         this.sex = sex;
-        this.originalPrice = originalprice;
         this.healthLevel = healthLevel;
     }
 
@@ -19,14 +16,9 @@ public abstract class Animal {
     }
 
     public void eat(Food food) {}
+    public void gainMoreEnergy(Food food, int amountOfFood){}
 
-    public void seeIfBecameFull() { // Health Lv can't be more than Original
-        if (this.healthLevel <= this.getOriginalHL()) {
-            this.healthLevel = getOriginalHL();
-            System.out.println(this.name +": I got full! ");
-        }
-    }
-    public void gainMoreEnergy (Food food, int amountOfFood) {}
+
     public void updateHealthStatus(Player player){
         for (int i=0; i<player.animalList.size();i++){
             player.animalList.get(i).healthLevel=  (int)(player.animalList.get(i).healthLevel*0.9);
@@ -85,8 +77,8 @@ public abstract class Animal {
 
 class Dog extends Animal{
 
-    public Dog (String sex, int originalprice)  {
-        super(sex,originalprice);
+    public Dog (String name, String sex)  {
+        super(name,sex);
     }
     @Override
     public int getOriginalHL(){
@@ -126,12 +118,12 @@ class Dog extends Animal{
 
 class Cat extends Animal { // meat milk
 
-    public Cat(String sex, int originalprice) {
-        super(sex, originalprice);
+    public Cat(String name, String sex)  {
+        super(name,sex);
     }
 
     @Override
-    public int getOriginalHL(){
+    public int getOriginalHL() {
         this.healthLevel = 100;
         return healthLevel;
     }
@@ -151,23 +143,25 @@ class Cat extends Animal { // meat milk
     }
 
     @Override
-    public void gainMoreEnergy(Food food, int amountOfFood){
+    public void gainMoreEnergy(Food food, int amountOfFood) {
         if (food instanceof Meat) {
-            this.healthLevel= this.healthLevel+10*amountOfFood;
-        }
-        else {
-            this.healthLevel= this.healthLevel+5*amountOfFood;
+            this.healthLevel = this.healthLevel + 10 * amountOfFood;
+        } else {
+            this.healthLevel = this.healthLevel + 5 * amountOfFood;
         }
     }
 
 
-    public void updateHealthStatus(Player player){}
-    public void die(Player player){}
+    public void updateHealthStatus(Player player) {
+    }
+
+    public void die(Player player) {}
 }
 
+
 class Unicorn extends Animal{  //all
-    Unicorn(String sex, int originalprice)  {
-        super(sex,originalprice);
+    public Unicorn(String name, String sex)  {
+        super(name,sex);
     }
     @Override
     public int getOriginalHL(){
@@ -191,8 +185,8 @@ class Unicorn extends Animal{  //all
 }
 
 class Rabbit extends Animal{
-    Rabbit(String sex, int originalprice)  {
-        super(sex,originalprice);
+   public Rabbit(String name, String sex)  {
+        super(name,sex);
     }
     @Override
     public int getOriginalHL(){
@@ -225,8 +219,8 @@ class Rabbit extends Animal{
 }
 
 class Bat extends Animal{
-    Bat(String sex, int originalprice)  {
-        super(sex,originalprice);
+    public Bat (String name, String sex)  {
+        super(name,sex);
     }
     @Override
     public int getOriginalHL(){
