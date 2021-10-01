@@ -1,9 +1,11 @@
-package mainpackage;
+package com.animalgame;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
+import com.animalgame.food.*;
+import com.animalgame.animals.*;
+
 
 public class Store {
     public Scanner console;

@@ -1,4 +1,4 @@
-package mainpackage;
+package com.animalgame;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -71,7 +71,27 @@ public class Game {
         }
 
         //After this game play loop the score (money) needs to be summed up and the winner/scoreboard display
+<<<<<<< Updated upstream
         System.out.println("Här ska vi bara avgöra vem som vann, easy peasy!");
+=======
+
+
+
+
+
+
+
+
+
+<<<<<<< Updated upstream
+=======
+    }
+    public void newGame(){
+        //Round 5-30
+        // in the end of round
+        animal.updateHealthStatus(player);
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
     }
 

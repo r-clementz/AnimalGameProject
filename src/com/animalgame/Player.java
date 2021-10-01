@@ -1,4 +1,4 @@
-package mainpackage;
+package com.animalgame;
 
 import java.util.ArrayList;
 import java.util.Scanner;
