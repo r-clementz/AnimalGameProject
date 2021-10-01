@@ -1,27 +1,73 @@
 package mainpackage;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
+    //I'm going to comment out things not used RIGHT NOW, please "activate"/update as needed!
+    //Program crashes in spectacular ways if everything activated.
+
     public Scanner console;
-    private int numberOfPlayer;
-    private int numberOfRound;
-    public int [] playersChoices;
-    private Store store;
-    private Animal animal;
-   // public Player[] players;
+    private int numberOfPlayers;
+    private int numberOfRounds;
+    //public int [] playersChoices;
+    //private Store store;
+    //private Animal animal;
+    public ArrayList<Player> players;
+
+
     public Game(){
         console= new Scanner (System.in);
-        store = new Store();
-        playersChoices = new int[3];
+        //store = new Store();
+        players = new ArrayList<>();
+        //playersChoices = new int[3];
         //players = new Player[3];
 
+        //Just basics to get everything working, validation of input still needed
+        System.out.println("Welcome to Capitalism: The Animal Edition!");
+        System.out.println("Please choose how many players 2-4: ");
+        numberOfPlayers = console.nextInt();
+
+        //Here we generate the players, they may name themselves
+        //We save them in an arraylist (or should we do array?)
+        //In the game we then need to access them from this, player 1 is index 0 etc.
+
+        for (int i =1; i <= numberOfPlayers; i++) {
+            System.out.println("Player " +i +" please enter your name: ");
+            String name = console.next();
+            Player in = new Player(name); //Money?
+            players.add(in);
+        }
+
+        //This is just a test to see we actually generate players
+        for (Player player : players) {
+            System.out.println(player);
+        }
+
+        System.out.println("Please choose how many (5-30) rounds you want to play: ");
+        numberOfRounds = console.nextInt();
+
+        //Basic OUTER gameplay loop for chosen number of rounds
+        for (int i = 1; i <= numberOfRounds; i++ ) {
+            //Then we play the game for the chosen number of rounds
+
+            //This print is just a test to eliminate logic errors
+            System.out.print("Round number: " + i);
+        }
+
+        //After this game play loop the score (money) needs to be summed up and the winner/scoreboard display
+
+
+
+
+
+
+
+
+
 
     }
-    public void newGame(){
-        //Round 5-30
 
-    }
 //    public void createPlayers(int numberOfPlayer){ // IDEA
 //        switch(numberOfPlayer){
 //            case 2:
