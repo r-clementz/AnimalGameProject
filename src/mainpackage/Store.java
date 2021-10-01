@@ -2,6 +2,7 @@ package mainpackage;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Store {
@@ -146,52 +147,57 @@ public class Store {
         }
     }
 
-
     public void sellAnimal(Player player) {
+        boolean playerWannaSell = true;
         //Show all animals in player's list
-        System.out.println("Please choose which Animal you'd like to sell.");
-        for (int i=0; i<player.animalList.size();i++){
-            System.out.println(i+"."+player.animalList.get(i));
+        System.out.println("Here is your animal list:\n");
+        for (int i = 0; i < player.animalList.size(); i++) {
+            System.out.println(i + "." + player.animalList.get(i));
         }
-        int indexChosen = console.nextInt();//player choose index for animal to sell
-        Animal animalToSell= player.animalList.get(indexChosen);
-        int currentHealth = animalToSell.healthLevel;
-        int priceToSell=0;
-        if (currentHealth == animalToSell.getOriginalHL()){
-            priceToSell= animalToSell.price;
-        }
-        else if(currentHealth >= (animalToSell.getOriginalHL()/2)){ //Health Lv is more than 50%
-            priceToSell=  animalToSell.price/2;
-        }
-        else if (currentHealth < (animalToSell.getOriginalHL()/2)){//Health Lv is less than 50%
-            priceToSell= animalToSell.price/4;
-        }
-        System.out.println(animalToSell + " can be sold for "+ priceToSell+" kr.\n Would you still like to sell?\n 1.Yes 2.No");
-        int lastChoice = console.nextInt();
-        switch (lastChoice){
-            case 1://Yes
-                player.animalList.remove(animalToSell);
-                player.money= player.money+priceToSell;
-                System.out.println(animalToSell+" is sold now!");
-                break;
-            case 2://No
-                System.out.println("OK, see you next time!");
+        while (playerWannaSell) {
+            System.out.println("Please choose which Animal you'd like to sell.");
+            int indexChosen = console.nextInt();//player choose index for animal to sel;
+            Animal animalToSell = player.animalList.get(indexChosen);//get animal from the list
+
+            int currentHealth = animalToSell.healthLevel;
+            int priceToSell = 0;
+            if (currentHealth == animalToSell.getOriginalHL()) {
+                priceToSell = animalToSell.price;
+            } else if (currentHealth >= (animalToSell.getOriginalHL() / 2)) { //Health Lv is more than 50%
+                priceToSell = animalToSell.price / 2;
+            } else if (currentHealth < (animalToSell.getOriginalHL() / 2)) {//Health Lv is less than 50%
+                priceToSell = animalToSell.price / 4;
+            }
+            System.out.println(animalToSell + "is sold for " + priceToSell);
+            player.animalList.remove(animalToSell);
+            player.money = player.money + priceToSell;
+
+            System.out.println("Woudl you like to sell more?\n1.Yes 2.No");
+            int playersChoice = console.nextInt();
+            switch (playersChoice) {
+                case 1://Yes
+                    break;
+                case 2://No
+                    playerWannaSell = false;
+                    System.out.println("OK, see you next time!");
+            }
         }
     }
 
-    public void showAnimalMenu(){
-        System.out.println("Please Choose the number for animal you'd like to buy");
-        System.out.println("1.Dog 2. Cat  3. Unicorn 4. Rabbit 5. Bat ");
-        System.out.println("The price for each Animal: 1.50kr 2.40kr 3.100kr 4.30kr 5.20kr");
-    }
 
-    public int showFoodMenu(){
-        System.out.println("Please choose the number for Food you'd like to buy");
-        System.out.println("1. Veggies 2. Meat 3. Milk");
-        int foodChoice = console.nextInt();
-        System.out.println("Which one you'd like to get?");
-        return foodChoice;
-    }
+        public void showAnimalMenu () {
+            System.out.println("Please Choose the number for animal you'd like to buy");
+            System.out.println("1.Dog 2. Cat  3. Unicorn 4. Rabbit 5. Bat ");
+            System.out.println("The price for each Animal: 1.50kr 2.40kr 3.100kr 4.30kr 5.20kr");
+        }
+
+        public int showFoodMenu () {
+            System.out.println("Please choose the number for Food you'd like to buy");
+            System.out.println("1. Veggies 2. Meat 3. Milk");
+            int foodChoice = console.nextInt();
+            System.out.println("Which one you'd like to get?");
+            return foodChoice;
+        }
 
 
 }
