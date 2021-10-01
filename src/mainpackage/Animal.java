@@ -5,11 +5,13 @@ public abstract class Animal {
     public String name;
     private String sex;
     public int healthLevel;
+    public int price;
 
     public Animal(String name, String sex) {
         this.name = name;
         this.sex = sex;
         this.healthLevel = healthLevel;
+        this.price=price;
     }
 
 
