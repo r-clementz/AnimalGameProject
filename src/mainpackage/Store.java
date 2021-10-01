@@ -15,6 +15,7 @@ public class Store {
         // Player choose sex for animal
         System.out.println("Male(1) or Female(2)? ");
         int sexChoice = console.nextInt();
+        // Amount of this animal?
         //Decide name
         System.out.println("Please decide the name for your animal");
         String animalName = console.next();
