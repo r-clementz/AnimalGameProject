@@ -59,19 +59,22 @@ public class Store {
             }
         System.out.println("Now the animal is added to your list! ");
         }
-    }
 
-
-    public void buyFood() {
+    public void buyFood(){
 
     }
-
     public void sellAnimal(Player player) {
     }
     public void showAnimalMenu(){
         System.out.println("Please Choose the number for animal you'd like to buy");
         System.out.println("1.Dog 2. Cat  3. Unicorn 4. Rabbit 5. Bat ");
         System.out.println("The price for each Animal: 1.50kr 2.40kr 3.100kr 4.30kr 5.20kr");
+    }
+    public void showFoodMenu(){
+        System.out.println("Please choose the number for Food you'd like to buy");
+        System.out.println("1. Veggies 2. Meat 3. Milk");
+        int foodChoice = console.nextInt();
+        System.out.println("Please choose which ");
     }
 
 

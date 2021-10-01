@@ -76,9 +76,11 @@ public abstract class Animal {
 }
 
 class Dog extends Animal {
+    public int price;
 
     public Dog(String name, String sex) {
         super(name, sex);
+        price=50;
     }
 
     @Override
@@ -115,9 +117,11 @@ class Dog extends Animal {
 }
 
 class Cat extends Animal { // meat milk
+    public int price;
 
     public Cat(String name, String sex) {
         super(name, sex);
+        price=40;
     }
 
     @Override
@@ -154,8 +158,10 @@ class Cat extends Animal { // meat milk
 
 
 class Unicorn extends Animal {  //all
+    int price;
     public Unicorn(String name, String sex) {
         super(name, sex);
+        price=150;
     }
 
     @Override
@@ -179,8 +185,10 @@ class Unicorn extends Animal {  //all
 }
 
 class Rabbit extends Animal {
+    int price;
     public Rabbit(String name, String sex) {
         super(name, sex);
+        price=30;
     }
 
     @Override
@@ -211,8 +219,10 @@ class Rabbit extends Animal {
 }
 
 class Bat extends Animal {
+    int price;
     public Bat(String name, String sex) {
         super(name, sex);
+        price=30;
     }
 
     @Override
