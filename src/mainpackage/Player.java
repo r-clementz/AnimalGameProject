@@ -101,6 +101,6 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Hello " + playerName + " you have this much " + money + " money.";
+        return "It´s your turn " + playerName + " you have " + money + " money to spend.";
     }
 }
