@@ -25,8 +25,15 @@ public abstract class Animal {
     public abstract void eat(Food food);
     public abstract void gainMoreEnergy(Food food, int amountOfFood);
 
+    public void seeIfBecameFull(){// if
+        int currentHealth= this.healthLevel;
+        if(currentHealth>this.getOriginalHL()){
+            this.healthLevel=this.getOriginalHL();
+        }
+    }
 
-    // Completely overridden in subclasses, this method is never reached for Animal Class
+
+
     public void updateHealthStatus(Player player) {
         for (int i = 0; i < player.animalList.size(); i++) {
             player.animalList.get(i).healthLevel = (int) (player.animalList.get(i).healthLevel * 0.9);

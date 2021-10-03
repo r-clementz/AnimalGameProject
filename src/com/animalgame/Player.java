@@ -53,13 +53,12 @@ public class Player {
         if (amountPicked == foodPicked.amount){
             this.foodStock.remove(foodPicked);
         }
-        else{
+        else{//if player didn't feed everything, food remains in the list
             foodPicked.amount= foodPicked.amount -amountPicked;
         }
         //animal eats food and gain energy if it can eat food chosen
-        animalPicked.eat(foodPicked);
+        animalPicked.eat(foodPicked); //filter if the animal can eat food
         animalPicked.gainMoreEnergy(foodPicked,amountPicked);
-        //animalPicked.seeIfBecameFull(); //COMMENTED OUT just to be able to run program
         //show updated energy
         System.out.println("Now " + animalPicked + "'s health is " + animalPicked.healthLevel);
     }

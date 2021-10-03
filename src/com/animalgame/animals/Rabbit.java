@@ -34,6 +34,7 @@ public class Rabbit extends Animal {
 
     public void gainMoreEnergy(Food food, int amountOfFood) {
         this.healthLevel = this.healthLevel + 15 * amountOfFood;
+        seeIfBecameFull();
     }
 
 

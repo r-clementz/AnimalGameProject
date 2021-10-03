@@ -15,70 +15,78 @@ public class Store {
         console = new Scanner(System.in);
     }
 
-    public void buyAnimal(Player player) {
-        ArrayList<Animal> animalChoices = new ArrayList<>();
-        //player decide how many animals to buy first
-        System.out.println("How many animal would you like to buy in total?");
-        int total = console.nextInt();//total number of animal
-        showAnimalMenu(); //Show 5 different choices of animal
-        for (int i = 0; i <= total; i++) {
-            int animal = console.nextInt(); //player choose animal
-            System.out.println("Male(1) or female(2)?");// choose sex
-            int sex = console.nextInt();
-            System.out.println("Please decide the name for your animal");//Decide name
-            String animalName = console.next();
-
-            switch (animal) {//Store put animal chosen to its list for now
-                case 1: //Dog
-                    if (sex == 1) {//male
-                        animalChoices.add(new Dog(animalName, "male"));
-                    } else {//female
-                        animalChoices.add(new Dog(animalName, "female"));
+    public void buyAnimal(Player player) { //checked! worked with testing at least..
+        ArrayList<Animal> animalChosen = new ArrayList<>();
+        boolean playerWannaChoose = true;
+        System.out.println("Please Choose the number for animal you'd like to buy");
+        while (playerWannaChoose) {
+            System.out.println("1.Dog (50kr) 2.Cat(40kr) 3.Unicorn(150kr) 4.Rabbit(30kr)  5.Bat(20kr)");
+            int choice = console.nextInt(); // animal choice
+            System.out.println("Please choose its sex: 1.male 2.female");
+            int choice2 = console.nextInt();// sex choice
+            System.out.println("Give it a name:");
+            String name = console.next();// animal's name
+            switch (choice) {
+                case 1://Dog
+                    if (choice2 == 1) { //male
+                        animalChosen.add(new Dog(name, "male"));
+                    } else if (choice2 == 2) {
+                        animalChosen.add(new Dog(name, "female"));
                     }
                     break;
-                case 2: //Cat
-                    if (sex == 1) {//male
-                        animalChoices.add(new Cat(animalName, "male"));
-                    } else {//female
-                        animalChoices.add(new Cat(animalName, "female"));
+                case 2://Cat
+                    if (choice2 == 1) { //male
+                        animalChosen.add(new Cat(name, "male"));
+                    } else if (choice2 == 2) {
+                        animalChosen.add(new Cat(name, "female"));
                     }
                     break;
-                case 3: //Unicorn
-                    if (sex == 1) {//male
-                        animalChoices.add(new Unicorn(animalName, "male"));
-                    } else {//female
-                        animalChoices.add(new Unicorn(animalName, "female"));
+                case 3://Unicorn
+                    if (choice2 == 1) { //male
+                        animalChosen.add(new Unicorn(name, "male"));
+                    } else if (choice2 == 2) {
+                        animalChosen.add(new Unicorn(name, "female"));
                     }
                     break;
                 case 4: //Rabbit
-                    if (sex == 1) {//male
-                        animalChoices.add(new Rabbit(animalName, "male"));
-                    } else {//female
-                        animalChoices.add(new Rabbit(animalName, "female"));
+                    if (choice2 == 1) { //male
+                        animalChosen.add(new Rabbit(name, "male"));
+                    } else if (choice2 == 2) {
+                        animalChosen.add(new Rabbit(name, "male"));
                     }
                     break;
                 case 5: //Bat
-                    if (sex == 1) {//male
-                        animalChoices.add(new Bat(animalName, "male"));
-                    } else {//female
-                        animalChoices.add(new Bat(animalName, "female"));
+                    if (choice2 == 1) { //male
+                        animalChosen.add(new Bat(name, "male"));
+                    } else if (choice2 == 2) {
+                        animalChosen.add(new Bat(name, "female"));
                     }
                     break;
             }
-        }
-        //check total price
-        int currentMoney = player.money;
-        for (int x = 0; x <= animalChoices.size(); x++) { //get each animal from the list and do payment
-            int moneyleft = player.money - animalChoices.get(x).price;
-            if (moneyleft == 0) {
-                System.out.println("You can't buy more than you can afford! Try another time. ");// if money=0
-                player.money = currentMoney; //payment reset and no animal will be sold
-            } else {
-                player.animalList.addAll(animalChoices);
-                System.out.println("Now all animals are added to your list");
-                System.out.println("You have " + player.money + "kr left.");
+            // player can keep going
+            System.out.println("Would you like to choose more?\n1.Yes 2. No");
+            int choice3 = console.nextInt();
+            switch (choice3) {
+                case 1:
+                    break;
+                case 2:
+                    playerWannaChoose = false;
+                    break;
             }
         }
+        //payment
+        for(int i=0; i<= animalChosen.size(); i++){
+            int moneyLeft = (player.money) - (animalChosen.get(i).price);
+            if(moneyLeft<=0){
+                System.out.println("You don't have enough money to buy all animal you chose.");
+            }
+            else {
+                player.money = moneyLeft;
+                player.animalList.addAll(animalChosen);
+                System.out.println("All animal is added to your list! ");
+            }
+        }
+
     }
 
     public void buyFood(Player player) {
@@ -200,6 +208,15 @@ public class Store {
             System.out.println("Which one you'd like to get?");
             return foodChoice;
         }
+
+//        public void checkFoodStock(Player player){
+//        if(player.foodStock.contains("Carrot")){
+//           int index=player.foodStock.indexOf("Carrot");
+//           int currentAmount =player.foodStock.get(index).amount;
+//            player.foodStock.get(index).amount= currentAmount+vegAmount;
+//
+//        }
+//        }
 
 
 }

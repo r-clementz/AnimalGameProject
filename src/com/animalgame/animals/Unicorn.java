@@ -26,7 +26,9 @@ public class Unicorn extends Animal {  //all
     @Override
     public void gainMoreEnergy(Food food, int amountOfFood) {
         this.healthLevel = this.healthLevel + 5 * amountOfFood;
-    }
+        seeIfBecameFull();
+    }//Unicorn can eat everything but no favourite food
+     //and difficult to make it full
 
 
 }

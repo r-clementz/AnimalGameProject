@@ -3,6 +3,8 @@ package com.animalgame;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+
 public class Game {
     //I'm going to comment out things not used RIGHT NOW, please "activate"/update as needed!
     //Program crashes in spectacular ways if everything activated.
@@ -10,19 +12,14 @@ public class Game {
     public Scanner console;
     private int numberOfPlayers;
     private int numberOfRounds;
-    //public int [] playersChoices;
-    //private Store store;
-    //private Animal animal;
     public ArrayList<Player> players;
     public int menuChoice;
 
 
     public Game(){
         console= new Scanner (System.in);
-        //store = new Store();
         players = new ArrayList<>();
-        //playersChoices = new int[3];
-        //players = new Player[3];
+
 
         //Just basics to get everything working, validation of input still needed
         System.out.println("Welcome to Capitalism: The Animal Edition!");
@@ -68,12 +65,13 @@ public class Game {
                     default -> System.out.println("Whoops what happened now?");
                 }
             }
-        }
+        }//animal's health Lv goes down after every round finished.
+         //Where can we put updateHealthStatus(Player player) method there.
 
         //After this game play loop the score (money) needs to be summed up and the winner/scoreboard display
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
         System.out.println("Här ska vi bara avgöra vem som vann, easy peasy!");
-=======
+//=======
 
 
 
@@ -82,16 +80,13 @@ public class Game {
 
 
 
-
-<<<<<<< Updated upstream
-=======
-    }
-    public void newGame(){
-        //Round 5-30
-        // in the end of round
-        animal.updateHealthStatus(player);
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+//
+//<<<<<<< Updated upstream
+//=======
+//
+//        animal.updateHealthStatus(player);
+//>>>>>>> Stashed changes
+//>>>>>>> Stashed changes
 
     }
 
