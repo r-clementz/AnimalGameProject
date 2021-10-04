@@ -1,13 +1,21 @@
 package com.animalgame;
 
+import com.animalgame.food.Veggies;
+
 public class Food {
     public String name;
-    public int amount;
+    public int price;
+    public int amount=0;
 
-    public Food (String name,int amount){
+
+    public Food (String name,int price){
         this.name=name;
+        this.price=price;
         this.amount=amount;
 
+
     }
+
+
 
 }

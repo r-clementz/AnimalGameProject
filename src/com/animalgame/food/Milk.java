@@ -4,7 +4,7 @@ import com.animalgame.Food;
 
 public class Milk extends Food {
 
-    public Milk(String name,int amount) {
-        super(name,amount);
+    public Milk(String name,int price) {
+        super(name,price);
     }
 }
