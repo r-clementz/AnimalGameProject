@@ -83,42 +83,63 @@ public class Store {
         payAndUpdateList(player,foodChosen,amountChosen);
     }
 
-    public void sellAnimal(Player player) {
+    public void sellAnimal(Player player) { // need to test
+        boolean playerHasAnimal = true;
         boolean playerWannaSell = true;
-        //Show all animals in player's list
-        System.out.println("Here is your animal list:\n");
-        for (int i = 0; i < player.animalList.size(); i++) {
-            System.out.println(i + "." + player.animalList.get(i));
-        }
-        while (playerWannaSell) {
-            System.out.println("Please choose which Animal you'd like to sell.");
-            int indexChosen = console.nextInt();//player choose index for animal to sel;
-            Animal animalToSell = player.animalList.get(indexChosen);//get animal from the list
-
-            int currentHealth = animalToSell.healthLevel;
-            int priceToSell = 0;
-            if (currentHealth == animalToSell.getOriginalHL()) {
-                priceToSell = animalToSell.price;
-            } else if (currentHealth >= (animalToSell.getOriginalHL() / 2)) { //Health Lv is more than 50%
-                priceToSell = animalToSell.price / 2;
-            } else if (currentHealth < (animalToSell.getOriginalHL() / 2)) {//Health Lv is less than 50%
-                priceToSell = animalToSell.price / 4;
+        while(playerHasAnimal) {
+            //check if player has animal to sell
+            if (player.animalList.size() == 0) {
+                System.out.println("You have no Animal to Sell!");
+                playerHasAnimal = false;
             }
-            System.out.println(animalToSell + "is sold for " + priceToSell);
-            player.animalList.remove(animalToSell);
-            player.money = player.money + priceToSell;
+            //show players animal list
+            System.out.println("Here is your animal list:\n");
+            for (int i = 0; i < player.animalList.size(); i++) {
+                System.out.println(i + "." + player.animalList.get(i));
+            }
 
-            System.out.println("Woudl you like to sell more?\n1.Yes 2.No");
-            int playersChoice = console.nextInt();
-            switch (playersChoice) {
-                case 1://Yes
-                    break;
-                case 2://No
-                    playerWannaSell = false;
-                    System.out.println("OK, see you next time!");
+            while (playerWannaSell) {
+                System.out.println("Please choose which Animal you'd like to sell.");
+                int indexChosen = console.nextInt();//player choose index for animal to sel;
+                Animal animalToSell = player.animalList.get(indexChosen);//get animal from the list
+
+                int currentHealth = animalToSell.healthLevel;
+                int priceToSell = 0;
+                if (currentHealth == animalToSell.getOriginalHL()) {
+                    priceToSell = animalToSell.price;
+                } else if (currentHealth >= (animalToSell.getOriginalHL() / 2)) { //Health Lv is more than 50%
+                    priceToSell = animalToSell.price / 2;
+                } else if (currentHealth < (animalToSell.getOriginalHL() / 2)) {//Health Lv is less than 50%
+                    priceToSell = animalToSell.price / 4;
+                }
+                System.out.println(animalToSell + "is sold for " + priceToSell);
+                player.animalList.remove(animalToSell);
+                player.money = player.money + priceToSell;
+
+                System.out.println("Woudl you like to sell more?\n1.Yes 2.No");
+                int playersChoice = console.nextInt();
+                switch (playersChoice) {
+                    case 1://Yes
+                        break;
+                    case 2://No
+                        playerWannaSell = false;
+                        playerHasAnimal = false;
+                        System.out.println("See you next time!");
+                }
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
 
     //supporting methods
     public void createNewAnimals(int choice, int choice2, ArrayList<Animal> animalChosen, String name) {
