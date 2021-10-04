@@ -7,7 +7,7 @@ public class Bat extends Animal {
     int price;
     public Bat(String name, String sex) {
         super(name, sex);
-        price=30;
+        price=20;
     }
 
     @Override

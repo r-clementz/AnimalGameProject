@@ -4,11 +4,11 @@ import com.animalgame.*;
 import com.animalgame.food.*;
 
 public class Dog extends Animal {
-    public int price;
+
 
     public Dog(String name, String sex) {
         super(name, sex);
-        price=50;
+        super.price=50;
     }
 
     @Override

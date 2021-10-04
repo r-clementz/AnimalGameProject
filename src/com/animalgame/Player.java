@@ -30,7 +30,7 @@ public class Player {
         }
     }
 
-    public void feedAnimal() {
+    public void feedAnimal() { //NEED TO TEST
         //show animal(s) player's list
         seeAnimalList();
         //player pick up animal
@@ -63,7 +63,7 @@ public class Player {
         System.out.println("Now " + animalPicked + "'s health is " + animalPicked.healthLevel);
     }
 
-    public void pairAnimals() {
+    public void pairAnimals() { //NEED TO TEST
         //see animals in the list
         seeAnimalList();
         // choose first one

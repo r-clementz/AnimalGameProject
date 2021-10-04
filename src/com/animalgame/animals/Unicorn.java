@@ -8,7 +8,7 @@ public class Unicorn extends Animal {  //all
     int price;
     public Unicorn(String name, String sex) {
         super(name, sex);
-        price=150;
+        super.price=150;
     }
 
     @Override

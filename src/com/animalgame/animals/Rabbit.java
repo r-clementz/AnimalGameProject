@@ -8,7 +8,7 @@ public class Rabbit extends Animal {
     int price;
     public Rabbit(String name, String sex) {
         super(name, sex);
-        price=30;
+        super.price=30;
     }
 
     @Override
