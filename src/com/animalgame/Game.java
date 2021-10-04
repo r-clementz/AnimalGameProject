@@ -52,6 +52,7 @@ public class Game {
                 System.out.println("What do you want to do?");
                 System.out.println("1. Buy animal(s)\t2. Buy food\t3.Feed animal(s)\t4. Breed animals\t5. Sell animal(s)");
                 menuChoice = console.nextInt();
+                //all player supposed to choose their choices first and each player do what they chose..
 
                 //Enhanced switch syntax! Will need to add { } for codeblocks in the cases as example case 1.
                 switch (menuChoice) {

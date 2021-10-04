@@ -90,70 +90,47 @@ public class Store {
     }
 
     public void buyFood(Player player) {
-        ArrayList<Food> foodChoices = new ArrayList<>();
-        boolean playerWannaBuy = true;
-        while (playerWannaBuy) {
-            showFoodMenu();
-            switch (showFoodMenu()) {
-                case 1: //Veggie
-                    System.out.println("1.Carrot (3kr) 2. Cabbage(5kr) 3.Potato (3kr)");
-                    int vegChoice = console.nextInt();
-                    System.out.println("How much you'd like? (kg)");
-                    int vegAmount = console.nextInt();
-                    if (vegChoice == 1) {
-                        foodChoices.add(new Veggies("Carrot", vegAmount));
-                        player.money = player.money - vegAmount * 3;
-                    }
-                    else if (vegChoice == 2) {
-                        foodChoices.add(new Veggies("Cabbage", vegAmount));
-                        player.money = player.money - vegAmount * 5;
-                    }
-                    else if (vegChoice == 3) {
-                        foodChoices.add(new Veggies("Potato", vegAmount));
-                        player.money = player.money - vegAmount * 3;
-                    }
-                    break;
-                case 2: //Meat
-                    System.out.println("1.Chicken(12kr) 2. Beef(25kr)");
-                    int meatChoice = console.nextInt();
-                    System.out.println("How much you'd like?(kg)");
-                    int meatAmount = console.nextInt();
-                    if (meatChoice == 1) {
-                        foodChoices.add(new Meat("Chicken", meatAmount));
-                        player.money = player.money - meatAmount * 12;
-                    }
-                    else if (meatChoice == 2) {
-                        foodChoices.add(new Meat("Beef", meatAmount));
-                        player.money = player.money - meatAmount * 25;
-                    }
-                    break;
+        ArrayList<Food> foodChosen = new ArrayList<>();
+        ArrayList<Integer> amountChosen = new ArrayList<>();
+        boolean playerWannaMore= true;
 
-                case 3://Milk
-                    System.out.println("1.Cow milk (10kr) 2. Oat milk(12kr)");
-                    int milkChoice = console.nextInt();
-                    System.out.println("How much you'd like?(Liter)");
-                    int milkAmount = console.nextInt();
-                    if (milkChoice == 1) {
-                        foodChoices.add(new Milk("Cow milk", milkAmount));
-                        player.money = player.money - milkAmount * 10;
-                    }
-                    else if (milkChoice == 2) {
-                        foodChoices.add(new Milk("Oat milk", milkAmount));
-                        player.money = player.money - milkAmount * 12;
-                    }
+        while(playerWannaMore) {
+            System.out.println("Please choose the number for food you'd like to buy.");
+            System.out.println("1. Veggies 2. Meat 3. Milk");
+            int choice1 = console.nextInt();
+            switch (choice1) {
+                case 1: //veggie
+                    chooseVeg(foodChosen, player);
+                    break;
+                case 2: //meat
+                    chooseMeat(foodChosen, player);
+                    break;
+                case 3://milk
+                    chooseMilk(foodChosen, player);
                     break;
             }
-            System.out.println("If you'd like to finish buying, input 0");
-            if ((player.money == 0)) {
-                playerWannaBuy = false;
-                System.out.println("You can't buy more than you can afford! Try another time. "); // player get no food
+            System.out.println("How much you'd like to get?");
+            int amount = console.nextInt();
+            amountChosen.add(amount);
+            //loop until player decides to finish
+            System.out.println("Would you like to buy other food? : 1.Yes 2.No");
+            int choice2 = console.nextInt();
+            if(choice2==2){
+                playerWannaMore=false;
             }
-            else if (showFoodMenu() == 0) {
-                playerWannaBuy = false;
-                player.foodStock.addAll(foodChoices);
+        }
+        for (int i = 0; i < foodChosen.size(); i++) {//payment and update the list
+            player.money = player.money - foodChosen.get(i).price; //pay
+            if (player.foodStock.contains(foodChosen.get(i))) {
+                int index = player.foodStock.indexOf(foodChosen.get(i));
+                int newAmount = player.foodStock.get(index).amount +amountChosen.get(i);
+                player.foodStock.get(index).amount = newAmount;
+            }// food player bought added to the one already exist on the list
+            else {
+                player.foodStock.add(foodChosen.get(i));// added food
+                int index = player.foodStock.indexOf(foodChosen.get(i));
+                player.foodStock.get(i).amount = amountChosen.get(i); //added amount
             }
-
-
         }
     }
 
@@ -194,20 +171,47 @@ public class Store {
         }
     }
 
-
-        public void showAnimalMenu () {
-            System.out.println("Please Choose the number for animal you'd like to buy");
-            System.out.println("1.Dog 2. Cat  3. Unicorn 4. Rabbit 5. Bat ");
-            System.out.println("The price for each Animal: 1.50kr 2.40kr 3.100kr 4.30kr 5.20kr");
+    public void chooseVeg(ArrayList<Food> foodChosen,Player player) {
+        System.out.println("1.Carrot (3kr) 2. Cabbage(5kr) 3.Potato (3kr)");
+        int vegChoice = console.nextInt();
+        if(vegChoice==1) {//Carrot
+            foodChosen.add(new Veggies ("Carrot"));
         }
-
-        public int showFoodMenu () {
-            System.out.println("Please choose the number for Food you'd like to buy");
-            System.out.println("1. Veggies 2. Meat 3. Milk");
-            int foodChoice = console.nextInt();
-            System.out.println("Which one you'd like to get?");
-            return foodChoice;
+        else if (vegChoice==2) {
+            foodChosen.add(new Veggies("Cabbage"));
         }
+        else if (vegChoice==3){
+            foodChosen.add(new Veggies ("Potato"));
+        }
+    }
+
+    public void chooseMeat(ArrayList<Food> foodChosen, Player player){
+        System.out.println("1.Chicken (12kr) 2. Beef(25kr)");
+        int meatChoice = console.nextInt();
+
+        if(meatChoice==1) {//Chicken
+            foodChosen.add(new Meat ("Chicken"));
+        }
+        else if (meatChoice==2){//Beef
+            foodChosen.add(new Meat ("Beef"));
+
+        }
+    }
+
+    public void chooseMilk (ArrayList<Food> foodChosen, Player player){
+        System.out.println("1.Cow milk (10kr) 2.Oats milk(12kr)");
+        int milkChoice = console.nextInt();
+
+        if(milkChoice==1) {//Carrot
+            foodChosen.add(new Milk ("Cow milk"));
+        }
+        else if (milkChoice==2){
+            foodChosen.add(new Milk  ("Oats milk"));
+        }
+    }
+
+
+
 
 //        public void checkFoodStock(Player player){
 //        if(player.foodStock.contains("Carrot")){
