@@ -31,8 +31,8 @@ public class Store {
             // player can keep going
             System.out.println("Would you like to choose more?\n1.Yes 2.No");
             int choice3 = console.nextInt();
-            if(choice3==2){
-                playerWannaChoose=false;
+            if (choice3 == 2) {
+                playerWannaChoose = false;
                 System.out.println("Now you'd move to payment");
             }
         }
@@ -43,19 +43,20 @@ public class Store {
                 System.out.println("You don't have enough money to buy all animal you chose.");
             } else {
                 player.money = moneyLeft;
-                System.out.println("You have " +moneyLeft+"kr left after payment.");
+
                 player.animalList.addAll(animalChosen);
             }
         }
+        System.out.println("You have " + player.money + "kr left after payment.");
         System.out.println("And all animal is added to your list! ");
     }
 
     public void buyFood(Player player) {
         ArrayList<Food> foodChosen = new ArrayList<>();
         ArrayList<Integer> amountChosen = new ArrayList<>();
-        boolean playerWannaMore= true;
+        boolean playerWannaMore = true;
 
-        while(playerWannaMore) {
+        while (playerWannaMore) {
             System.out.println("Please choose the number for food you'd like to buy.");
             System.out.println("1. Veggies 2. Meat 3. Milk");
             int choice1 = console.nextInt();
@@ -76,26 +77,31 @@ public class Store {
             //loop until player decides to finish
             System.out.println("Would you like to buy other food? : 1.Yes 2.No");
             int choice2 = console.nextInt();
-            switch(choice2) {
-                case 1: break;
-                case 2: playerWannaMore =false;
+            switch (choice2) {
+                case 1:
+                    break;
+                case 2:
+                    playerWannaMore = false;
+                    System.out.println("Now you move to payment");
                     break;
             }
         }
-        for (int i = 0; i < foodChosen.size(); i++) {//payment and update the list
+        //payment and update the list
+        for (int i = 0; i < foodChosen.size(); i++) {
             player.money = player.money - foodChosen.get(i).price; //pay
-            if (player.foodStock.contains(foodChosen.get(i))) {
+
+            // food player bought added to the one already exist on the list
+            if (player.foodStock.contains(foodChosen.get(i))) { //checking current p's list
                 int index = player.foodStock.indexOf(foodChosen.get(i));
-                int newAmount = player.foodStock.get(index).amount +amountChosen.get(i);
+                int newAmount = player.foodStock.get(index).amount + amountChosen.get(i);
                 player.foodStock.get(index).amount = newAmount;
-            }// food player bought added to the one already exist on the list
-            else {
+            } else { // Food player bought is not in current list
                 player.foodStock.add(foodChosen.get(i));// added food
                 int index = player.foodStock.indexOf(foodChosen.get(i));
                 player.foodStock.get(i).amount = amountChosen.get(i); //added amount
             }
         }
-        System.out.println("Food is added to your list! Now you have "+player.money+ "kr left");
+        System.out.println("Food is added to your list! Now you have " + player.money + "kr left");
     }
 
     public void sellAnimal(Player player) {
@@ -134,7 +140,9 @@ public class Store {
             }
         }
     }
-    public void createNewAnimals(int choice,int choice2, ArrayList<Animal>animalChosen,String name){
+
+    //supporting methods
+    public void createNewAnimals(int choice, int choice2, ArrayList<Animal> animalChosen, String name) {
         switch (choice) {
             case 1://Dog
                 if (choice2 == 1) { //male
@@ -174,56 +182,40 @@ public class Store {
         }
     }
 
-    public void chooseVeg(ArrayList<Food> foodChosen,Player player) {
+    public void chooseVeg(ArrayList<Food> foodChosen, Player player) {
         System.out.println("1.Carrot (3kr) 2. Cabbage(5kr) 3.Potato (3kr)");
         int vegChoice = console.nextInt();
-        if(vegChoice==1) {//Carrot
-            foodChosen.add(new Veggies ("Carrot",3));
-        }
-        else if (vegChoice==2) {
-            foodChosen.add(new Veggies("Cabbage",5));
-        }
-        else if (vegChoice==3){
-            foodChosen.add(new Veggies ("Potato",3));
+        if (vegChoice == 1) {//Carrot
+            foodChosen.add(new Veggies("Carrot", 3));
+        } else if (vegChoice == 2) {
+            foodChosen.add(new Veggies("Cabbage", 5));
+        } else if (vegChoice == 3) {
+            foodChosen.add(new Veggies("Potato", 3));
         }
     }
 
-    public void chooseMeat(ArrayList<Food> foodChosen, Player player){
+    public void chooseMeat(ArrayList<Food> foodChosen, Player player) {
         System.out.println("1.Chicken (12kr) 2. Beef(25kr)");
         int meatChoice = console.nextInt();
 
-        if(meatChoice==1) {//Chicken
-            foodChosen.add(new Meat ("Chicken",12));
-        }
-        else if (meatChoice==2){//Beef
-            foodChosen.add(new Meat ("Beef",25));
+        if (meatChoice == 1) {//Chicken
+            foodChosen.add(new Meat("Chicken", 12));
+        } else if (meatChoice == 2) {//Beef
+            foodChosen.add(new Meat("Beef", 25));
 
         }
     }
 
-    public void chooseMilk (ArrayList<Food> foodChosen, Player player){
+    public void chooseMilk(ArrayList<Food> foodChosen, Player player) {
         System.out.println("1.Cow milk (10kr) 2.Oats milk(12kr)");
         int milkChoice = console.nextInt();
 
-        if(milkChoice==1) {//Carrot
-            foodChosen.add(new Milk ("Cow milk",10));
-        }
-        else if (milkChoice==2){
-            foodChosen.add(new Milk  ("Oats milk",12));
+        if (milkChoice == 1) {//Carrot
+            foodChosen.add(new Milk("Cow milk", 10));
+        } else if (milkChoice == 2) {
+            foodChosen.add(new Milk("Oats milk", 12));
         }
     }
-
-
-
-
-//        public void checkFoodStock(Player player){
-//        if(player.foodStock.contains("Carrot")){
-//           int index=player.foodStock.indexOf("Carrot");
-//           int currentAmount =player.foodStock.get(index).amount;
-//            player.foodStock.get(index).amount= currentAmount+vegAmount;
-//
-//        }
-//        }
-
-
 }
+
+
