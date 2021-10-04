@@ -15,7 +15,7 @@ public class Store {
         console = new Scanner(System.in);
     }
 
-    public void buyAnimal(Player player) { // double checked!
+    public void buyAnimal(Player player) { // completed!
         ArrayList<Animal> animalChosen = new ArrayList<>();
         boolean playerWannaChoose = true;
 
@@ -31,24 +31,20 @@ public class Store {
             // player can keep going
             System.out.println("Would you like to choose more?\n1.Yes 2.No");
             int choice3 = console.nextInt();
-            if (choice3 == 2) {
-                playerWannaChoose = false;
-                System.out.println("Now you'd move to payment");
+            if(choice3==2){
+                playerWannaChoose=false;
+                System.out.println("Now you'd move to payment:\n");
             }
         }
         //payment
+        ArrayList<Integer>priceTotal= new ArrayList<>();
         for (int i = 0; i < animalChosen.size(); i++) {
-            int moneyLeft = (player.money) - (animalChosen.get(i).price);
-            if (moneyLeft <= 0) {
-                System.out.println("You don't have enough money to buy all animal you chose.");
-            } else {
-                player.money = moneyLeft;
-
-                player.animalList.addAll(animalChosen);
-            }
+            int animalPrice =animalChosen.get(i).price;
+            player.money = player.money - animalPrice;
+            priceTotal.add(animalPrice);
         }
-        System.out.println("You have " + player.money + "kr left after payment.");
-        System.out.println("And all animal is added to your list! ");
+        int sum = priceTotal.stream().mapToInt(Integer::intValue).sum();
+        checkMoneyAndAdd(sum,player,animalChosen);
     }
 
     public void buyFood(Player player) {
@@ -179,6 +175,22 @@ public class Store {
                     animalChosen.add(new Bat(name, "female"));
                 }
                 break;
+        }
+    }
+
+    public void checkMoneyAndAdd (int sum,Player player, ArrayList<Animal> animalChosen) {
+        if(sum>player.money){
+            System.out.println("You don't have enough money and no animal is added to the list.");
+        }
+        else if (sum==player.money){
+            System.out.println("You have just enough to buy but no money left!");
+            player.animalList.addAll(animalChosen);;
+        }
+        else {
+            player.animalList.addAll(animalChosen);
+            System.out.println("You have " +player.money+"kr left after payment and the list updated");
+
+
         }
     }
 
