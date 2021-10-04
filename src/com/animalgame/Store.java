@@ -83,7 +83,7 @@ public class Store {
         payAndUpdateList(player,foodChosen,amountChosen);
     }
 
-    public void sellAnimal(Player player) { // need to test
+    public void sellAnimal(Player player) { //NEED TO TEST
         boolean playerHasAnimal = true;
         boolean playerWannaSell = true;
         while(playerHasAnimal) {
@@ -128,6 +128,30 @@ public class Store {
                 }
             }
         }
+    }
+    public void sellAllanimals(Player player){ //NEED TO TEST
+        ArrayList<Integer> allAnimalPrices = new ArrayList<>();
+        int animalPrice;
+        for (int i=0; i<player.animalList.size();i++){
+            int currentLv = player.animalList.get(i).healthLevel;
+
+            if (currentLv == player.animalList.get(i).getOriginalHL()) {
+                animalPrice = player.animalList.get(i).price;
+                allAnimalPrices.add(animalPrice);
+            }
+            else if (currentLv >= (player.animalList.get(i).getOriginalHL() / 2)) { //Health Lv is more than 50%
+                animalPrice = player.animalList.get(i).price/2;
+                allAnimalPrices.add(animalPrice);
+            }
+            else if (currentLv < (player.animalList.get(i).getOriginalHL() / 2)) {//Health Lv is less than 50%
+                animalPrice = player.animalList.get(i).price / 4;
+                allAnimalPrices.add(animalPrice);
+            }
+        }
+        int sum = allAnimalPrices.stream().mapToInt(Integer::intValue).sum();
+        player.animalList.clear(); // all animal is gone from the list
+        player.money= player.money + sum;
+
     }
 
 
