@@ -31,23 +31,19 @@ public class Store {
             // player can keep going
             System.out.println("Would you like to choose more?\n1.Yes 2.No");
             int choice3 = console.nextInt();
-            if(choice3==2){
-                playerWannaChoose=false;
+            if (choice3 == 2) {
+                playerWannaChoose = false;
                 System.out.println("Now you'd move to payment:\n");
             }
         }
         //payment
-        ArrayList<Integer>priceTotal= new ArrayList<>();
-        for (int i = 0; i < animalChosen.size(); i++) {
-            int animalPrice =animalChosen.get(i).price;
-            player.money = player.money - animalPrice;
-            priceTotal.add(animalPrice);
-        }
+        ArrayList<Integer> priceTotal = new ArrayList<>();
+        checkTotalPrice(player, animalChosen, priceTotal);
         int sum = priceTotal.stream().mapToInt(Integer::intValue).sum();
-        checkMoneyAndAdd(sum,player,animalChosen);
+        checkMoneyAndAdd(sum, player, animalChosen);
     }
 
-    public void buyFood(Player player) {
+    public void buyFood(Player player) { //completed!
         ArrayList<Food> foodChosen = new ArrayList<>();
         ArrayList<Integer> amountChosen = new ArrayList<>();
         boolean playerWannaMore = true;
@@ -83,21 +79,8 @@ public class Store {
             }
         }
         //payment and update the list
-        for (int i = 0; i < foodChosen.size(); i++) {
-            player.money = player.money - foodChosen.get(i).price; //pay
-
-            // food player bought added to the one already exist on the list
-            if (player.foodStock.contains(foodChosen.get(i))) { //checking current p's list
-                int index = player.foodStock.indexOf(foodChosen.get(i));
-                int newAmount = player.foodStock.get(index).amount + amountChosen.get(i);
-                player.foodStock.get(index).amount = newAmount;
-            } else { // Food player bought is not in current list
-                player.foodStock.add(foodChosen.get(i));// added food
-                int index = player.foodStock.indexOf(foodChosen.get(i));
-                player.foodStock.get(i).amount = amountChosen.get(i); //added amount
-            }
-        }
-        System.out.println("Food is added to your list! Now you have " + player.money + "kr left");
+        //payment
+        payAndUpdateList(player,foodChosen,amountChosen);
     }
 
     public void sellAnimal(Player player) {
@@ -178,6 +161,16 @@ public class Store {
         }
     }
 
+    public void checkTotalPrice(Player player,ArrayList<Animal> animalChosen,ArrayList<Integer> priceTotal){
+        for (int i = 0; i < animalChosen.size(); i++) {
+            int animalPrice =animalChosen.get(i).price;
+            player.money = player.money - animalPrice;
+            priceTotal.add(animalPrice);
+        }
+
+    }
+
+
     public void checkMoneyAndAdd (int sum,Player player, ArrayList<Animal> animalChosen) {
         if(sum>player.money){
             System.out.println("You don't have enough money and no animal is added to the list.");
@@ -227,6 +220,23 @@ public class Store {
         } else if (milkChoice == 2) {
             foodChosen.add(new Milk("Oats milk", 12));
         }
+    }
+    public void payAndUpdateList (Player player, ArrayList<Food> foodChosen,ArrayList<Integer> amountChosen){
+        for (int i = 0; i < foodChosen.size(); i++) {
+            player.money = player.money - foodChosen.get(i).price; //pay
+
+            // food player bought added to the one already exist on the list
+            if (player.foodStock.contains(foodChosen.get(i))) { //checking current p's list
+                int index = player.foodStock.indexOf(foodChosen.get(i));
+                int newAmount = player.foodStock.get(index).amount + amountChosen.get(i);
+                player.foodStock.get(index).amount = newAmount;
+            } else { // Food player bought is not in current list
+                player.foodStock.add(foodChosen.get(i));// added food
+                int index = player.foodStock.indexOf(foodChosen.get(i));
+                player.foodStock.get(i).amount = amountChosen.get(i); //added amount
+            }
+        }
+        System.out.println("Food is added to your list! Now you have " + player.money + "kr left");
     }
 }
 
