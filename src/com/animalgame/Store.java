@@ -193,7 +193,7 @@ public class Store {
                 if (choice2 == 1) { //male
                     animalChosen.add(new Rabbit(name, "male"));
                 } else if (choice2 == 2) {
-                    animalChosen.add(new Rabbit(name, "male"));
+                    animalChosen.add(new Rabbit(name, "female"));
                 }
                 break;
             case 5: //Bat

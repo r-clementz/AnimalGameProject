@@ -5,7 +5,7 @@ import com.animalgame.food.Veggies;
 public class Food {
     public String name;
     public int price;
-    public int amount=0;
+    public int amount;
 
 
     public Food (String name,int price){
