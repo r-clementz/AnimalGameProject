@@ -11,6 +11,7 @@ public class Store {
     public Scanner console;
 
 
+
     public Store() {
         console = new Scanner(System.in);
     }
@@ -116,7 +117,7 @@ public class Store {
                 player.animalList.remove(animalToSell);
                 player.money = player.money + priceToSell;
 
-                System.out.println("Woudl you like to sell more?\n1.Yes 2.No");
+                System.out.println("Would you like to sell more?\n1.Yes 2.No");
                 int playersChoice = console.nextInt();
                 switch (playersChoice) {
                     case 1://Yes
@@ -129,7 +130,7 @@ public class Store {
             }
         }
     }
-    public void sellAllanimals(Player player){ //NEED TO TEST
+    public void sellAllAnimals(Player player){ //NEED TO TEST
         ArrayList<Integer> allAnimalPrices = new ArrayList<>();
         int animalPrice;
         for (int i=0; i<player.animalList.size();i++){
@@ -222,7 +223,7 @@ public class Store {
         }
         else if (sum==player.money){
             System.out.println("You have just enough to buy but no money left!");
-            player.animalList.addAll(animalChosen);;
+            player.animalList.addAll(animalChosen);
         }
         else {
             player.animalList.addAll(animalChosen);

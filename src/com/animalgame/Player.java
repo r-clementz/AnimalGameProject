@@ -25,7 +25,7 @@ public class Player {
         }
     }
 
-    public void seeFoodlist() {
+    public void seeFoodList() {
         for (int i = 0; i <= this.foodStock.size(); i++) {
             System.out.println(i + ". :\t" + this.foodStock.get(i));
         }
@@ -43,7 +43,7 @@ public class Player {
             Animal animalPicked = animalList.get(indexPicked1);
 
             //show players food list
-            seeFoodlist();
+            seeFoodList();
             //player pick up food
             System.out.println("Please choose food to give.");
             int indexPicked2 = console.nextInt();
@@ -69,7 +69,7 @@ public class Player {
 
     public void pairAnimals() {
         if ((animalList.isEmpty()) || (animalList.size() == 1)) {
-            System.out.println("You don't have any animal!");
+            System.out.println("Sorry! You don't have enough animals to try this!");
         } else {
             //see animals in the list
             seeAnimalList();

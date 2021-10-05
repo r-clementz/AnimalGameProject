@@ -33,7 +33,7 @@ public class Game {
         for (int i =1; i <= numberOfPlayers; i++) {
             System.out.println("Player " +i +" please enter your name: ");
             String name = console.next();
-            Player in = new Player(name, 10_000); //Money?
+            Player in = new Player(name, 10_000); //Amount of money need to be decided
             players.add(in);
         }
 
@@ -70,9 +70,8 @@ public class Game {
          //Where can we put updateHealthStatus(Player player) method there.
 
         //After this game play loop the score (money) needs to be summed up and the winner/scoreboard display
-//<<<<<<< Updated upstream
+
         System.out.println("Här ska vi bara avgöra vem som vann, easy peasy!");
-//=======
 
 
 
@@ -81,13 +80,9 @@ public class Game {
 
 
 
-//
-//<<<<<<< Updated upstream
-//=======
-//
+
+
 //        animal.updateHealthStatus(player);
-//>>>>>>> Stashed changes
-//>>>>>>> Stashed changes
 
     }
 
