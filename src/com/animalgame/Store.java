@@ -3,6 +3,9 @@ package com.animalgame;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.animalgame.abstractclass.Animal;
+import com.animalgame.abstractclass.Food;
 import com.animalgame.food.*;
 import com.animalgame.animals.*;
 

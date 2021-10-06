@@ -1,6 +1,6 @@
 package com.animalgame.food;
 
-import com.animalgame.Food;
+import com.animalgame.abstractclass.Food;
 
 public class Meat extends Food {
 

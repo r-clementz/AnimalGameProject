@@ -1,5 +1,8 @@
 package com.animalgame;
 
+import com.animalgame.abstractclass.Animal;
+import com.animalgame.abstractclass.Food;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -32,7 +35,7 @@ public class Player {
     }
 
 
-    public void feedAnimal() {/
+    public void feedAnimal() {
         if(animalList.isEmpty()){
             System.out.println("You don't have any animal to feed!");
         }

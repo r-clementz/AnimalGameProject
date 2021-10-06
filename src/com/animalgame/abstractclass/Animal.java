@@ -1,10 +1,7 @@
-package com.animalgame;
+package com.animalgame.abstractclass;
 
-import com.animalgame.animals.Dog;
-import com.animalgame.animals.Cat;
-import com.animalgame.animals.Unicorn;
-import com.animalgame.animals.Rabbit;
-import com.animalgame.animals.Bat;
+import com.animalgame.Player;
+import com.animalgame.animals.*;
 
 //superclass Animal
 public abstract class Animal {
@@ -22,7 +19,7 @@ public abstract class Animal {
 
 
     public abstract int  getOriginalHL();
-    public abstract void eat(Food food, Player player, int indexChosen,int amountOfFood);
+    public abstract void eat(Food food, Player player, int indexChosen, int amountOfFood);
     public abstract void gainMoreEnergy(Food food,Player player, int indexChosen, int amountOfFood);
     public void seeIfBecameFull(Player player,int indexChosen){// if
         int currentHealth= player.animalList.get(indexChosen).healthLevel;

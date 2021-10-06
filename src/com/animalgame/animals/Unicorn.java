@@ -1,8 +1,8 @@
 package com.animalgame.animals;
 
 
-import com.animalgame.Animal;
-import com.animalgame.Food;
+import com.animalgame.abstractclass.Animal;
+import com.animalgame.abstractclass.Food;
 import com.animalgame.Player;
 
 public class Unicorn extends Animal {  //all

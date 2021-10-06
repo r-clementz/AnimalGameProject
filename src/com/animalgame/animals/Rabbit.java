@@ -1,6 +1,8 @@
 package com.animalgame.animals;
 
 import com.animalgame.*;
+import com.animalgame.abstractclass.Animal;
+import com.animalgame.abstractclass.Food;
 import com.animalgame.food.*;
 
 
@@ -19,7 +21,7 @@ public class Rabbit extends Animal {
     }
 
     @Override
-    public void eat(Food food, Player player, int indexChosen,int amountOfFood) { //Rabbit eats only veggie
+    public void eat(Food food, Player player, int indexChosen, int amountOfFood) { //Rabbit eats only veggie
         if (food instanceof Veggies) {
             System.out.println("Yum yum");
             gainMoreEnergy(food,player,indexChosen,amountOfFood);

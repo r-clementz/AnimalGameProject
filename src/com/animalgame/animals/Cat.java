@@ -2,6 +2,8 @@ package com.animalgame.animals;
 
 
 import com.animalgame.*;
+import com.animalgame.abstractclass.Animal;
+import com.animalgame.abstractclass.Food;
 import com.animalgame.food.*;
 
 public class Cat extends Animal { // meat milk
@@ -22,7 +24,7 @@ public class Cat extends Animal { // meat milk
     }
 
     @Override
-    public void eat(Food food, Player player, int indexChosen,int amountOfFood) { //Cats eat meat/milk
+    public void eat(Food food, Player player, int indexChosen, int amountOfFood) { //Cats eat meat/milk
         if (food instanceof Veggies) {
             System.out.println("I don't want eat that");
         } else if ((food instanceof Meat) || (food instanceof Milk)) {

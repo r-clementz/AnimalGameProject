@@ -1,4 +1,4 @@
-package com.animalgame;
+package com.animalgame.abstractclass;
 
 import com.animalgame.food.Veggies;
 

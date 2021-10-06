@@ -87,8 +87,14 @@ public class Game {
             }
 
 
-        }//animal's health Lv goes down after every round finished.
-         //Where can we put updateHealthStatus(Player player) method there.
+        }
+        //animal's health Lv goes down after every round finished.
+        for (int p = 0; p < numberOfPlayers - 1; p++) {
+            if (!(players.get(p).animalList.isEmpty())) {
+                players.get(p).checkAnimalHealth();//check all animals HealthLv
+            }
+        }
+
 
         //After this game play loop the score (money) needs to be summed up and the winner/scoreboard display
 
