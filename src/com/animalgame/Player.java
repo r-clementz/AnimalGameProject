@@ -24,17 +24,17 @@ public class Player {
             System.out.println(i + ". :\t" + this.animalList.get(i));
         }
     }
-    public void seeFoodlist(){
+
+    public void seeFoodList() {
         for (int i = 0; i <= this.foodStock.size(); i++) {
             System.out.println(i + ". :\t" + this.foodStock.get(i));
         }
     }
 
     public void feedAnimal() {
-        if(animalList.isEmpty()){ //avoid crash when player choose this in R1
+        if (animalList.isEmpty()) { //avoid crash when player choose this in R1
             System.out.println("You don't have any animal to feed!");
-        }
-        else{
+        } else {
             //show animal(s) player's list
             seeAnimalList();
             //player pick up animal
@@ -43,26 +43,25 @@ public class Player {
             Animal animalPicked = animalList.get(indexPicked1);
 
             //show players food list
-            seeFoodlist();
+            seeFoodList();
             //player pick up food
             System.out.println("Please choose food to give.");
             int indexPicked2 = console.nextInt();
             Food foodPicked = this.foodStock.get(indexPicked2);
             //Show amount of food exists
-            System.out.println("You have "+ foodPicked.amount + "kg of "+foodPicked);
+            System.out.println("You have " + foodPicked.amount + "kg of " + foodPicked);
             System.out.println("Please choose the amount you'd like to give.");
             //player chooses the amount
             int amountPicked = console.nextInt();
             //update stock
-            if (amountPicked == foodPicked.amount){
+            if (amountPicked == foodPicked.amount) {
                 this.foodStock.remove(foodPicked);
-            }
-            else{//if player didn't feed everything, food remains in the list
-                foodPicked.amount= foodPicked.amount -amountPicked;
+            } else {//if player didn't feed everything, food remains in the list
+                foodPicked.amount = foodPicked.amount - amountPicked;
             }
             //animal eats food and gain energy if it can eat food chosen
             animalPicked.eat(foodPicked); //filter if the animal can eat food
-            animalPicked.gainMoreEnergy(foodPicked,amountPicked);
+            animalPicked.gainMoreEnergy(foodPicked, amountPicked);
             //show updated energy
             System.out.println("Now " + animalPicked + "'s health is " + animalPicked.healthLevel);
         }
@@ -70,9 +69,8 @@ public class Player {
 
     public void pairAnimals() {
         if ((animalList.isEmpty()) || (animalList.size() == 1)) {
-            System.out.println("You don't have any animal!");
-        }
-        else {
+            System.out.println("Sorry! You don't have enough animals to try this!");
+        } else {
             //see animals in the list
             seeAnimalList();
             // choose first one
@@ -109,3 +107,4 @@ public class Player {
 
 
     }
+}
