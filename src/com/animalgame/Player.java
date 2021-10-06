@@ -49,7 +49,7 @@ public class Player {
             int indexPicked2 = console.nextInt();
             Food foodPicked = this.foodStock.get(indexPicked2);
             //Show amount of food exists
-            System.out.println("You have " + foodPicked.amount + "kg of " + foodPicked);
+            System.out.println("You have " + foodPicked.amount + "kg of " + foodPicked.name);
             System.out.println("Please choose the amount you'd like to give.");
             //player chooses the amount
             int amountPicked = console.nextInt();
