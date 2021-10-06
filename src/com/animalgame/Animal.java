@@ -48,36 +48,36 @@ public abstract class Animal {
         player.animalList.remove(this);
     }
 
-    public void babyborn(Animal animal, Player player) {
+    public void babyborn(Animal animal, Player player, String babyName) {
         int sexDecision = (int) (Math.random() * 1);
         switch (sexDecision) {
             case 0:
                 System.out.println("you got a baby boy!");
                 if (animal instanceof Dog) {
-                    player.animalList.add(new Dog("","male"));
+                    player.animalList.add(new Dog(babyName,"male"));
                 } else if (animal instanceof Cat) {
-                    player.animalList.add(new Cat("","male"));
+                    player.animalList.add(new Cat(babyName,"male"));
                 } else if (animal instanceof Unicorn) {
-                    player.animalList.add(new Unicorn("","male"));
+                    player.animalList.add(new Unicorn(babyName,"male"));
                 } else if (animal instanceof Rabbit) {
-                    player.animalList.add(new Rabbit("","male"));
+                    player.animalList.add(new Rabbit(babyName,"male"));
                 } else if (animal instanceof Bat) {
-                    player.animalList.add(new Bat("","male"));
+                    player.animalList.add(new Bat(babyName,"male"));
                 }
                 break;
 
             case 1: {
                 System.out.println("you got a baby girl!");
                 if (animal instanceof Dog) {
-                    player.animalList.add(new Dog("","female"));
+                    player.animalList.add(new Dog(babyName,"female"));
                 } else if (animal instanceof Cat) {
-                    player.animalList.add(new Cat("","female"));
+                    player.animalList.add(new Cat(babyName,"female"));
                 } else if (animal instanceof Unicorn) {
-                    player.animalList.add(new Unicorn("","female"));
+                    player.animalList.add(new Unicorn(babyName,"female"));
                 } else if (animal instanceof Rabbit) {
-                    player.animalList.add(new Rabbit("","female"));
+                    player.animalList.add(new Rabbit(babyName,"female"));
                 } else if (animal instanceof Bat) {
-                    player.animalList.add(new Bat("","female"));
+                    player.animalList.add(new Bat(babyName,"female"));
                 }
                 break;
             }
