@@ -11,12 +11,11 @@ public class Store {
     public Scanner console;
 
 
-
     public Store() {
         console = new Scanner(System.in);
     }
 
-    public void buyAnimal(Player player) { // completed!
+    public void buyAnimal(Player player) { // double checked!
         ArrayList<Animal> animalChosen = new ArrayList<>();
         boolean playerWannaChoose = true;
 
@@ -44,7 +43,7 @@ public class Store {
         checkMoneyAndAdd(sum, player, animalChosen);
     }
 
-    public void buyFood(Player player) { //completed!
+    public void buyFood(Player player) {
         ArrayList<Food> foodChosen = new ArrayList<>();
         ArrayList<Integer> amountChosen = new ArrayList<>();
         boolean playerWannaMore = true;
@@ -63,6 +62,8 @@ public class Store {
                 case 3://milk
                     chooseMilk(foodChosen, player);
                     break;
+                default:
+                    System.out.println("Invalid input");
             }
             System.out.println("How much you'd like to get?");
             int amount = console.nextInt();
@@ -77,29 +78,27 @@ public class Store {
                     playerWannaMore = false;
                     System.out.println("Now you move to payment");
                     break;
+                default:
+                    System.out.println("Invalid input");
             }
         }
         //payment and update the list
-        //payment
-        payAndUpdateList(player,foodChosen,amountChosen);
+        payAndUpdateList(player, foodChosen, amountChosen);
     }
 
-    public void sellAnimal(Player player) { //NEED TO TEST
-        boolean playerHasAnimal = true;
-        boolean playerWannaSell = true;
-        while(playerHasAnimal) {
-            //check if player has animal to sell
-            if (player.animalList.size() == 0) {
-                System.out.println("You have no Animal to Sell!");
-                playerHasAnimal = false;
-            }
+    public void sellAnimal(Player player) {
+        if (player.animalList.isEmpty()) {
+            System.out.println("No animal in your list!");
+        } else {
+            boolean playerWannaSell = true;
             //show players animal list
             System.out.println("Here is your animal list:\n");
-            for (int i = 0; i < player.animalList.size(); i++) {
-                System.out.println(i + "." + player.animalList.get(i));
-            }
-
             while (playerWannaSell) {
+                for (int i = 0; i < player.animalList.size(); i++) {
+                    System.out.println(i + "." + player.animalList.get(i).name);
+                }
+
+
                 System.out.println("Please choose which Animal you'd like to sell.");
                 int indexChosen = console.nextInt();//player choose index for animal to sel;
                 Animal animalToSell = player.animalList.get(indexChosen);//get animal from the list
@@ -117,56 +116,49 @@ public class Store {
                 player.animalList.remove(animalToSell);
                 player.money = player.money + priceToSell;
 
-                System.out.println("Would you like to sell more?\n1.Yes 2.No");
+                System.out.println("Woudl you like to sell more?\n1.Yes 2.No");
                 int playersChoice = console.nextInt();
                 switch (playersChoice) {
                     case 1://Yes
                         break;
                     case 2://No
                         playerWannaSell = false;
-                        playerHasAnimal = false;
                         System.out.println("See you next time!");
+                        break;
+                    default:
+                        System.out.println("Invalid input!");
+
                 }
             }
         }
     }
-    public void sellAllAnimals(Player player){ //NEED TO TEST
+
+    public void sellAllanimals(Player player) {
         ArrayList<Integer> allAnimalPrices = new ArrayList<>();
-        int animalPrice;
-        for (int i=0; i<player.animalList.size();i++){
+        int animalPrice; //check all animal prices and sell
+        for (int i = 0; i < player.animalList.size(); i++) {
             int currentLv = player.animalList.get(i).healthLevel;
 
             if (currentLv == player.animalList.get(i).getOriginalHL()) {
                 animalPrice = player.animalList.get(i).price;
                 allAnimalPrices.add(animalPrice);
-            }
-            else if (currentLv >= (player.animalList.get(i).getOriginalHL() / 2)) { //Health Lv is more than 50%
-                animalPrice = player.animalList.get(i).price/2;
+            } else if (currentLv >= (player.animalList.get(i).getOriginalHL() / 2)) { //Health Lv is more than 50%
+                animalPrice = player.animalList.get(i).price / 2;
                 allAnimalPrices.add(animalPrice);
-            }
-            else if (currentLv < (player.animalList.get(i).getOriginalHL() / 2)) {//Health Lv is less than 50%
+            } else if (currentLv < (player.animalList.get(i).getOriginalHL() / 2)) {//Health Lv is less than 50%
                 animalPrice = player.animalList.get(i).price / 4;
                 allAnimalPrices.add(animalPrice);
             }
-        }
+        } //get money after selling all animals
         int sum = allAnimalPrices.stream().mapToInt(Integer::intValue).sum();
         player.animalList.clear(); // all animal is gone from the list
-        player.money= player.money + sum;
+        player.money = player.money + sum;
 
     }
 
 
+    //Supporting methods
 
-
-
-
-
-
-
-
-
-
-    //supporting methods
     public void createNewAnimals(int choice, int choice2, ArrayList<Animal> animalChosen, String name) {
         switch (choice) {
             case 1://Dog
@@ -174,6 +166,8 @@ public class Store {
                     animalChosen.add(new Dog(name, "male"));
                 } else if (choice2 == 2) {
                     animalChosen.add(new Dog(name, "female"));
+                } else {
+                    System.out.println("Invalid input");
                 }
                 break;
             case 2://Cat
@@ -181,6 +175,8 @@ public class Store {
                     animalChosen.add(new Cat(name, "male"));
                 } else if (choice2 == 2) {
                     animalChosen.add(new Cat(name, "female"));
+                } else {
+                    System.out.println("Invalid input");
                 }
                 break;
             case 3://Unicorn
@@ -188,13 +184,17 @@ public class Store {
                     animalChosen.add(new Unicorn(name, "male"));
                 } else if (choice2 == 2) {
                     animalChosen.add(new Unicorn(name, "female"));
+                } else {
+                    System.out.println("Invalid input");
                 }
                 break;
             case 4: //Rabbit
                 if (choice2 == 1) { //male
                     animalChosen.add(new Rabbit(name, "male"));
                 } else if (choice2 == 2) {
-                    animalChosen.add(new Rabbit(name, "female"));
+                    animalChosen.add(new Rabbit(name, "male"));
+                } else {
+                    System.out.println("Invalid input");
                 }
                 break;
             case 5: //Bat
@@ -202,36 +202,39 @@ public class Store {
                     animalChosen.add(new Bat(name, "male"));
                 } else if (choice2 == 2) {
                     animalChosen.add(new Bat(name, "female"));
+                } else {
+                    System.out.println("Invalid input");
                 }
                 break;
+            default:
+                System.out.println("Invalid input!");
         }
     }
 
-    public void checkTotalPrice(Player player,ArrayList<Animal> animalChosen,ArrayList<Integer> priceTotal){
+    public void checkTotalPrice(Player player, ArrayList<Animal> animalChosen, ArrayList<Integer> priceTotal) {
         for (int i = 0; i < animalChosen.size(); i++) {
-            int animalPrice =animalChosen.get(i).price;
+            int animalPrice = animalChosen.get(i).price;
             player.money = player.money - animalPrice;
             priceTotal.add(animalPrice);
         }
 
     }
 
-
-    public void checkMoneyAndAdd (int sum,Player player, ArrayList<Animal> animalChosen) {
-        if(sum>player.money){
+    public void checkMoneyAndAdd(int sum, Player player, ArrayList<Animal> animalChosen) {
+        if (sum > player.money) {
             System.out.println("You don't have enough money and no animal is added to the list.");
-        }
-        else if (sum==player.money){
+        } else if (sum == player.money) {
             System.out.println("You have just enough to buy but no money left!");
             player.animalList.addAll(animalChosen);
-        }
-        else {
+            ;
+        } else {
             player.animalList.addAll(animalChosen);
-            System.out.println("You have " +player.money+"kr left after payment and the list updated");
+            System.out.println("You have " + player.money + "kr left after payment and the list updated");
 
 
         }
     }
+
 
     public void chooseVeg(ArrayList<Food> foodChosen, Player player) {
         System.out.println("1.Carrot (3kr) 2. Cabbage(5kr) 3.Potato (3kr)");
@@ -267,7 +270,8 @@ public class Store {
             foodChosen.add(new Milk("Oats milk", 12));
         }
     }
-    public void payAndUpdateList (Player player, ArrayList<Food> foodChosen,ArrayList<Integer> amountChosen){
+
+    public void payAndUpdateList(Player player, ArrayList<Food> foodChosen, ArrayList<Integer> amountChosen) {
         for (int i = 0; i < foodChosen.size(); i++) {
             player.money = player.money - foodChosen.get(i).price; //pay
 
