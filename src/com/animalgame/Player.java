@@ -20,14 +20,14 @@ public class Player {
 
     public void seeAnimalList() {
         System.out.println("Here are animals in your list ");
-        for (int i = 0; i <= this.animalList.size(); i++) {
-            System.out.println(i + ". :\t" + this.animalList.get(i));
+        for (int i = 0; i <= this.animalList.size()-1; i++) {
+            System.out.println(i + ". :\t" + this.animalList.get(i).name);
         }
     }
 
     public void seeFoodList() {
-        for (int i = 0; i <= this.foodStock.size(); i++) {
-            System.out.println(i + ". :\t" + this.foodStock.get(i));
+        for (int i = 0; i <= this.foodStock.size()-1; i++) {
+            System.out.println(i + ". :\t" + this.foodStock.get(i).name);
         }
     }
 
