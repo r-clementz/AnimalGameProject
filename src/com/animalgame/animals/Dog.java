@@ -9,6 +9,7 @@ public class Dog extends Animal {
     public Dog(String name, String sex) {
         super(name, sex);
         super.price=50;
+        super.healthLevel=200;
     }
 
     @Override

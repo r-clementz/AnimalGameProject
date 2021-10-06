@@ -4,10 +4,11 @@ import com.animalgame.*;
 import com.animalgame.food.*;
 
 public class Bat extends Animal {
-    int price;
+
     public Bat(String name, String sex) {
         super(name, sex);
-        price=20;
+        super.price=20;
+        super.healthLevel=80;
     }
 
     @Override

@@ -5,10 +5,11 @@ import com.animalgame.Animal;
 import com.animalgame.Food;
 
 public class Unicorn extends Animal {  //all
-    int price;
+
     public Unicorn(String name, String sex) {
         super(name, sex);
         super.price=150;
+        super.healthLevel=400;
     }
 
     @Override

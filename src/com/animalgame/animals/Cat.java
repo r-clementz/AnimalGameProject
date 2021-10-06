@@ -10,6 +10,7 @@ public class Cat extends Animal { // meat milk
     public Cat(String name, String sex) {
         super(name, sex);
         super.price=40;
+        super.healthLevel=100;
     }
 
     @Override
