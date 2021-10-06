@@ -15,12 +15,14 @@ public class Game {
     public ArrayList<Player> players;
     public int menuChoice;
     public Store store;
+    public Helper helper;
 
 
     public Game(){
         console= new Scanner (System.in);
         players = new ArrayList<>();
         store = new Store();
+        helper = new Helper();
 
 
         //Just basics to get everything working, validation of input still needed
@@ -50,9 +52,10 @@ public class Game {
 
             //This is our INNER game loop of what a player does on their round
             for (int j = 1; j <= numberOfPlayers; j++) {
-                System.out.println(players.get(j-1));
-                System.out.println("What do you want to do?");
-                System.out.println("1. Buy animal(s)\t2. Buy food\t3.Feed animal(s)\t4. Breed animals\t5. Sell animal(s)");
+                helper.clear();
+                System.out.println("This is round " + i + " of " +numberOfRounds + ". What do you want to do " +players.get(j-1).toString() +"?");
+                helper.createMenu("Buy animal(s)", "Buy food", "Feed animal(s)", "Breed animals", "Sell animals");
+                helper.validateInput();
                 menuChoice = console.nextInt();
                 //all player supposed to choose their choices first and each player do what they chose..
 
@@ -82,6 +85,8 @@ public class Game {
                     default -> System.out.println("Whoops what happened now?");
                 }
             }
+
+
         }//animal's health Lv goes down after every round finished.
          //Where can we put updateHealthStatus(Player player) method there.
 
