@@ -7,46 +7,48 @@ import com.animalgame.food.*;
 public class Cat extends Animal { // meat milk
 
 
+
     public Cat(String name, String sex) {
         super(name, sex);
         super.price=40;
         super.healthLevel=100;
+
     }
 
     @Override
     public int getOriginalHL() {
-        this.healthLevel = 100;
-        return healthLevel;
+        int originalHL =100;
+        return originalHL;
     }
 
     @Override
-    public void eat(Food food) { //Cats eat meat/milk
-        if (getOriginalHL() == this.healthLevel) {
-            System.out.println("I'm full now");
-        } else { // Health Lv is not full
-            if (food instanceof Veggies) {
-                System.out.println("I don't want eat that");
-            } else if ((food instanceof Meat) || (food instanceof Milk)) {
-                System.out.println("Yum yum");
-
-            }
+    public void eat(Food food, Player player, int indexChosen,int amountOfFood) { //Cats eat meat/milk
+        if (food instanceof Veggies) {
+            System.out.println("I don't want eat that");
+        } else if ((food instanceof Meat) || (food instanceof Milk)) {
+            System.out.println("Yum yum");
+            gainMoreEnergy(food,player,indexChosen,amountOfFood);
         }
+
     }
 
+
     @Override
-    public void gainMoreEnergy(Food food, int amountOfFood) {
+    public void gainMoreEnergy(Food food, Player player, int indexChosen, int amountOfFood) {
+        int healthLv = player.animalList.get(indexChosen).healthLevel;
         if (food instanceof Meat) {
-            if(food.name.equals("Chicken")){
-                this.healthLevel = this.healthLevel + 20 * amountOfFood;}
-            else{this.healthLevel = this.healthLevel + 10 * amountOfFood;}
+            if (food.name.equals("Chicken")) {
+                player.animalList.get(indexChosen).healthLevel = healthLv + 20 * amountOfFood;
+            } else {
+                player.animalList.get(indexChosen).healthLevel = healthLv + 10 * amountOfFood;
+            }
         } else {
-            this.healthLevel = this.healthLevel + 5 * amountOfFood;
+            player.animalList.get(indexChosen).healthLevel= healthLv + 5 * amountOfFood;
         }
-        seeIfBecameFull();
+        seeIfBecameFull(player, indexChosen);
     }
-
-
 
 
 }
+
 

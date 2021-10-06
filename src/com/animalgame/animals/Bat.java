@@ -13,31 +13,33 @@ public class Bat extends Animal {
 
     @Override
     public int getOriginalHL() {
-        this.healthLevel = 80;
-        return healthLevel;
+        int originalHL =80;
+        return originalHL;
     }
 
     @Override
-    public void eat(Food food) {// Bat eats only milk
-        if (getOriginalHL() == this.healthLevel) {
-            System.out.println("I'm full now");
-        } else { // Health Lv is not full
-            if (food instanceof Milk) {
-                System.out.println("Yum yum");
-            } else {
-                System.out.println("I don't want eat that");
-            }
+    public void eat(Food food, Player player, int indexChosen, int amountOfFood) { //Bats take only milk
+
+        if (food instanceof Milk) {
+            System.out.println("Yum yum");
+            gainMoreEnergy(food,player,indexChosen,amountOfFood);
+        } else {
+            System.out.println("I don't want eat that");
         }
     }
 
-    public void gainMoreEnergy(Food food, int amountOfFood) {
+    @Override
+    public void gainMoreEnergy(Food food,Player player, int indexChosen, int amountOfFood) {
+        int healthLv = player.animalList.get(indexChosen).healthLevel;
         if(food.name.equals("Cow milk")){
-            this.healthLevel = this.healthLevel + 15 * amountOfFood;
+            player.animalList.get(indexChosen).healthLevel =  healthLv + 15 * amountOfFood;
         }
         else{
-            this.healthLevel = this.healthLevel + 10 * amountOfFood;
+            player.animalList.get(indexChosen).healthLevel =  healthLv + 10 * amountOfFood;
         }
-        seeIfBecameFull();
+        seeIfBecameFull(player, indexChosen);
     }
 
+
 }
+
