@@ -12,7 +12,7 @@ public class Player {
 
     public Player(String playerName, int money) {
         this.playerName = playerName;
-        this.money = money;
+        this.money = 10000;
         animalList = new ArrayList<>();
         foodStock = new ArrayList<>();
         console = new Scanner(System.in);
@@ -32,7 +32,7 @@ public class Player {
     }
 
 
-    public void feedAnimal() {//Tested
+    public void feedAnimal() {/
         if(animalList.isEmpty()){
             System.out.println("You don't have any animal to feed!");
         }
@@ -76,7 +76,8 @@ public class Player {
         }
     }
 
-    public void pairAnimals() {
+
+    public void pairAnimals() { //tested and work!
         if((animalList.isEmpty())||(animalList.size()==1)){
             System.out.println("You don't have any animal!");
         }
@@ -103,12 +104,12 @@ public class Player {
             }
             // fill the requirement (same animal, different sex)
             else {
-                int possibility = (int) (Math.random() * 1);
+                int possibility = (int) (Math.random() * 2)+1;
                 switch (possibility) {
-                    case 0:
+                    case 1:
                         System.out.println("pairing was unsuccessful");
                         break;
-                    case 1: // pairing succeeded
+                    case 2: // pairing succeeded
                         System.out.println("Please give a name to baby");
                         String babyName = console.next();
                         pair1.babyborn(pair2,this,babyName);
@@ -117,6 +118,17 @@ public class Player {
             }
         }
     }
+
+    public void checkAnimalHealth() {
+        for (int i = 0; i < animalList.size(); i++) {
+            animalList.get(i).healthLevel = (int) (animalList.get(i).healthLevel * 0.9);
+            if (animalList.get(i).healthLevel == 0) {
+                animalList.get(i).die(this);
+            }
+        }
+    }
+
+
 
     @Override
     public String toString() {
