@@ -22,24 +22,12 @@ public abstract class Animal {
 
 
     public abstract int  getOriginalHL();
-    public abstract void eat(Food food);
-    public abstract void gainMoreEnergy(Food food, int amountOfFood);
-
-    public void seeIfBecameFull(){// if
-        int currentHealth= this.healthLevel;
-        if(currentHealth>this.getOriginalHL()){
-            this.healthLevel=this.getOriginalHL();
-        }
-    }
-
-
-
-    public void updateHealthStatus(Player player) {
-        for (int i = 0; i < player.animalList.size(); i++) {
-            player.animalList.get(i).healthLevel = (int) (player.animalList.get(i).healthLevel * 0.9);
-            if (player.animalList.get(i).healthLevel == 0) {
-                player.animalList.get(i).die(player);
-            }
+    public abstract void eat(Food food, Player player, int indexChosen,int amountOfFood);
+    public abstract void gainMoreEnergy(Food food,Player player, int indexChosen, int amountOfFood);
+    public void seeIfBecameFull(Player player,int indexChosen){// if
+        int currentHealth= player.animalList.get(indexChosen).healthLevel;
+        if(currentHealth>=this.getOriginalHL()){
+            currentHealth=this.getOriginalHL();
         }
     }
 
@@ -48,10 +36,10 @@ public abstract class Animal {
         player.animalList.remove(this);
     }
 
-    public void babyborn(Animal animal, Player player, String babyName) {
-        int sexDecision = (int) (Math.random() * 1);
+    public void babyborn(Animal animal, Player player, String babyName) {//TESTED!
+        int sexDecision = (int) (Math.random() * 2)+1;
         switch (sexDecision) {
-            case 0:
+            case 1:
                 System.out.println("you got a baby boy!");
                 if (animal instanceof Dog) {
                     player.animalList.add(new Dog(babyName,"male"));
@@ -66,7 +54,7 @@ public abstract class Animal {
                 }
                 break;
 
-            case 1: {
+            case 2: {
                 System.out.println("you got a baby girl!");
                 if (animal instanceof Dog) {
                     player.animalList.add(new Dog(babyName,"female"));
