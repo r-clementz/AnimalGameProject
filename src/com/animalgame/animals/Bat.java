@@ -1,6 +1,8 @@
 package com.animalgame.animals;
 
 import com.animalgame.*;
+import com.animalgame.abstractclass.Animal;
+import com.animalgame.abstractclass.Food;
 import com.animalgame.food.*;
 
 public class Bat extends Animal {
