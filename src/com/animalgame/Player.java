@@ -31,10 +31,12 @@ public class Player {
         }
     }
 
-    public void feedAnimal() {
-        if (animalList.isEmpty()) { //avoid crash when player choose this in R1
+
+    public void feedAnimal() {//Tested
+        if(animalList.isEmpty()){
             System.out.println("You don't have any animal to feed!");
-        } else {
+        }
+        else{
             //show animal(s) player's list
             seeAnimalList();
             //player pick up animal
@@ -49,21 +51,28 @@ public class Player {
             int indexPicked2 = console.nextInt();
             Food foodPicked = this.foodStock.get(indexPicked2);
             //Show amount of food exists
-            System.out.println("You have " + foodPicked.amount + "kg of " + foodPicked.name);
+            System.out.println("You have "+ foodPicked.amount + "kg of "+foodPicked.name);
             System.out.println("Please choose the amount you'd like to give.");
             //player chooses the amount
             int amountPicked = console.nextInt();
             //update stock
-            if (amountPicked == foodPicked.amount) {
+            if (amountPicked == foodPicked.amount){
                 this.foodStock.remove(foodPicked);
-            } else {//if player didn't feed everything, food remains in the list
-                foodPicked.amount = foodPicked.amount - amountPicked;
             }
+            else{//if player didn't feed everything, food remains in the list
+                foodPicked.amount= foodPicked.amount -amountPicked;
+            }
+            System.out.println("Health at the moment: " + animalPicked.healthLevel);
             //animal eats food and gain energy if it can eat food chosen
-            animalPicked.eat(foodPicked); //filter if the animal can eat food
-            animalPicked.gainMoreEnergy(foodPicked, amountPicked);
-            //show updated energy
-            System.out.println("Now " + animalPicked + "'s health is " + animalPicked.healthLevel);
+            if(animalPicked.healthLevel<animalPicked.getOriginalHL()) { //filter if the animal can eat food
+                animalPicked.eat(foodPicked, this, indexPicked1, amountPicked);
+                // show updated energy
+                System.out.println("Now " +animalList.get(indexPicked1).name + "'s health is " + animalList.get(indexPicked1).healthLevel);
+            }
+            else if (animalPicked.healthLevel== animalPicked.getOriginalHL()) {
+                System.out.println(animalPicked.name+ " is full now and can't eat! ");
+            }
+
         }
     }
 
