@@ -68,9 +68,10 @@ public class Player {
     }
 
     public void pairAnimals() {
-        if ((animalList.isEmpty()) || (animalList.size() == 1)) {
-            System.out.println("Sorry! You don't have enough animals to try this!");
-        } else {
+        if((animalList.isEmpty())||(animalList.size()==1)){
+            System.out.println("You don't have any animal!");
+        }
+        else{
             //see animals in the list
             seeAnimalList();
             // choose first one
@@ -99,12 +100,12 @@ public class Player {
                         System.out.println("pairing was unsuccessful");
                         break;
                     case 1: // pairing succeeded
-                        pair1.babyborn(pair1, this);
+                        System.out.println("Please give a name to baby");
+                        String babyName = console.next();
+                        pair1.babyborn(pair2,this,babyName);
                         break;
                 }
             }
         }
-
-
     }
 }
