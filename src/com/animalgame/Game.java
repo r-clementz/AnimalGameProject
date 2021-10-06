@@ -14,11 +14,13 @@ public class Game {
     private int numberOfRounds;
     public ArrayList<Player> players;
     public int menuChoice;
+    public Store store;
 
 
     public Game(){
         console= new Scanner (System.in);
         players = new ArrayList<>();
+        store = new Store();
 
 
         //Just basics to get everything working, validation of input still needed
@@ -58,11 +60,25 @@ public class Game {
                 switch (menuChoice) {
                     case 1 -> {
                         System.out.println("Yay, let's buy some animals!");
+                        store.buyAnimal(players.get(j-1));
                     }
-                    case 2 -> System.out.println("Off to the store to buy some food!");
-                    case 3 -> System.out.println("Lovely, let's feed the animals!");
-                    case 4 -> System.out.println("Fingers crossed the stork will deliver babies!");
-                    case 5 -> System.out.println("Get ready to make some money!");
+                    case 2 -> {
+                        System.out.println("Off to the store to buy some food!");
+                        store.buyFood(players.get(j-1));
+
+                    }
+                    case 3 -> {
+                        System.out.println("Lovely, let's feed the animals!");
+                        players.get(j-1).feedAnimal();
+                    }
+                    case 4 -> {
+                        System.out.println("Fingers crossed the stork will deliver babies!");
+                        players.get(j-1).pairAnimals();
+                    }
+                    case 5 -> {
+                        System.out.println("Get ready to make some money!");
+                        store.sellAnimal(players.get(j-1));
+                    }
                     default -> System.out.println("Whoops what happened now?");
                 }
             }
