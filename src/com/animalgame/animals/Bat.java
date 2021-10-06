@@ -30,9 +30,13 @@ public class Bat extends Animal {
     }
 
     public void gainMoreEnergy(Food food, int amountOfFood) {
-        this.healthLevel = this.healthLevel + 15 * amountOfFood;
+        if(food.name.equals("Cow milk")){
+            this.healthLevel = this.healthLevel + 15 * amountOfFood;
+        }
+        else{
+            this.healthLevel = this.healthLevel + 10 * amountOfFood;
+        }
         seeIfBecameFull();
     }
-
 
 }

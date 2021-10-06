@@ -34,13 +34,15 @@ public class Dog extends Animal {
 
     @Override
     public void gainMoreEnergy(Food food, int amountOfFood) {
-        if (food instanceof Meat) { //Meat
-                this.healthLevel = this.healthLevel + 10 * amountOfFood;
-            } else {//Veggie
-                this.healthLevel = this.healthLevel + 5 * amountOfFood;
-            }
-        seeIfBecameFull();
+        if (food instanceof Meat) {
+            if(food.name.equals("Beef")){
+                this.healthLevel = this.healthLevel + 15 * amountOfFood;}
+            else{this.healthLevel = this.healthLevel + 10 * amountOfFood;}
+        } else {
+            this.healthLevel = this.healthLevel + 5 * amountOfFood;
         }
+        seeIfBecameFull();
+    }
 
 
 }

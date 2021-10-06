@@ -34,14 +34,17 @@ public class Cat extends Animal { // meat milk
 
     @Override
     public void gainMoreEnergy(Food food, int amountOfFood) {
-        if (food instanceof Meat) { //Meat is favourite
-            this.healthLevel = this.healthLevel + 10 * amountOfFood;
-        }
-        else { //veggies
+        if (food instanceof Meat) {
+            if(food.name.equals("Chicken")){
+                this.healthLevel = this.healthLevel + 20 * amountOfFood;}
+            else{this.healthLevel = this.healthLevel + 10 * amountOfFood;}
+        } else {
             this.healthLevel = this.healthLevel + 5 * amountOfFood;
         }
         seeIfBecameFull();
     }
+
+
 
 
 }
