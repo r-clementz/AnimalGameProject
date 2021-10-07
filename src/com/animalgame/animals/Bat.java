@@ -20,16 +20,12 @@ public class Bat extends Animal {
     }
     @Override
     public String getSpecies(){
-<<<<<<< Updated upstream
+
         String species ="Bat";
         return species;
     }
 
-=======
-        String species = "Bat";
-        return 
-    }
->>>>>>> Stashed changes
+
     @Override
     public void eat(Food food, Player player, int indexChosen, int amountOfFood) { //Bats take only milk
 

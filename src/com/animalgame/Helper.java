@@ -41,12 +41,22 @@ public class Helper {
     public int numberOfRounds() {
         validateInput();
         int numberOfRounds = console.nextInt();
+        while (numberOfRounds > 30 || numberOfRounds < 5) {
+            System.out.println("Sorry, not valid. Choose a number between 5 and 30.");
+            validateInput();
+            numberOfRounds = console.nextInt();
+        }
         return numberOfRounds;
     }
 
     public int numberOfPlayers() {
         validateInput();
         int numberOfPlayers = console.nextInt();
+        while (numberOfPlayers > 4 || numberOfPlayers < 2) {
+            System.out.println("Sorry, not valid. Choose 2, 3 or 4.");
+            validateInput();
+            numberOfPlayers = console.nextInt();
+        }
         return numberOfPlayers;
     }
 
