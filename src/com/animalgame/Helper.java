@@ -32,6 +32,24 @@ public class Helper {
         }
     }
 
+    public int menuChoice() {
+        validateInput();
+        int menuChoice = console.nextInt();
+        return menuChoice;
+    }
+
+    public int numberOfRounds() {
+        validateInput();
+        int numberOfRounds = console.nextInt();
+        return numberOfRounds;
+    }
+
+    public int numberOfPlayers() {
+        validateInput();
+        int numberOfPlayers = console.nextInt();
+        return numberOfPlayers;
+    }
+
     public void getWinner(ArrayList<Player> players, int numberOfPlayers){
         String winner;
         String gameTied = "Game is tied. Good job for everyone!";
