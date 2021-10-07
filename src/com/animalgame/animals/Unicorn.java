@@ -18,6 +18,11 @@ public class Unicorn extends Animal {  //all
         int originalHL =400;
         return originalHL;
     }
+    @Override
+    public String getSpecies(){
+        String species ="Unicorn";
+        return species;
+    }
 
     @Override
     public void eat(Food food, Player player, int indexChosen, int amountOfFood) { //Unicorns eat all

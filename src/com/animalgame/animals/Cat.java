@@ -22,6 +22,11 @@ public class Cat extends Animal { // meat milk
         int originalHL =100;
         return originalHL;
     }
+    @Override
+    public String getSpecies(){
+        String species ="Cat";
+        return species;
+    }
 
     @Override
     public void eat(Food food, Player player, int indexChosen, int amountOfFood) { //Cats eat meat/milk

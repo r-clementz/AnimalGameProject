@@ -18,6 +18,11 @@ public class Bat extends Animal {
         int originalHL =80;
         return originalHL;
     }
+    @Override
+    public String getSpecies(){
+        String species ="Bat";
+        return species;
+    }
 
     @Override
     public void eat(Food food, Player player, int indexChosen, int amountOfFood) { //Bats take only milk

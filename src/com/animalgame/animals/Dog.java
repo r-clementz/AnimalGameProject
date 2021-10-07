@@ -22,6 +22,11 @@ public class Dog extends Animal {
         return originalHL;
 
     }
+    @Override
+    public String getSpecies(){
+        String species ="Dog";
+        return species;
+    }
 
     @Override
     public void eat(Food food, Player player, int indexChosen, int amountOfFood) { // Dog can eat veg/meat

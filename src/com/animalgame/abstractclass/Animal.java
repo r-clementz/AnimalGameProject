@@ -17,7 +17,7 @@ public abstract class Animal {
         this.price=price;
     }
 
-
+    public abstract String getSpecies();
     public abstract int  getOriginalHL();
     public abstract void eat(Food food, Player player, int indexChosen, int amountOfFood);
     public abstract void gainMoreEnergy(Food food,Player player, int indexChosen, int amountOfFood);

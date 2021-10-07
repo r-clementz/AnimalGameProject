@@ -19,6 +19,11 @@ public class Rabbit extends Animal {
         int originalHL =60;
         return originalHL;
     }
+    @Override
+    public String getSpecies(){
+        String species ="Rabbit";
+        return species;
+    }
 
     @Override
     public void eat(Food food, Player player, int indexChosen, int amountOfFood) { //Rabbit eats only veggie
