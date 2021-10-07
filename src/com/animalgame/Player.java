@@ -25,7 +25,7 @@ public class Player {
     public void seeAnimalList() {
         System.out.println("Here are animals in your list ");
         for (int i = 0; i <= this.animalList.size()-1; i++) {
-            System.out.println(i + ". :\t" + this.animalList.get(i).name);
+            System.out.println(i + ". :\t" +this.animalList.get(i).getClass()+ ", "+this.animalList.get(i).name);
         }
     }
 
@@ -139,13 +139,15 @@ public class Player {
 
     public void checkAnimalHealth() {
         for (int i = 0; i < animalList.size(); i++) {
-            animalList.get(i).healthLevel = (int) (animalList.get(i).healthLevel * 0.9);
+            animalList.get(i).healthLevel = (int) (animalList.get(i).healthLevel * 0.9);// update healthLv
             if (animalList.get(i).healthLevel == 0) {
                 animalList.get(i).die(this);
             }
         }
     }
-    public String getPlayesName(){
+
+
+    public String getPlayerName(){
         return playerName;
     }
     @Override

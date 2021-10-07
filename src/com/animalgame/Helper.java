@@ -39,26 +39,26 @@ public class Helper {
         switch (numberOfPlayers) {
             case 4://4players
                 if ((players.get(3).money == players.get(2).money) && (players.get(2).money > players.get(1).money)) { //P4 P3
-                    winner = players.get(4).getPlayesName() + players.get(3).getPlayesName();
+                    winner = players.get(4).getPlayerName() + players.get(3).getPlayerName();
                     System.out.println("Winner(s): " + winner + ", congratulations:)");
                 } else if ((players.get(3).money == players.get(1).money) && (players.get(1).money > players.get(0).money)) { //P4-2
-                    winner = players.get(3).getPlayesName() + players.get(2).getPlayesName() + players.get(1).getPlayesName();
+                    winner = players.get(3).getPlayerName() + players.get(2).getPlayerName() + players.get(1).getPlayerName();
                     System.out.println("Winner(s): " + winner + ", congratulations:)");
                 } else if (players.get(4).money == players.get(0).money) {//alla
                     System.out.println(gameTied);
                 } else {
-                    winner = players.get(4).getPlayesName();
+                    winner = players.get(4).getPlayerName();
                     System.out.println("Winner(s): " + winner + ", congratulations:)");
                 }
                 break;
             case 3://3 Players , index 210
                 if ((players.get(2).money == players.get(1).money) && (players.get(1).money > players.get(0).money)) { //P3 P2
-                    winner = players.get(2).getPlayesName() + players.get(1).getPlayesName();
+                    winner = players.get(2).getPlayerName() + players.get(1).getPlayerName();
                     System.out.println("Winner(s): " + winner + ", congratulations:)");
                 } else if (players.get(2).money == players.get(0).money)  { //P3 P2 P1, alla
                     System.out.println(gameTied);
                 } else { // P3
-                    winner = players.get(2).getPlayesName();
+                    winner = players.get(2).getPlayerName();
                     System.out.println("Winner(s): " + winner + ", congratulations:)");
                 }
                 break;
@@ -66,7 +66,7 @@ public class Helper {
                 if ((players.get(0).money == players.get(1).money)) {
                     System.out.println("Game is tied, good job for both!");
                 } else {
-                    winner = players.get(1).getPlayesName();
+                    winner = players.get(1).getPlayerName();
                     System.out.println("Winner(s): " + winner + ", congratulations:)");
                 }
         }
@@ -78,12 +78,24 @@ public class Helper {
         }
     }
     }
+//    public void informAnimalsDeath (int numberOfPlayers ,ArrayList<Animal> animalList,ArrayList<Player> players){
+//        for (int p = 0; p < numberOfPlayers - 1; p++) {
+//                for(int j=0; j < animalList.size(); j++){
+//                 int animalHL = players.get(p).animalList.get(j).healthLevel;
+//                 if (animalHL==0){
+//                     System.out.println(players.get(p).getPlayesName()+", ");
+//                     players.get(p).animalList.get(j).die( players.get(p));
+//                 }
+//                }
+//
+//            }}
+//
     public void checkPlayersMoney(int numberOfPlayers, ArrayList<Player>players) {
         for (int q = 0; q < numberOfPlayers - 1; q++) {
             if(players.get(q).animalList.isEmpty()) {
                 int playerMoney = players.get(q).money;
                 if (playerMoney == 0) {
-                    System.out.println(players.get(q).getPlayesName() + " has no more money and out from the game!");
+                    System.out.println(players.get(q).getPlayerName() + " has no more money and out from the game!");
                     players.remove(q);
                     numberOfPlayers = players.size();
                 }

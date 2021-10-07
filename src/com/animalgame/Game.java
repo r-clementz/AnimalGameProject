@@ -1,5 +1,7 @@
 package com.animalgame;
 
+import com.animalgame.abstractclass.Animal;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Collections;
@@ -48,6 +50,8 @@ public class Game {
             //Here check if a player has lost and if a player has lost remove from player list.
             //Number of players uppdateras
             System.out.println("Round number: " + i); //bara testutskrift
+
+            helper.informAnimalsDeath(numberOfPlayers,Player.animallist,players);
 
 
             //This is our INNER game loop of what a player does on their round
