@@ -32,21 +32,8 @@ public class Game {
 
         System.out.println("Welcome to Capitalism: The Animal Edition!");
 
-        //boolean setupInProgress = true;
-        //while (setupInProgress) {
-
-            System.out.println("Please choose how many players 2-4: ");
-            numberOfPlayers = helper.numberOfPlayers();
-
-            //Vid flera felskrivningar kommer vi ännu vidare till number of rounds
-            //if (numberOfPlayers > 4 || numberOfPlayers < 2) {
-              //  System.out.println("Invalid choice, please choose 2, 3 or 4.");
-            //}
-
-            //else {
-                //Here we generate the players, they may name themselves
-                // We save them in an arraylist
-                //In the game we then need to access them from this, player 1 is index 0 etc.
+        System.out.println("Please choose how many players 2-4: ");
+        numberOfPlayers = helper.numberOfPlayers();
 
             for (int i =1; i <= numberOfPlayers; i++) {
             System.out.println("Player " +i +" please enter your name: ");
@@ -54,6 +41,7 @@ public class Game {
             Player in = new Player(name, 10_000);
             players.add(in);
             }
+<<<<<<< Updated upstream
 //<<<<<<< Updated upstream
 //        //}//
 //        //setupInProgress = false;
@@ -64,6 +52,8 @@ public class Game {
 
         }
 //>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
         //boolean choiceInProgress = true;
         //while (choiceInProgress) {
