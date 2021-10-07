@@ -21,26 +21,48 @@ public class Game {
         store = new Store();
         helper = new Helper();
 
-
-        //Just basics to get everything working, validation of input still needed
         System.out.println("Welcome to Capitalism: The Animal Edition!");
-        System.out.println("Please choose how many players 2-4: ");
-        numberOfPlayers = console.nextInt();
 
-        //Here we generate the players, they may name themselves
-        //We save them in an arraylist
-        //In the game we then need to access them from this, player 1 is index 0 etc.
+        boolean setupInProgress = true;
+        while (setupInProgress) {
 
-        for (int i =1; i <= numberOfPlayers; i++) {
+            System.out.println("Please choose how many players 2-4: ");
+            helper.validateInput();
+            numberOfPlayers = console.nextInt();
+
+            if (numberOfPlayers > 4 || numberOfPlayers < 2) {
+                System.out.println("Invalid choice, please choose 2, 3 or 4.");
+            }
+
+            else {
+                //Here we generate the players, they may name themselves
+                // We save them in an arraylist
+                //In the game we then need to access them from this, player 1 is index 0 etc.
+
+            for (int i =1; i <= numberOfPlayers; i++) {
             System.out.println("Player " +i +" please enter your name: ");
             String name = console.next();
             Player in = new Player(name, 10_000);
             players.add(in);
+            }
+        }
+        setupInProgress = false;
         }
 
-        System.out.println("Please choose how many (5-30) rounds you want to play: ");
-        numberOfRounds = console.nextInt();
+        boolean choiceInProgress = true;
+        while (choiceInProgress) {
+            System.out.println("Please choose how many (5-30) rounds you want to play: ");
+            helper.validateInput();
+            numberOfRounds = console.nextInt();
 
+            if (numberOfRounds > 30 || numberOfRounds < 5) {
+                System.out.println("Nope, you need to choose number between 5 and 30.");
+            }
+            else {
+                System.out.println("Thanks! We'll play for " + numberOfRounds + ", good luck!");
+                choiceInProgress = false;
+            }
+        }
         //Basic OUTER gameplay loop for chosen number of rounds
         for (int i = 1; i <= numberOfRounds; i++ ) {
             //Then we play the game for the chosen number of rounds
