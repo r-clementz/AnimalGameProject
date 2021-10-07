@@ -4,6 +4,7 @@ import com.animalgame.abstractclass.Animal;
 import com.animalgame.abstractclass.Food;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Player {
@@ -130,11 +131,21 @@ public class Player {
             }
         }
     }
-
-
-
+    public String getPlayesName(){
+        return playerName;
+    }
     @Override
     public String toString() {
         return playerName;
     }
+}
+
+class GetResult implements Comparator<Player> {
+
+    @Override
+    public int compare(Player o1, Player o2) {
+        return o1.money - o2.money;
+    }
+    //Collections.sort(players, new compare());
+
 }

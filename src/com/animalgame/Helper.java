@@ -32,7 +32,7 @@ public class Helper {
         }
     }
 
-    public void getWinner(ArrayList<Player> players, int numberOfPlayers,Player player){
+    public void getWinner(ArrayList<Player> players, int numberOfPlayers){
         String winner;
         String gameTied = "Game is tied. Good job for everyone!";
         Collections.sort(players,new GetResult()); // players list sorted by money low to high

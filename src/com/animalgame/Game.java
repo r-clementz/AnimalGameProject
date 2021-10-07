@@ -95,6 +95,8 @@ public class Game {
                 players.get(p).checkAnimalHealth();//check all animals HealthLv
             }
         }
+        // compare players' money and get winner
+        helper.getWinner(players,numberOfPlayers);
 
 
         //After this game play loop the score (money) needs to be summed up and the winner/scoreboard display
@@ -110,7 +112,6 @@ public class Game {
 
 
 
-//        animal.updateHealthStatus(player);
 
     }
 
