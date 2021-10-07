@@ -146,6 +146,20 @@ public class Player {
         }
     }
 
+    public void lostAnimal(int numberOfPlayers, ArrayList<Player> players) {
+        for (int p = 0; p < numberOfPlayers - 1; p++) {
+            for (int j = 0; j < animalList.size(); j++) {
+                int animalHL = players.get(p).animalList.get(j).healthLevel;
+                if (animalHL == 0) {
+                    System.out.println(players.get(p).getPlayerName() + ", ");
+                    players.get(p).animalList.get(j).die(players.get(p));
+                }
+            }
+
+        }
+    }
+
+
 
     public String getPlayerName(){
         return playerName;

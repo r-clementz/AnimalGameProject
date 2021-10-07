@@ -1,5 +1,6 @@
-package com.animalgame;
+package com.animalgame.Store;
 
+import com.animalgame.Player;
 import com.animalgame.abstractclass.*;
 import com.animalgame.animals.*;
 import com.animalgame.food.*;
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StoreHelper {
-    Scanner console= new Scanner(System.in);
+    Scanner console = new Scanner(System.in);
 
     public void createNewAnimals(int choice, int choice2, ArrayList<Animal> animalChosen, String name) {
         switch (choice) {

@@ -1,13 +1,12 @@
-package com.animalgame;
+package com.animalgame.Store;
 
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.animalgame.Player;
 import com.animalgame.abstractclass.Animal;
 import com.animalgame.abstractclass.Food;
-import com.animalgame.food.*;
-import com.animalgame.animals.*;
 
 
 public class Store {

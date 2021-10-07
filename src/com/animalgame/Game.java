@@ -1,11 +1,13 @@
 package com.animalgame;
 
+<<<<<<< Updated upstream
 import com.animalgame.abstractclass.Animal;
+=======
+import com.animalgame.Store.Store;
+>>>>>>> Stashed changes
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Collections;
-
 
 public class Game {
 
@@ -51,11 +53,11 @@ public class Game {
             //Number of players uppdateras
             System.out.println("Round number: " + i); //bara testutskrift
 
-            helper.informAnimalsDeath(numberOfPlayers,Player.animallist,players);
 
 
             //This is our INNER game loop of what a player does on their round
             for (int j = 1; j <= numberOfPlayers; j++) {
+                players.get(j-1).lostAnimal(numberOfPlayers,players);// inform if players animal dead
                 helper.clear();
                 System.out.println("This is round " + i + " of " +numberOfRounds + ". What do you want to do " +players.get(j-1).toString() +"?");
                 players.get(j-1).printAnimalList();
