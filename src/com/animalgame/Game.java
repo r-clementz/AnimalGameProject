@@ -57,6 +57,7 @@ public class Game {
                 players.get(j-1).printAnimalList();
                 System.out.println(" ");
                 players.get(j-1).printFoodList();
+                System.out.println(" ");
                 helper.createMenu("Buy animal(s)", "Buy food", "Feed animal(s)", "Breed animals", "Sell animals");
                 helper.validateInput();
                 menuChoice = console.nextInt();
