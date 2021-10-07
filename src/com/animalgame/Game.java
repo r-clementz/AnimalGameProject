@@ -54,16 +54,16 @@ public class Game {
             Player in = new Player(name, 10_000);
             players.add(in);
             }
-<<<<<<< Updated upstream
-        //}//
-        //setupInProgress = false;
-        //}
-=======
-                setupInProgress = false;
+//<<<<<<< Updated upstream
+//        //}//
+//        //setupInProgress = false;
+//        //}
+//=======
+//                setupInProgress = false;
         }
 
         }
->>>>>>> Stashed changes
+//>>>>>>> Stashed changes
 
         //boolean choiceInProgress = true;
         //while (choiceInProgress) {
