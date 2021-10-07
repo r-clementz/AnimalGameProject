@@ -163,8 +163,8 @@ public class Helper {
     public int indexChosen() {
         validateInput();
         int indexChosen = console.nextInt();
-        while (indexChosen > player.animalList.size()){
-            System.out.println("Sorry, not valid. Choose 1 or 2.");
+        while (!(indexChosen > player.animalList.size())){
+            System.out.println("Sorry, not valid.");
             validateInput();
             indexChosen = console.nextInt();
 
