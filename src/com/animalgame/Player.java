@@ -52,11 +52,13 @@ public class Player {
      *  in own animal list
      * */
     public void printAnimalList() {//if nothing in list no print
-        if (!(this.animalList.isEmpty())) {
-        System.out.println("Here are your animals: ");
-        for (int i = 0; i <= this.animalList.size()-1; i++) {
-            System.out.print(this.animalList.get(i).name  + " (health " + this.animalList.get(i).healthLevel + ").");
-        }
+        if (this.animalList.isEmpty()) {
+            System.out.println("You have no animal at the moment.");
+        } else {
+            System.out.println("Here are your animals: ");
+            for (int i = 0; i <= this.animalList.size() - 1; i++) {
+                System.out.print(this.animalList.get(i).name + " (health " + (this.animalList.get(i).healthLevel / 0.9) + "->" + this.animalList.get(i).healthLevel + ".");
+            }
         }
     }
 
@@ -64,11 +66,13 @@ public class Player {
      *  in own food list.
      * */
     public void printFoodList() {
-        if (!(this.foodStock.isEmpty())) {
-        System.out.println("This is your pantry: ");
-        for (int i = 0; i <= this.foodStock.size()-1; i++) {
-            System.out.print(this.foodStock.get(i).name + " amount: " +this.foodStock.get(i).amount+" ");
-        }
+        if (this.foodStock.isEmpty()) {
+            System.out.println("You have no food at the moment.");
+        } else {
+            System.out.println("This is your pantry: ");
+            for (int i = 0; i <= this.foodStock.size() - 1; i++) {
+                System.out.print(this.foodStock.get(i).name + " amount: " + this.foodStock.get(i).amount + " ");
+            }
         }
     }
 
