@@ -2,6 +2,7 @@ package com.animalgame;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Collections;
 
 
 public class Game {
@@ -85,15 +86,15 @@ public class Game {
                     default -> System.out.println("Whoops what happened now?");
                 }
             }
+            //animal's health Lv goes down after every round finished.
+            helper.updatedAllAnimalHealth(numberOfPlayers, players);
+            helper.checkPlayersMoney(numberOfPlayers,players);
 
 
         }
-        //animal's health Lv goes down after every round finished.
-        for (int p = 0; p < numberOfPlayers - 1; p++) {
-            if (!(players.get(p).animalList.isEmpty())) {
-                players.get(p).checkAnimalHealth();//check all animals HealthLv
-            }
-        }
+
+        // compare players' money and get winner
+        helper.getWinner(players,numberOfPlayers);
 
 
         //After this game play loop the score (money) needs to be summed up and the winner/scoreboard display
@@ -109,7 +110,6 @@ public class Game {
 
 
 
-//        animal.updateHealthStatus(player);
 
     }
 
