@@ -1,7 +1,15 @@
 package com.animalgame;
 
+//<<<<<<< Updated upstream
 import com.animalgame.abstractclass.Animal;
 import com.animalgame.Store.Store;
+//=======
+//<<<<<<< Updated upstream
+import com.animalgame.abstractclass.Animal;
+//=======
+import com.animalgame.Store.Store;
+//>>>>>>> Stashed changes
+//>>>>>>> Stashed changes
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -46,9 +54,16 @@ public class Game {
             Player in = new Player(name, 10_000);
             players.add(in);
             }
+<<<<<<< Updated upstream
         //}//
         //setupInProgress = false;
         //}
+=======
+                setupInProgress = false;
+        }
+
+        }
+>>>>>>> Stashed changes
 
         //boolean choiceInProgress = true;
         //while (choiceInProgress) {
@@ -71,6 +86,14 @@ public class Game {
             //Number of players uppdateras
             System.out.println("Round number: " + i); //bara testutskrift
 
+//<<<<<<< Updated upstream
+//=======
+////<<<<<<< Updated upstream
+
+
+//=======
+////>>>>>>> Stashed changes
+//>>>>>>> Stashed changes
             //This is our INNER game loop of what a player does on their round
             for (int j = 1; j <= numberOfPlayers; j++) {
                 players.get(j-1).lostAnimal(numberOfPlayers,players);// inform if players animal dead
