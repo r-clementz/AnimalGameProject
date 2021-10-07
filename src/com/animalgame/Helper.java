@@ -71,6 +71,13 @@ public class Helper {
                 }
         }
     }
+    public void updatedAllAnimalHealth(int numberOfPlayers, ArrayList<Player> players){
+     for (int p = 0; p < numberOfPlayers - 1; p++) {
+        if (!(players.get(p).animalList.isEmpty())) {
+            players.get(p).checkAnimalHealth();//check all animals HealthLv
+        }
+    }
+    }
     public void checkPlayersMoney(int numberOfPlayers, ArrayList<Player>players) {
         for (int q = 0; q < numberOfPlayers - 1; q++) {
             int playerMoney = players.get(q).money;

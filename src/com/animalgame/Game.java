@@ -86,15 +86,13 @@ public class Game {
                     default -> System.out.println("Whoops what happened now?");
                 }
             }
+            //animal's health Lv goes down after every round finished.
+            helper.updatedAllAnimalHealth(numberOfPlayers, players);
+            helper.checkPlayersMoney(numberOfPlayers,players);
 
 
         }
-        //animal's health Lv goes down after every round finished.
-        for (int p = 0; p < numberOfPlayers - 1; p++) {
-            if (!(players.get(p).animalList.isEmpty())) {
-                players.get(p).checkAnimalHealth();//check all animals HealthLv
-            }
-        }
+
         // compare players' money and get winner
         helper.getWinner(players,numberOfPlayers);
 
