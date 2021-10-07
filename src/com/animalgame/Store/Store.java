@@ -7,16 +7,19 @@ import java.util.Scanner;
 import com.animalgame.Player;
 import com.animalgame.abstractclass.Animal;
 import com.animalgame.abstractclass.Food;
+import com.animalgame.Helper;
 
 
 public class Store {
     public Scanner console;
     public StoreHelper storehelper;
+    public Helper helper;
 
 
     public Store() {
         console = new Scanner(System.in);
         storehelper = new StoreHelper();
+        helper = new Helper();
     }
 
     public void buyAnimal(Player player) { // double checked!
@@ -26,15 +29,18 @@ public class Store {
         System.out.println("Please Choose the number for animal you'd like to buy");
         while (playerWannaChoose) {
             System.out.println("1.Dog (50kr) 2.Cat(40kr) 3.Unicorn(150kr) 4.Rabbit(30kr)  5.Bat(20kr)");
-            int choice = console.nextInt(); // animal choice
+            //int choice = console.nextInt(); // animal choice
+            int choice = helper.choice();
             System.out.println("Please choose its sex: 1.male 2.female");
-            int choice2 = console.nextInt();// sex choice
+            //int choice2 = console.nextInt();// sex choice
+            int choice2 = helper.choice2();
             System.out.println("Give it a name:");
             String name = console.next();// animal's name
             storehelper.createNewAnimals(choice, choice2, animalChosen, name);
             // player can keep going
             System.out.println("Would you like to choose more?\n1.Yes 2.No");
-            int choice3 = console.nextInt();
+            //int choice3 = console.nextInt();
+            int choice3 = helper.choice3();
             if (choice3 == 2) {
                 playerWannaChoose = false;
                 System.out.println("Now you'd move to payment:\n");
@@ -55,7 +61,8 @@ public class Store {
         while (playerWannaMore) {
             System.out.println("Please choose the number for food you'd like to buy.");
             System.out.println("1. Veggies 2. Meat 3. Milk");
-            int choice1 = console.nextInt();
+            //int choice1 = console.nextInt();
+            int choice1 = helper.choice1();
             switch (choice1) {
                 case 1: //veggie
                     storehelper.chooseVeg(foodChosen, player);

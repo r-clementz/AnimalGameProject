@@ -50,6 +50,29 @@ public class Helper {
         return numberOfPlayers;
     }
 
+    public int choice() {
+        validateInput();
+        int choice = console.nextInt();
+        return choice;
+    }
+    public int choice1() {
+        validateInput();
+        int choice1 = console.nextInt();
+        return choice1;
+    }
+
+    public int choice2() {
+        validateInput();
+        int choice2 = console.nextInt();
+        return choice2;
+    }
+
+    public int choice3() {
+        validateInput();
+        int choice3 = console.nextInt();
+        return choice3;
+    }
+
     public void getWinner(ArrayList<Player> players, int numberOfPlayers){
         String winner;
         String gameTied = "Game is tied. Good job for everyone!";
