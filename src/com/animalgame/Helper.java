@@ -132,7 +132,7 @@ public class Helper {
     public int vegChoice(){
         validateInput();
         int vegChoice = console.nextInt();
-        while (!(vegChoice == 3 || vegChoice == 1)) {
+        while (vegChoice > 3 || vegChoice < 1) {
             System.out.println("Sorry, not valid. Choose 1 or 2.");
             validateInput();
             vegChoice = console.nextInt();
@@ -142,7 +142,7 @@ public class Helper {
     public int meatChoice(){
         validateInput();
         int meatChoice = console.nextInt();
-        while (meatChoice == 3 || meatChoice == 1) {
+        while (meatChoice > 3 || meatChoice < 1) {
             System.out.println("Sorry, not valid. Choose 1 or 2.");
             validateInput();
             meatChoice = console.nextInt();
@@ -152,7 +152,7 @@ public class Helper {
     public int milkChoice(){
         validateInput();
         int milkChoice = console.nextInt();
-        while ((milkChoice == 1 || milkChoice == 2)) {
+        while ((milkChoice ==1 || milkChoice == 2)) {
             System.out.println("Sorry, not valid. Choose 1 or 2.");
             validateInput();
             milkChoice= console.nextInt();

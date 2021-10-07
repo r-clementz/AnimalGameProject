@@ -60,10 +60,12 @@ public class Game {
 
             //This is our INNER game loop of what a player does on their round
             for (int j = 1; j <= numberOfPlayers; j++) {
-                //show player' money here
+
                 players.get(j - 1).lostAnimal(numberOfPlayers, players);// inform if players animal dead
 
                 System.out.println("This is round " + i + " of " + numberOfRounds + ". What do you want to do " + players.get(j - 1).toString() + "?");
+                System.out.println(players.get(j-1).getPlayerName()+", you have "+players.get(j-1).money+"kr.");//show player' money here
+
                 players.get(j - 1).printAnimalList();
                 System.out.println(" ");
                 players.get(j - 1).printFoodList();

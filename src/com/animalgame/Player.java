@@ -29,6 +29,7 @@ public class Player {
     /** Player check all animals name in own animal list.
      * */
     public void seeAnimalList() {
+        //if nothing in list no print
         System.out.println("Here are animals in your list ");
             for (int i = 0; i <= this.animalList.size() - 1; i++) {
                 System.out.println(i + ". :\t" + this.animalList.get(i).getSpecies() + ", " + this.animalList.get(i).name);
@@ -39,6 +40,7 @@ public class Player {
     /** Player check all name of food  in own food list.
      * */
     public void seeFoodList() {
+        //if nothing in list no print
         if(this.foodStock.isEmpty()){
             System.out.println();
         }
