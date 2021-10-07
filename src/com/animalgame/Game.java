@@ -31,9 +31,9 @@ public class Game {
         while (setupInProgress) {
 
             System.out.println("Please choose how many players 2-4: ");
-            helper.validateInput();
-            numberOfPlayers = console.nextInt();
+            numberOfPlayers = helper.numberOfPlayers();
 
+            //Vid flera felskrivningar kommer vi ännu vidare till number of rounds
             if (numberOfPlayers > 4 || numberOfPlayers < 2) {
                 System.out.println("Invalid choice, please choose 2, 3 or 4.");
             }
@@ -56,8 +56,7 @@ public class Game {
         boolean choiceInProgress = true;
         while (choiceInProgress) {
             System.out.println("Please choose how many (5-30) rounds you want to play: ");
-            helper.validateInput();
-            numberOfRounds = console.nextInt();
+            numberOfRounds = helper.numberOfRounds();
 
             if (numberOfRounds > 30 || numberOfRounds < 5) {
                 System.out.println("Nope, you need to choose number between 5 and 30.");
@@ -75,8 +74,11 @@ public class Game {
             //Number of players uppdateras
             System.out.println("Round number: " + i); //bara testutskrift
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
             //This is our INNER game loop of what a player does on their round
             for (int j = 1; j <= numberOfPlayers; j++) {
                 players.get(j-1).lostAnimal(numberOfPlayers,players);// inform if players animal dead
@@ -87,8 +89,7 @@ public class Game {
                 players.get(j-1).printFoodList();
                 System.out.println(" ");
                 helper.createMenu("Buy animal(s)", "Buy food", "Feed animal(s)", "Breed animals", "Sell animals");
-                helper.validateInput();
-                menuChoice = console.nextInt();
+                menuChoice = helper.menuChoice();
 
                 switch (menuChoice) {
                     case 1 -> {
