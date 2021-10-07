@@ -68,9 +68,15 @@ public class Helper {
     }
 
     public int choice3() {
-        validateInput();
-        int choice3 = console.nextInt();
-        return choice3;
+            validateInput();
+            int choice3 = console.nextInt();
+            while (!(choice3 == 1 || choice3 == 2)) {
+                System.out.println("Sorry, not valid. Choose 1 or 2.");
+                validateInput();
+                choice3 = console.nextInt();
+
+            }
+            return choice3;
     }
 
     public void getWinner(ArrayList<Player> players, int numberOfPlayers){
