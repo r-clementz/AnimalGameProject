@@ -115,7 +115,7 @@ public class Store {
                 } else if (currentHealth < (animalToSell.getOriginalHL() / 2)) {//Health Lv is less than 50%
                     priceToSell = animalToSell.price / 4;
                 }
-                System.out.println(animalToSell + "is sold for " + priceToSell);
+                System.out.println(animalToSell.name + "is sold for " + priceToSell);
                 player.animalList.remove(animalToSell);
                 player.money = player.money + priceToSell;
 
@@ -195,7 +195,7 @@ public class Store {
                 if (choice2 == 1) { //male
                     animalChosen.add(new Rabbit(name, "male"));
                 } else if (choice2 == 2) {
-                    animalChosen.add(new Rabbit(name, "male"));
+                    animalChosen.add(new Rabbit(name, "female"));
                 } else {
                     System.out.println("Invalid input");
                 }
