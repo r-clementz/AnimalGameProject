@@ -1,5 +1,6 @@
 package com.animalgame.Store;
 
+import com.animalgame.Helper;
 import com.animalgame.Player;
 import com.animalgame.abstractclass.*;
 import com.animalgame.animals.*;
@@ -9,7 +10,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StoreHelper {
-    Scanner console = new Scanner(System.in);
+    Scanner console;
+    public Helper helper;
+    StoreHelper(){
+        console= new Scanner(System.in);
+        helper = new Helper();
+    }
 
     public void createNewAnimals(int choice, int choice2, ArrayList<Animal> animalChosen, String name) {
         switch (choice) {
@@ -90,7 +96,7 @@ public class StoreHelper {
 
     public void chooseVeg(ArrayList<Food> foodChosen, Player player) {
         System.out.println("1.Carrot (3kr) 2. Cabbage(5kr) 3.Potato (3kr)");
-        int vegChoice = console.nextInt();
+        int vegChoice = helper.vegChoice();
         if (vegChoice == 1) {//Carrot
             foodChosen.add(new Veggies("Carrot", 3));
         } else if (vegChoice == 2) {
@@ -102,7 +108,7 @@ public class StoreHelper {
 
     public void chooseMeat(ArrayList<Food> foodChosen, Player player) {
         System.out.println("1.Chicken (12kr) 2. Beef(25kr)");
-        int meatChoice = console.nextInt();
+        int meatChoice = helper.meatChoice();
 
         if (meatChoice == 1) {//Chicken
             foodChosen.add(new Meat("Chicken", 12));
@@ -114,7 +120,7 @@ public class StoreHelper {
 
     public void chooseMilk(ArrayList<Food> foodChosen, Player player) {
         System.out.println("1.Cow milk (10kr) 2.Oats milk(12kr)");
-        int milkChoice = console.nextInt();
+        int milkChoice = helper.milkChoice();
 
         if (milkChoice == 1) {//Carrot
             foodChosen.add(new Milk("Cow milk", 10));

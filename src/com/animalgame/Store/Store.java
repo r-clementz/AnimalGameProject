@@ -116,7 +116,7 @@ public class Store {
 
 
                 System.out.println("Please choose which Animal you'd like to sell.");
-                int indexChosen = console.nextInt();//player choose index for animal to sel;
+                int indexChosen = helper.indexChosen();//player choose index for animal to sel;
                 Animal animalToSell = player.animalList.get(indexChosen);//get animal from the list
 
                 int currentHealth = animalToSell.healthLevel;

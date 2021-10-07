@@ -128,17 +128,49 @@ public class Helper {
         }
         return sellMore;
     }
-    /*public int indexChosen() {
+
+    public int vegChoice(){
         validateInput();
-        int indexChosen = console.nextInt();
-        while (player!) {
+        int vegChoice = console.nextInt();
+        while (!(vegChoice == 3 || vegChoice == 1)) {
             System.out.println("Sorry, not valid. Choose 1 or 2.");
             validateInput();
-            shopMore = console.nextInt();
+            vegChoice = console.nextInt();
+        }
+        return vegChoice;
+    }
+    public int meatChoice(){
+        validateInput();
+        int meatChoice = console.nextInt();
+        while (meatChoice == 3 || meatChoice == 1) {
+            System.out.println("Sorry, not valid. Choose 1 or 2.");
+            validateInput();
+            meatChoice = console.nextInt();
+        }
+        return meatChoice;
+    }
+    public int milkChoice(){
+        validateInput();
+        int milkChoice = console.nextInt();
+        while ((milkChoice == 1 || milkChoice == 2)) {
+            System.out.println("Sorry, not valid. Choose 1 or 2.");
+            validateInput();
+            milkChoice= console.nextInt();
+        }
+        return milkChoice;
+    }
+
+    public int indexChosen() {
+        validateInput();
+        int indexChosen = console.nextInt();
+        while (indexChosen > player.animalList.size()){
+            System.out.println("Sorry, not valid. Choose 1 or 2.");
+            validateInput();
+            indexChosen = console.nextInt();
 
         }
-        return shopMore;
-    }*/
+        return indexChosen;
+    }
 
 
     public void getWinner(ArrayList<Player> players, int numberOfPlayers){
