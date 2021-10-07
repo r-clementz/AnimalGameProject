@@ -1,5 +1,7 @@
 package com.animalgame;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Helper {
@@ -27,6 +29,46 @@ public class Helper {
         while (!console.hasNextInt()) {
             System.out.println("Invalid input. Please choose a number from the menu.");
             console.next();
+        }
+    }
+
+    public void getWinner(ArrayList<Player> players, int numberOfPlayers,Player player){
+        String winner;
+        String gameTied = "Game is tied. Good job for everyone!";
+        Collections.sort(players,new GetResult()); // players list sorted by money low to high
+        switch (numberOfPlayers) {
+            case 4://4players
+                if ((players.get(3).money == players.get(2).money) && (players.get(2).money > players.get(1).money)) { //P4 P3
+                    winner = players.get(4).getPlayesName() + players.get(3).getPlayesName();
+                    System.out.println("Winner(s): " + winner + ", congratulations:)");
+                } else if ((players.get(3).money == players.get(1).money) && (players.get(1).money > players.get(0).money)) { //P4-2
+                    winner = players.get(3).getPlayesName() + players.get(2).getPlayesName() + players.get(1).getPlayesName();
+                    System.out.println("Winner(s): " + winner + ", congratulations:)");
+                } else if (players.get(4).money == players.get(0).money) {//alla
+                    System.out.println(gameTied);
+                } else {
+                    winner = players.get(4).getPlayesName();
+                    System.out.println("Winner(s): " + winner + ", congratulations:)");
+                }
+                break;
+            case 3://3 Players , index 210
+                if ((players.get(2).money == players.get(1).money) && (players.get(1).money > players.get(0).money)) { //P3 P2
+                    winner = players.get(2).getPlayesName() + players.get(1).getPlayesName();
+                    System.out.println("Winner(s): " + winner + ", congratulations:)");
+                } else if (players.get(2).money == players.get(0).money)  { //P3 P2 P1, alla
+                    System.out.println(gameTied);
+                } else { // P3
+                    winner = players.get(2).getPlayesName();
+                    System.out.println("Winner(s): " + winner + ", congratulations:)");
+                }
+                break;
+            case 2://2 players
+                if ((players.get(0).money == players.get(1).money)) {
+                    System.out.println("Game is tied, good job for both!");
+                } else {
+                    winner = players.get(1).getPlayesName();
+                    System.out.println("Winner(s): " + winner + ", congratulations:)");
+                }
         }
     }
 
