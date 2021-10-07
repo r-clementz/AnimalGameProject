@@ -29,37 +29,34 @@ public class Player {
     /** Player check all animals name in own animal list.
      * */
     public void seeAnimalList() {
-        //if nothing in list no print
-        if (!(this.animalList.isEmpty())) {
+
             System.out.println("Here are animals in your list ");
             for (int i = 0; i <= this.animalList.size() - 1; i++) {
                 System.out.println(i + ". :\t" + this.animalList.get(i).getSpecies() + ", " + this.animalList.get(i).name);
 
             }
         }
-    }
+
 
     /** Player check all name of food  in own food list.
      * */
     public void seeFoodList() {
-        //if nothing in list no print
-        if (!(this.foodStock.isEmpty())) {
-            if (this.foodStock.isEmpty()) {
-                System.out.println();
-            }
-            for (int i = 0; i <= this.foodStock.size() - 1; i++) {
+        System.out.println("Here are food in your list ");
+        for (int i = 0; i <= this.foodStock.size() - 1; i++) {
                 System.out.println(i + ". :\t" + this.foodStock.get(i).name);
             }
         }
-    }
+
 
     /** Player check all animals name and health level
      *  in own animal list
      * */
-    public void printAnimalList() {
+    public void printAnimalList() {//if nothing in list no print
+        if (!(this.animalList.isEmpty())) {
         System.out.println("Here are your animals: ");
         for (int i = 0; i <= this.animalList.size()-1; i++) {
             System.out.print(this.animalList.get(i).name  + " (health " + this.animalList.get(i).healthLevel + ").");
+        }
         }
     }
 
@@ -67,9 +64,11 @@ public class Player {
      *  in own food list.
      * */
     public void printFoodList() {
+        if (!(this.foodStock.isEmpty())) {
         System.out.println("This is your pantry: ");
         for (int i = 0; i <= this.foodStock.size()-1; i++) {
             System.out.print(this.foodStock.get(i).name + " amount: " +this.foodStock.get(i).amount);
+        }
         }
     }
 
@@ -106,10 +105,12 @@ public class Player {
             else{//if player didn't feed everything, food remains in the list
                 foodPicked.amount= foodPicked.amount -amountPicked;
             }
-            System.out.println("Health at the moment: " + animalPicked.healthLevel);
+
             //animal eats food and gain energy if it can eat food chosen
             if(animalPicked.healthLevel<animalPicked.getOriginalHL()) { //filter if the animal can eat food
                 animalPicked.eat(foodPicked, this, indexPicked1, amountPicked);
+                //show previous too
+                System.out.println("Previous health level: " + animalPicked.healthLevel);
                 // show updated energy
                 System.out.println("Now " +animalList.get(indexPicked1).name + "'s health is " + animalList.get(indexPicked1).healthLevel);
             }
