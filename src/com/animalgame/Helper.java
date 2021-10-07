@@ -35,6 +35,11 @@ public class Helper {
     public int menuChoice() {
         validateInput();
         int menuChoice = console.nextInt();
+        while (menuChoice > 5 || menuChoice < 1) {
+            System.out.println("Sorry, not valid. Choose 1, 2, 3, 4 or 5.");
+            validateInput();
+            menuChoice = console.nextInt();
+        }
         return menuChoice;
     }
 
@@ -60,10 +65,15 @@ public class Helper {
         return numberOfPlayers;
     }
 
-    public int choice() {
+    public int animalChoice() {
         validateInput();
-        int choice = console.nextInt();
-        return choice;
+        int animalChoice = console.nextInt();
+        while (animalChoice > 5 || animalChoice < 1) {
+            System.out.println("Sorry, not valid. Choose 1, 2, 3, 4 or 5.");
+            validateInput();
+            animalChoice = console.nextInt();
+        }
+        return animalChoice;
     }
     public int choice1() {
         validateInput();
@@ -71,22 +81,27 @@ public class Helper {
         return choice1;
     }
 
-    public int choice2() {
+    public int sexChoice() {
         validateInput();
-        int choice2 = console.nextInt();
-        return choice2;
+        int sexChoice = console.nextInt();
+        while (!(sexChoice == 1 || sexChoice == 2)) {
+            System.out.println("Sorry, not valid. Choose 1 or 2.");
+            validateInput();
+            sexChoice = console.nextInt();
+        }
+        return sexChoice;
     }
 
-    public int choice3() {
+    public int shopMore() {
             validateInput();
-            int choice3 = console.nextInt();
-            while (!(choice3 == 1 || choice3 == 2)) {
+            int shopMore = console.nextInt();
+            while (!(shopMore == 1 || shopMore == 2)) {
                 System.out.println("Sorry, not valid. Choose 1 or 2.");
                 validateInput();
-                choice3 = console.nextInt();
+                shopMore = console.nextInt();
 
             }
-            return choice3;
+            return shopMore;
     }
 
     public void getWinner(ArrayList<Player> players, int numberOfPlayers){
