@@ -30,14 +30,18 @@ public class Player {
      * */
     public void seeAnimalList() {
         System.out.println("Here are animals in your list ");
-        for (int i = 0; i <= this.animalList.size()-1; i++) {
-            System.out.println(i + ". :\t" +this.animalList.get(i).getSpecies()+ ", "+this.animalList.get(i).name);
+            for (int i = 0; i <= this.animalList.size() - 1; i++) {
+                System.out.println(i + ". :\t" + this.animalList.get(i).getSpecies() + ", " + this.animalList.get(i).name);
+
         }
     }
 
     /** Player check all name of food  in own food list.
      * */
     public void seeFoodList() {
+        if(this.foodStock.isEmpty()){
+            System.out.println();
+        }
         for (int i = 0; i <= this.foodStock.size()-1; i++) {
             System.out.println(i + ". :\t" + this.foodStock.get(i).name);
         }
@@ -67,8 +71,8 @@ public class Player {
      * Amount of food player chosen will be fed to chosen animal.
      * */
     public void feedAnimal() {
-        if(animalList.isEmpty()){
-            System.out.println("You don't have any animal to feed!");
+        if(this. animalList.isEmpty()|| this. foodStock.isEmpty()){
+            System.out.println("You don't have any animal or food to feed!");
         }
         else{
             //show animal(s) player's list
