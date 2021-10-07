@@ -71,6 +71,17 @@ public class Helper {
                 }
         }
     }
+    public void checkPlayersMoney(int numberOfPlayers, ArrayList<Player>players) {
+        for (int q = 0; q < numberOfPlayers - 1; q++) {
+            int playerMoney = players.get(q).money;
+            if (playerMoney == 0) {
+                System.out.println(players.get(q).getPlayesName() + " has no more money and out from the game!");
+                players.remove(q);
+                numberOfPlayers = players.size();
+            }
+        }
+    }
+
 
 
 }
