@@ -1,10 +1,7 @@
 package com.animalgame;
 
-<<<<<<< Updated upstream
 import com.animalgame.abstractclass.Animal;
-=======
 import com.animalgame.Store.Store;
->>>>>>> Stashed changes
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -74,11 +71,6 @@ public class Game {
             //Number of players uppdateras
             System.out.println("Round number: " + i); //bara testutskrift
 
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
             //This is our INNER game loop of what a player does on their round
             for (int j = 1; j <= numberOfPlayers; j++) {
                 players.get(j-1).lostAnimal(numberOfPlayers,players);// inform if players animal dead
@@ -113,7 +105,10 @@ public class Game {
                         System.out.println("Get ready to make some money!");
                         store.sellAnimal(players.get(j-1));
                     }
-                    default -> System.out.println("Whoops what happened now?");
+                    default -> {
+                        System.out.println("Whoops what happened now? Please choose a number between 1 and 5!");
+                        menuChoice = helper.menuChoice();
+                    }
                 }
             }
             //animal's health Lv goes down after every round finished.
@@ -125,19 +120,6 @@ public class Game {
 
         // compare players' money and get winner
         helper.getWinner(players,numberOfPlayers);
-
-
-        //After this game play loop the score (money) needs to be summed up and the winner/scoreboard display
-
-        System.out.println("Här ska vi bara avgöra vem som vann, easy peasy!");
-
-
-
-
-
-
-
-
 
 
 
