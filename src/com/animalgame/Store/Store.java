@@ -30,7 +30,7 @@ public class Store {
 
         System.out.println("Please Choose the number for animal you'd like to buy (1-5)");
         while (playerWannaChoose) {
-<<<<<<< Updated upstream
+
             System.out.println("1.Dog (50kr) 2.Cat(40kr) 3.Unicorn(150kr) 4.Rabbit(30kr)  5.Bat(20kr)");
             //int choice = console.nextInt(); // animal choice
             int animalChoice = helper.animalChoice();
@@ -40,21 +40,7 @@ public class Store {
             System.out.println("Give it a name: ");
             String name = console.next();// animal's name
             storehelper.createNewAnimals(animalChoice, sexChoice, animalChosen, name);
-=======
-              System.out.println("1.Dog (50kr) 2.Cat(40kr) 3.Unicorn(150kr) 4.Rabbit(30kr)  5.Bat(20kr)");
-                //int choice = console.nextInt(); // animal choice
-                int choice = helper.choice();
-                System.out.println("Please choose its sex: 1.male 2.female");
-                //int choice2 = console.nextInt();// sex choice
-                int choice2 = helper.choice2();
-                if (choice2 <= 3) {
-                    System.out.println("Valid input, try again");
-                    System.out.println("Give it a name:");
-                String name = console.next();// animal's name
-                storehelper.createNewAnimals(choice, choice2, animalChosen, name);
 
-            }
->>>>>>> Stashed changes
             // player can keep going
             System.out.println("Would you like to choose more?\n1.Yes 2.No");
             //int choice3 = console.nextInt();
@@ -75,17 +61,9 @@ public class Store {
         ArrayList<Food> foodChosen = new ArrayList<>();
         ArrayList<Integer> amountChosen = new ArrayList<>();
         boolean playerWannaMore  = true;
-<<<<<<< Updated upstream
 
         while (playerWannaMore) {
             System.out.println("Please choose the number for food you'd like to buy.");
-=======
-        boolean inputIsCorrect = true;
-
-        while (playerWannaMore) {
-            System.out.println("Please choose the number for food you'd like to buy.");
-            while(!(inputIsCorrect)){
->>>>>>> Stashed changes
             System.out.println("1. Veggies 2. Meat 3. Milk");
             //int choice1 = console.nextInt();
             int foodChoice = helper.foodChoice();
@@ -101,8 +79,6 @@ public class Store {
                     break;
                 default:
                     System.out.println("Invalid input,try again");
-<<<<<<< Updated upstream
-
             }
             System.out.println("How much you'd like to get?");
             helper.validateInput();  //IS THIS RIGHT?
@@ -120,29 +96,6 @@ public class Store {
                     break;
                 default:
                     System.out.println("Invalid input");
-=======
-                    inputIsCorrect = true;
-            }
-            }
-            System.out.println("How much you'd like to get?");
-            while(!(inputIsCorrect)) {
-                int amount = console.nextInt();
-                amountChosen.add(amount);
-                //loop until player decides to finish
-                System.out.println("Would you like to buy other food? : 1.Yes 2.No");
-                int choice2 = console.nextInt();
-                switch (choice2) {
-                    case 1:
-                        break;
-                    case 2:
-                        playerWannaMore = false;
-                        System.out.println("Now you move to payment");
-                        break;
-                    default:
-                        System.out.println("Invalid input,try again");
-                        inputIsCorrect = true;
-                }
->>>>>>> Stashed changes
             }
         }
         //payment and update the list
