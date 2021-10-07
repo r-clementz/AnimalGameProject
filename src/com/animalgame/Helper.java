@@ -27,7 +27,7 @@ public class Helper {
 
     public void validateInput () {
         while (!console.hasNextInt()) {
-            System.out.println("Invalid input. Please choose a number from the menu.");
+            System.out.println("Invalid input. Please choose a number.");
             console.next();
         }
     }
