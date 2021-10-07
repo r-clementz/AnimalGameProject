@@ -119,7 +119,9 @@ public class Game {
         }
 
         // compare players' money and get winner
+        store.sellAllanimals(players);
         helper.getWinner(players,numberOfPlayers);
+
 
 
 
