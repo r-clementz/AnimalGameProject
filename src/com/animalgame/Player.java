@@ -6,6 +6,10 @@ import com.animalgame.abstractclass.Food;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
+/**This Class generates methods of
+ * what player can do in the game.
+ * @author Rie,
+ * */
 
 public class Player {
     private String playerName;
@@ -14,6 +18,7 @@ public class Player {
     public ArrayList<Food> foodStock;
     public Scanner console;
 
+
     public Player(String playerName, int money) {
         this.playerName = playerName;
         this.money = 10000;
@@ -21,7 +26,8 @@ public class Player {
         foodStock = new ArrayList<>();
         console = new Scanner(System.in);
     }
-
+    /** Player check all animals name in own animal list.
+     * */
     public void seeAnimalList() {
         System.out.println("Here are animals in your list ");
         for (int i = 0; i <= this.animalList.size()-1; i++) {
@@ -29,12 +35,17 @@ public class Player {
         }
     }
 
+    /** Player check all name of food  in own food list.
+     * */
     public void seeFoodList() {
         for (int i = 0; i <= this.foodStock.size()-1; i++) {
             System.out.println(i + ". :\t" + this.foodStock.get(i).name);
         }
     }
 
+    /** Player check all animals name and health level
+     *  in own animal list
+     * */
     public void printAnimalList() {
         System.out.println("Here are your animals: ");
         for (int i = 0; i <= this.animalList.size()-1; i++) {
@@ -42,6 +53,9 @@ public class Player {
         }
     }
 
+    /** Player check all name and amount of food
+     *  in own food list.
+     * */
     public void printFoodList() {
         System.out.println("This is your pantry: ");
         for (int i = 0; i <= this.foodStock.size()-1; i++) {
@@ -49,7 +63,9 @@ public class Player {
         }
     }
 
-
+    /** Player chooses animal and food in the list.
+     * Amount of food player chosen will be fed to chosen animal.
+     * */
     public void feedAnimal() {
         if(animalList.isEmpty()){
             System.out.println("You don't have any animal to feed!");
@@ -94,7 +110,8 @@ public class Player {
         }
     }
 
-
+    /** Player check all animals in own animal list.
+     * */
     public void pairAnimals() { //tested and work!
         if((animalList.isEmpty())||(animalList.size()==1)){
             System.out.println("You don't have any animal!");

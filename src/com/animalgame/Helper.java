@@ -96,18 +96,7 @@ public class Helper {
         }
     }
     }
-//    public void informAnimalsDeath (int numberOfPlayers ,ArrayList<Animal> animalList,ArrayList<Player> players){
-//        for (int p = 0; p < numberOfPlayers - 1; p++) {
-//                for(int j=0; j < animalList.size(); j++){
-//                 int animalHL = players.get(p).animalList.get(j).healthLevel;
-//                 if (animalHL==0){
-//                     System.out.println(players.get(p).getPlayesName()+", ");
-//                     players.get(p).animalList.get(j).die( players.get(p));
-//                 }
-//                }
-//
-//            }}
-//
+
     public void checkPlayersMoney(int numberOfPlayers, ArrayList<Player>players) {
         for (int q = 0; q < numberOfPlayers - 1; q++) {
             if(players.get(q).animalList.isEmpty()) {
