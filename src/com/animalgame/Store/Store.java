@@ -61,7 +61,6 @@ public class Store {
 
         while (playerWannaMore) {
             System.out.println("Please choose the number for food you'd like to buy.");
-            while(!(inputisCorrect)){
             System.out.println("1. Veggies 2. Meat 3. Milk");
             //int choice1 = console.nextInt();
             int choice1 = helper.choice1();
@@ -77,8 +76,7 @@ public class Store {
                     break;
                 default:
                     System.out.println("Invalid input,try again");
-                    inputisCorrect = true;
-            }
+
             }
             System.out.println("How much you'd like to get?");
             int amount = console.nextInt();
