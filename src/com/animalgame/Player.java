@@ -67,7 +67,7 @@ public class Player {
         if (!(this.foodStock.isEmpty())) {
         System.out.println("This is your pantry: ");
         for (int i = 0; i <= this.foodStock.size()-1; i++) {
-            System.out.print(this.foodStock.get(i).name + " amount: " +this.foodStock.get(i).amount);
+            System.out.print(this.foodStock.get(i).name + " amount: " +this.foodStock.get(i).amount+" ");
         }
         }
     }

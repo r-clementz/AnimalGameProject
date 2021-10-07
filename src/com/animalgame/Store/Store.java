@@ -81,7 +81,7 @@ public class Store {
                     System.out.println("Invalid input,try again");
             }
             System.out.println("How much you'd like to get?");
-            helper.validateInput();  //IS THIS RIGHT?
+           // helper.validateInput();  //IS THIS RIGHT?
             int amount = console.nextInt();
             amountChosen.add(amount);
             //loop until player decides to finish
@@ -110,13 +110,11 @@ public class Store {
             //show players animal list
             System.out.println("Here is your animal list:\n");
             while (playerWannaSell) {
-                for (int i = 0; i < player.animalList.size(); i++) {
+                for (int i = 0; i < player.animalList.size(); i++) {// visa animals
                     System.out.println(i + "." + player.animalList.get(i).name);
                 }
-
-
                 System.out.println("Please choose which Animal you'd like to sell.");
-                int indexChosen = helper.indexChosen();//player choose index for animal to sel;
+                int indexChosen = console.nextInt();//player choose index for animal to sel;
                 Animal animalToSell = player.animalList.get(indexChosen);//get animal from the list
 
                 int currentHealth = animalToSell.healthLevel;

@@ -42,21 +42,12 @@ public class Game {
         System.out.println("Please choose how many (5-30) rounds you want to play: ");
         numberOfRounds = helper.numberOfRounds();
 
-        //if (numberOfRounds > 30 || numberOfRounds < 5) {
-        //    System.out.println("Nope, you need to choose number between 5 and 30.");
-        //}
-        //else {
+
         System.out.println("Thanks! We'll play for " + numberOfRounds + ", good luck!");
-        //  choiceInProgress = false;
-        //}
-        //}
+
         //Basic OUTER gameplay loop for chosen number of rounds
         for (int i = 1; i <= numberOfRounds; i++) {
             //Then we play the game for the chosen number of rounds
-
-            //Here check if a player has lost and if a player has lost remove from player list.
-            //Number of players uppdateras
-            System.out.println("Round number: " + i); //bara testutskrift
 
             //This is our INNER game loop of what a player does on their round
             for (int j = 1; j <= numberOfPlayers; j++) {
