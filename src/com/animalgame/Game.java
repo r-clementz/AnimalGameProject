@@ -51,9 +51,7 @@ public class Game {
         //}
         //}
         //Basic OUTER gameplay loop for chosen number of rounds
-        for (
-                int i = 1;
-                i <= numberOfRounds; i++) {
+        for (int i = 1; i <= numberOfRounds; i++) {
             //Then we play the game for the chosen number of rounds
 
             //Here check if a player has lost and if a player has lost remove from player list.
