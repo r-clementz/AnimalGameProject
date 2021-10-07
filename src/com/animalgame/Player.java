@@ -30,10 +30,12 @@ public class Player {
      * */
     public void seeAnimalList() {
         //if nothing in list no print
-        System.out.println("Here are animals in your list ");
+        if (!(this.animalList.isEmpty())) {
+            System.out.println("Here are animals in your list ");
             for (int i = 0; i <= this.animalList.size() - 1; i++) {
                 System.out.println(i + ". :\t" + this.animalList.get(i).getSpecies() + ", " + this.animalList.get(i).name);
 
+            }
         }
     }
 
@@ -41,11 +43,13 @@ public class Player {
      * */
     public void seeFoodList() {
         //if nothing in list no print
-        if(this.foodStock.isEmpty()){
-            System.out.println();
-        }
-        for (int i = 0; i <= this.foodStock.size()-1; i++) {
-            System.out.println(i + ". :\t" + this.foodStock.get(i).name);
+        if (!(this.foodStock.isEmpty())) {
+            if (this.foodStock.isEmpty()) {
+                System.out.println();
+            }
+            for (int i = 0; i <= this.foodStock.size() - 1; i++) {
+                System.out.println(i + ". :\t" + this.foodStock.get(i).name);
+            }
         }
     }
 
