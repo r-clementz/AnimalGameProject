@@ -10,15 +10,18 @@ public abstract class Animal {
     public int healthLevel;
     public int price;
 
+
     public Animal(String name, String sex) {
         this.name = name;
         this.sex = sex;
         this.healthLevel = healthLevel;
         this.price=price;
+
     }
 
     public abstract String getSpecies();
     public abstract int  getOriginalHL();
+    public abstract String getSpecies();
     public abstract void eat(Food food, Player player, int indexChosen, int amountOfFood);
     public abstract void gainMoreEnergy(Food food,Player player, int indexChosen, int amountOfFood);
     public void seeIfBecameFull(Player player,int indexChosen){// if
