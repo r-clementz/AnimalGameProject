@@ -34,6 +34,20 @@ public class Player {
         }
     }
 
+    public void printAnimalList() {
+        System.out.println("Here are your animals: ");
+        for (int i = 0; i <= this.animalList.size()-1; i++) {
+            System.out.print(this.animalList.get(i).name  + " (health " + this.animalList.get(i).healthLevel + ").");
+        }
+    }
+
+    public void printFoodList() {
+        System.out.println("This is your pantry: ");
+        for (int i = 0; i <= this.foodStock.size()-1; i++) {
+            System.out.println(this.foodStock.get(i).name + " amount: " +this.foodStock.get(i).amount);
+        }
+    }
+
 
     public void feedAnimal() {
         if(animalList.isEmpty()){

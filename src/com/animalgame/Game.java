@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
 public class Game {
-    //I'm going to comment out things not used RIGHT NOW, please "activate"/update as needed!
-    //Program crashes in spectacular ways if everything activated.
 
     public Scanner console;
     private int numberOfPlayers;
@@ -16,7 +13,6 @@ public class Game {
     public int menuChoice;
     public Store store;
     public Helper helper;
-
 
     public Game(){
         console= new Scanner (System.in);
@@ -31,13 +27,13 @@ public class Game {
         numberOfPlayers = console.nextInt();
 
         //Here we generate the players, they may name themselves
-        //We save them in an arraylist (or should we do array?)
+        //We save them in an arraylist
         //In the game we then need to access them from this, player 1 is index 0 etc.
 
         for (int i =1; i <= numberOfPlayers; i++) {
             System.out.println("Player " +i +" please enter your name: ");
             String name = console.next();
-            Player in = new Player(name, 10_000); //Amount of money need to be decided
+            Player in = new Player(name, 10_000);
             players.add(in);
         }
 
@@ -47,19 +43,23 @@ public class Game {
         //Basic OUTER gameplay loop for chosen number of rounds
         for (int i = 1; i <= numberOfRounds; i++ ) {
             //Then we play the game for the chosen number of rounds
-            //This print is just a test to eliminate logic errors
-            System.out.println("Round number: " + i);
+
+            //Here check if a player has lost and if a player has lost remove from player list.
+            //Number of players uppdateras
+            System.out.println("Round number: " + i); //bara testutskrift
+
 
             //This is our INNER game loop of what a player does on their round
             for (int j = 1; j <= numberOfPlayers; j++) {
                 helper.clear();
                 System.out.println("This is round " + i + " of " +numberOfRounds + ". What do you want to do " +players.get(j-1).toString() +"?");
+                players.get(j-1).printAnimalList();
+                System.out.println(" ");
+                players.get(j-1).printFoodList();
                 helper.createMenu("Buy animal(s)", "Buy food", "Feed animal(s)", "Breed animals", "Sell animals");
                 helper.validateInput();
                 menuChoice = console.nextInt();
-                //all player supposed to choose their choices first and each player do what they chose..
 
-                //Enhanced switch syntax! Will need to add { } for codeblocks in the cases as example case 1.
                 switch (menuChoice) {
                     case 1 -> {
                         System.out.println("Yay, let's buy some animals!");
