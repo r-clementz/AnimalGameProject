@@ -146,27 +146,31 @@ public class Store {
         }
     }
 
-    public void sellAllanimals(Player player) {
+    public void sellAllanimals(ArrayList<Player>players) {
         ArrayList<Integer> allAnimalPrices = new ArrayList<>();
-        int animalPrice; //check all animal prices and sell
-        for (int i = 0; i < player.animalList.size(); i++) {
-            int currentLv = player.animalList.get(i).healthLevel;
+        for (int p = 0; p < players.size() - 1; p++) {
+            int animalPrice; //check all animal prices and sell
+            for (int i = 0; i < players.get(p).animalList.size(); i++) {
+                int currentLv = players.get(p).animalList.get(i).healthLevel;
 
-            if (currentLv == player.animalList.get(i).getOriginalHL()) {
-                animalPrice = player.animalList.get(i).price;
-                allAnimalPrices.add(animalPrice);
-            } else if (currentLv >= (player.animalList.get(i).getOriginalHL() / 2)) { //Health Lv is more than 50%
-                animalPrice = player.animalList.get(i).price / 2;
-                allAnimalPrices.add(animalPrice);
-            } else if (currentLv < (player.animalList.get(i).getOriginalHL() / 2)) {//Health Lv is less than 50%
-                animalPrice = player.animalList.get(i).price / 4;
-                allAnimalPrices.add(animalPrice);
-            }
-        } //get money after selling all animals
-        int sum = allAnimalPrices.stream().mapToInt(Integer::intValue).sum();
-        player.animalList.clear(); // all animal is gone from the list
-        player.money = player.money + sum;
+                if (currentLv == players.get(p).animalList.get(i).getOriginalHL()) {
+                    animalPrice = players.get(p).animalList.get(i).price;
+                    allAnimalPrices.add(animalPrice);
+                } else if (currentLv >= (players.get(p).animalList.get(i).getOriginalHL() / 2)) { //Health Lv is more than 50%
+                    animalPrice = players.get(p).animalList.get(i).price / 2;
+                    allAnimalPrices.add(animalPrice);
+                } else if (currentLv < (players.get(p).animalList.get(i).getOriginalHL() / 2)) {//Health Lv is less than 50%
+                    animalPrice = players.get(p).animalList.get(i).price / 4;
+                    allAnimalPrices.add(animalPrice);
+                }
+            } //get money after selling all animals
+            int sum = allAnimalPrices.stream().mapToInt(Integer::intValue).sum();
+            players.get(p).animalList.clear(); // all animal is gone from the list
+            players.get(p).money = players.get(p).money + sum;
 
+        }
     }
+}
+
 
 }
