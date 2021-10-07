@@ -57,14 +57,13 @@ public class Store {
         ArrayList<Food> foodChosen = new ArrayList<>();
         ArrayList<Integer> amountChosen = new ArrayList<>();
         boolean playerWannaMore  = true;
-        boolean inputisCorrect = true;
 
         while (playerWannaMore) {
             System.out.println("Please choose the number for food you'd like to buy.");
             System.out.println("1. Veggies 2. Meat 3. Milk");
             //int choice1 = console.nextInt();
-            int choice1 = helper.choice1();
-            switch (choice1) {
+            int foodChoice = helper.foodChoice();
+            switch (foodChoice) {
                 case 1: //veggie
                     storehelper.chooseVeg(foodChosen, player);
                     break;
@@ -79,12 +78,13 @@ public class Store {
 
             }
             System.out.println("How much you'd like to get?");
+            helper.validateInput();  //IS THIS RIGHT?
             int amount = console.nextInt();
             amountChosen.add(amount);
             //loop until player decides to finish
             System.out.println("Would you like to buy other food? : 1.Yes 2.No");
-            int choice2 = console.nextInt();
-            switch (choice2) {
+            int shopMore = helper.shopMore();
+            switch (shopMore) {
                 case 1:
                     break;
                 case 2:

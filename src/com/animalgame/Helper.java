@@ -75,10 +75,15 @@ public class Helper {
         }
         return animalChoice;
     }
-    public int choice1() {
+    public int foodChoice() {
         validateInput();
-        int choice1 = console.nextInt();
-        return choice1;
+        int foodChoice = console.nextInt();
+        while (foodChoice > 3 || foodChoice < 1) {
+            System.out.println("Sorry, not valid. Choose 1, 2 or 3.");
+            validateInput();
+            foodChoice = console.nextInt();
+        }
+        return foodChoice;
     }
 
     public int sexChoice() {
@@ -103,6 +108,7 @@ public class Helper {
             }
             return shopMore;
     }
+
 
     public void getWinner(ArrayList<Player> players, int numberOfPlayers){
         String winner;
