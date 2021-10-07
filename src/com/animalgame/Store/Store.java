@@ -129,9 +129,9 @@ public class Store {
                 player.animalList.remove(animalToSell);
                 player.money = player.money + priceToSell;
 
-                System.out.println("Woudl you like to sell more?\n1.Yes 2.No");
-                int playersChoice = console.nextInt();
-                switch (playersChoice) {
+                System.out.println("Would you like to sell more?\n1.Yes 2.No");
+                int sellMore = helper.sellMore();
+                switch (sellMore) {
                     case 1://Yes
                         break;
                     case 2://No

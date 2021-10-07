@@ -1,12 +1,20 @@
 package com.animalgame;
 
+import com.animalgame.Store.StoreHelper;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
 public class Helper {
 
-    Scanner console = new Scanner(System.in);
+        public Scanner console;
+        public Player player;
+
+        public Helper () {
+        console = new Scanner(System.in);
+    }
+
 
     public void createMenu(String ...menuChoice) {
         int counter = 1;
@@ -108,6 +116,29 @@ public class Helper {
             }
             return shopMore;
     }
+
+    public int sellMore() {
+        validateInput();
+        int sellMore = console.nextInt();
+        while (!(sellMore == 1 || sellMore == 2)) {
+            System.out.println("Sorry, not valid. Choose 1 or 2.");
+            validateInput();
+            sellMore = console.nextInt();
+
+        }
+        return sellMore;
+    }
+    /*public int indexChosen() {
+        validateInput();
+        int indexChosen = console.nextInt();
+        while (player!) {
+            System.out.println("Sorry, not valid. Choose 1 or 2.");
+            validateInput();
+            shopMore = console.nextInt();
+
+        }
+        return shopMore;
+    }*/
 
 
     public void getWinner(ArrayList<Player> players, int numberOfPlayers){
