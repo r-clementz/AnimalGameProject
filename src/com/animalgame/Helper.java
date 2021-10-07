@@ -29,9 +29,7 @@ public class Helper {
         System.out.println("*".repeat(50));
     }
 
-    public void clear() {
-        System.out.println("\n".repeat(50));
-    }
+
 
     public void validateInput () {
         while (!console.hasNextInt()) {
