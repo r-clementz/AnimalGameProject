@@ -167,12 +167,11 @@ public class StoreHelper {
             // food player bought added to the one already exist on the list
             //checking current p's list
             if (player.foodStock.contains(foodChosen.get(i))) { //checking current p's list
-                int index = player.foodStock.indexOf(foodChosen.get(i));
-                int newAmount = player.foodStock.get(index).amount + amountChosen.get(i);
-                player.foodStock.get(index).amount = newAmount;
-            } else {
-
-
+                int index = player.foodStock.indexOf(foodChosen.get(i)); //get index for the food already existed
+                player.foodStock.get(index).amount = player.foodStock.get(index).amount + amountChosen.get(i);
+            }
+            else
+            {
                 player.foodStock.add(foodChosen.get(i));//food added
                 int index = player.foodStock.indexOf(foodChosen.get(i));
                 player.foodStock.get(index).amount = amountChosen.get(i); //added amount
