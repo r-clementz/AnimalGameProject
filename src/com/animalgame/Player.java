@@ -57,7 +57,8 @@ public class Player {
         } else {
             System.out.println("Here are your animals: ");
             for (int i = 0; i <= this.animalList.size() - 1; i++) {
-                System.out.print(this.animalList.get(i).name + " (health " + (this.animalList.get(i).healthLevel / 0.9) + "->" + this.animalList.get(i).healthLevel + ".");
+                System.out.print(this.animalList.get(i).name + ":");
+                System.out.println("Health Lv: " + (int)(this.animalList.get(i).healthLevel / 0.9) + "->" + this.animalList.get(i).healthLevel + ".");
             }
         }
     }

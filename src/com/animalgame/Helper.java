@@ -174,7 +174,11 @@ public class Helper {
     public void getWinner(ArrayList<Player> players, int numberOfPlayers){
         String winner;
         String gameTied = "Game is tied. Good job for everyone!";
-        Collections.sort(players,new GetResult()); // players list sorted by money low to high
+        Collections.sort(players,new GetResult());// players list sorted by money low to high
+        System.out.println("Here are each player's money:\n");
+        for (int i=0; i<players.size()-1; i++){
+            System.out.println(players.get(i).getPlayerName()+": "+players.get(i).money);
+        }
         switch (numberOfPlayers) {
             case 4://4players
                 if ((players.get(3).money == players.get(2).money) && (players.get(2).money > players.get(1).money)) { //P4 P3

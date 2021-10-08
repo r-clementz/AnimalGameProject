@@ -121,12 +121,20 @@ public class StoreHelper {
     public void chooseMilk(ArrayList<Food> foodChosen, Player player) {
         System.out.println("1.Cow milk (10kr) 2.Oats milk(12kr)");
         int milkChoice = helper.milkChoice();
+        switch (milkChoice){
+            case 1://milk
+                if(foodChosen.contains("Cow milk")){
+                    foodChosen.
 
-        if (milkChoice == 1) {//Carrot
-            foodChosen.add(new Milk("Cow milk", 10));
-        } else if (milkChoice == 2) {
-            foodChosen.add(new Milk("Oats milk", 12));
+
+                }
         }
+
+//        if (milkChoice == 1) {//Carrot
+//            foodChosen.add(new Milk("Cow milk", 10));
+//        } else if (milkChoice == 2) {
+//            foodChosen.add(new Milk("Oats milk", 12));
+//        }
     }
 
     public void payAndUpdateList(Player player, ArrayList<Food> foodChosen, ArrayList<Integer> amountChosen) {
