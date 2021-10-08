@@ -12,8 +12,9 @@ import java.util.Scanner;
 public class StoreHelper {
     Scanner console;
     public Helper helper;
-    StoreHelper(){
-        console= new Scanner(System.in);
+
+    StoreHelper() {
+        console = new Scanner(System.in);
         helper = new Helper();
     }
 
@@ -77,7 +78,8 @@ public class StoreHelper {
         }
 
     }
-    public int decideAmountToBuy(){
+
+    public int decideAmountToBuy() {
         System.out.println("How much you'd like to get?");
         int amount = console.nextInt();
         return amount;
@@ -99,36 +101,36 @@ public class StoreHelper {
     }
 
 
-    public void chooseVeg(ArrayList<Food> foodChosen, ArrayList<Integer>amountChosen) {
+    public void chooseVeg(ArrayList<Food> foodChosen, ArrayList<Integer> amountChosen) {
         System.out.println("1.Carrot (3kr) 2. Cabbage(5kr) 3.Potato (3kr)");
         int vegChoice = helper.vegChoice();
         int amount = decideAmountToBuy();
         switch (vegChoice) {
             case 1://Carrot
 
-                    foodChosen.add(new Veggies("Carrot", 3));
-                    amountChosen.add(amount);
+                foodChosen.add(new Veggies("Carrot", 3));
+                amountChosen.add(amount);
 
                 break;
             case 2: //Cabbage
 
-                    foodChosen.add(new Veggies("Cabbage", 5));
-                    amountChosen.add(amount);
+                foodChosen.add(new Veggies("Cabbage", 5));
+                amountChosen.add(amount);
 
                 break;
             case 3://Potato
 
-                    foodChosen.add(new Veggies("Potato", 3));
-                    amountChosen.add(amount);
+                foodChosen.add(new Veggies("Potato", 3));
+                amountChosen.add(amount);
 
         }
     }
 
-    public void chooseMeat(ArrayList<Food> foodChosen, ArrayList<Integer>amountChosen) {
+    public void chooseMeat(ArrayList<Food> foodChosen, ArrayList<Integer> amountChosen) {
         System.out.println("1.Chicken (12kr) 2. Beef(25kr)");
         int meatChoice = helper.meatChoice();
         int amount = decideAmountToBuy();
-        switch (meatChoice ){
+        switch (meatChoice) {
             case 1://Chicken
                 foodChosen.add(new Meat("Chicken", 12));
                 amountChosen.add(amount);
@@ -141,36 +143,46 @@ public class StoreHelper {
     }
 
     //NEED TO CHECK IF PLAYER CHOSE THAT FOOD BEFORE IN THE SAME ROUND
-    public void chooseMilk(ArrayList<Food> foodChosen, ArrayList<Integer>amountChosen) {
+    public void chooseMilk(ArrayList<Food> foodChosen, ArrayList<Integer> amountChosen) {
         System.out.println("1.Cow milk (10kr) 2.Oats milk(12kr)");
         int milkChoice = helper.milkChoice();
         int amount = decideAmountToBuy();
-        switch (milkChoice){
+        switch (milkChoice) {
             case 1://milk
 
-               foodChosen.add(new Milk("Cow milk", 10));
-                    amountChosen.add(amount);
-                    break;
+                foodChosen.add(new Milk("Cow milk", 10));
+                amountChosen.add(amount);
+                break;
             case 2: //Oats
                 foodChosen.add(new Milk("Cow milk", 12));
-                    amountChosen.add(amount);
+                amountChosen.add(amount);
                 break;
-            }
         }
+    }
 
     public void payAndUpdateList(Player player, ArrayList<Food> foodChosen, ArrayList<Integer> amountChosen) {
+        for (int i = 0; i < foodChosen.size() - 1; i++) {
+            player.money = player.money - foodChosen.get(i).price * amountChosen.get(i); //pay
 
             // food player bought added to the one already exist on the list
+            //checking current p's list
+            if (player.foodStock.contains(foodChosen.get(i))) { //checking current p's list
+                int index = player.foodStock.indexOf(foodChosen.get(i));
+                int newAmount = player.foodStock.get(index).amount + amountChosen.get(i);
+                player.foodStock.get(index).amount = newAmount;
+            } else {
 
 
-             //checking current p's list
-
-                // Food player bought is not in current list
+                player.foodStock.add(foodChosen.get(i));//food added
+                int index = player.foodStock.indexOf(foodChosen.get(i));
+                player.foodStock.get(index).amount = amountChosen.get(i); //added amount
+            }
 
 
             System.out.println("Food is added to your list! Now you have " + player.money + "kr left");
         }
     }
+}
 
 
 
