@@ -94,48 +94,74 @@ public class StoreHelper {
     }
 
 
-    public void chooseVeg(ArrayList<Food> foodChosen, Player player) {
+    public void chooseVeg(ArrayList<Food> foodChosen, int amount) {
         System.out.println("1.Carrot (3kr) 2. Cabbage(5kr) 3.Potato (3kr)");
         int vegChoice = helper.vegChoice();
-        if (vegChoice == 1) {//Carrot
-            foodChosen.add(new Veggies("Carrot", 3));
-        } else if (vegChoice == 2) {
-            foodChosen.add(new Veggies("Cabbage", 5));
-        } else if (vegChoice == 3) {
-            foodChosen.add(new Veggies("Potato", 3));
+        switch (vegChoice) {
+            case 1://Carrot
+                if (foodChosen.contains("Carrot")) {
+                    int index = foodChosen.indexOf("Carrot");
+                    foodChosen.get(index).amount = foodChosen.get(index).amount + amount;
+                } else {
+                    foodChosen.add(new Veggies("Carrot", 3));
+                }
+                break;
+            case 2: //Cabbage
+                if (foodChosen.contains("Cabbage")) {
+                    int index = foodChosen.indexOf("Cabbage");
+                    foodChosen.get(index).amount = foodChosen.get(index).amount + amount;
+                } else {
+                    foodChosen.add(new Veggies("Cabbage", 5));
+                }
+                break;
+            case 3://Potato
+                if (foodChosen.contains("Potato")) {
+                    int index = foodChosen.indexOf("Potato");
+                    foodChosen.get(index).amount = foodChosen.get(index).amount + amount;
+                } else {
+                    foodChosen.add(new Veggies("Potato", 3));
+                }
         }
     }
 
-    public void chooseMeat(ArrayList<Food> foodChosen, Player player) {
+    public void chooseMeat(ArrayList<Food> foodChosen, int amount) {
         System.out.println("1.Chicken (12kr) 2. Beef(25kr)");
         int meatChoice = helper.meatChoice();
-
-        if (meatChoice == 1) {//Chicken
-            foodChosen.add(new Meat("Chicken", 12));
-        } else if (meatChoice == 2) {//Beef
-            foodChosen.add(new Meat("Beef", 25));
-
+        switch (meatChoice ){
+            case 1://Chicken
+                if(foodChosen.contains("Chicken")){
+                    int index = foodChosen.indexOf("Chicken");
+                    foodChosen.get(index).amount =  foodChosen.get(index).amount + amount;}
+                else{foodChosen.add(new Meat("Chicken", 12));}
+                break;
+            case 2: //Beef
+                if(foodChosen.contains("Beef")){
+                    int index = foodChosen.indexOf("Beef");
+                    foodChosen.get(index).amount =  foodChosen.get(index).amount + amount;}
+                else{foodChosen.add(new Meat("Beef", 25));}
+                break;
         }
     }
 
-    public void chooseMilk(ArrayList<Food> foodChosen, Player player) {
+    //NEED TO CHECK IF PLAYER CHOSE THAT FOOD BEFORE IN THE SAME ROUND
+    public void chooseMilk(ArrayList<Food> foodChosen, int amount) {
         System.out.println("1.Cow milk (10kr) 2.Oats milk(12kr)");
         int milkChoice = helper.milkChoice();
         switch (milkChoice){
             case 1://milk
                 if(foodChosen.contains("Cow milk")){
-                    foodChosen.
-
-
-                }
+                   int index = foodChosen.indexOf("Cow milk");
+                   foodChosen.get(index).amount =  foodChosen.get(index).amount + amount;}
+                else{foodChosen.add(new Milk("Cow milk", 10));}
+                break;
+            case 2: //Oats
+                if(foodChosen.contains("Oats milk")){
+                    int index = foodChosen.indexOf("Oats milk");
+                    foodChosen.get(index).amount =  foodChosen.get(index).amount + amount;}
+                else{foodChosen.add(new Milk("Cow milk", 12));}
+                break;
+            }
         }
-
-//        if (milkChoice == 1) {//Carrot
-//            foodChosen.add(new Milk("Cow milk", 10));
-//        } else if (milkChoice == 2) {
-//            foodChosen.add(new Milk("Oats milk", 12));
-//        }
-    }
 
     public void payAndUpdateList(Player player, ArrayList<Food> foodChosen, ArrayList<Integer> amountChosen) {
         for (int i = 0; i < foodChosen.size(); i++) {

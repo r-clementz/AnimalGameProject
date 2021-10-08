@@ -140,7 +140,7 @@ public class Helper {
     public int meatChoice(){
         validateInput();
         int meatChoice = console.nextInt();
-        while (meatChoice > 3 || meatChoice < 1) {
+        while (!(meatChoice ==1 || meatChoice == 2)){
             System.out.println("Sorry, not valid. Choose 1 or 2.");
             validateInput();
             meatChoice = console.nextInt();

@@ -73,13 +73,13 @@ public class Store {
 
             switch (foodChoice) {
                 case 1: //veggie
-                    storehelper.chooseVeg(foodChosen, player);
+                    storehelper.chooseVeg(foodChosen,amount );
                     break;
                 case 2: //meat
-                    storehelper.chooseMeat(foodChosen, player);
+                    storehelper.chooseMeat(foodChosen,amount);
                     break;
                 case 3://milk
-                    storehelper.chooseMilk(foodChosen, player);
+                    storehelper.chooseMilk(foodChosen,amount);
                     break;
                 default:
                     System.out.println("Invalid input,try again");
