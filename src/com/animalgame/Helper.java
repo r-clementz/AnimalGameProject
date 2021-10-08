@@ -157,18 +157,18 @@ public class Helper {
         }
         return milkChoice;
     }
-
-    public int indexChosen() {
-        validateInput();
-        int indexChosen = console.nextInt();
-        while (!(indexChosen > player.animalList.size())){
-            System.out.println("Sorry, not valid.");
-            validateInput();
-            indexChosen = console.nextInt();
-
-        }
-        return indexChosen;
-    }
+//
+//    public int indexChosen() {
+//        validateInput();
+//        int indexChosen = console.nextInt();
+//        while (!(indexChosen > player.animalList.size())){
+//            System.out.println("Sorry, not valid.");
+//            validateInput();
+//            indexChosen = console.nextInt();
+//
+//        }
+//        return indexChosen;
+//    }
 
 
     public void getWinner(ArrayList<Player> players, int numberOfPlayers){
