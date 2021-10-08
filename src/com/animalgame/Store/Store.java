@@ -25,7 +25,7 @@ public class Store {
     public void buyAnimal(Player player) { // double checked!
         ArrayList<Animal> animalChosen = new ArrayList<>();
         boolean playerWannaChoose = true;
-        boolean inputIsCorrect = true;
+        //boolean inputIsCorrect = true; <- Tror inte denna används länge
 
 
         System.out.println("Please Choose the number for animal you'd like to buy (1-5)");
@@ -67,17 +67,13 @@ public class Store {
             System.out.println("1. Veggies 2. Meat 3. Milk");
             int foodChoice = helper.foodChoice();
             switch (foodChoice) {
-                case 1: //veggie
-                    storehelper.chooseVeg(foodChosen,amountChosen);
-                    break;
-                case 2: //meat
-                    storehelper.chooseMeat(foodChosen,amountChosen);
-                    break;
-                case 3://milk
-                    storehelper.chooseMilk(foodChosen,amountChosen);
-                    break;
-                default:
-                    System.out.println("Invalid input,try again");
+                case 1 -> //veggie
+                        storehelper.chooseVeg(foodChosen, amountChosen);
+                case 2 -> //meat
+                        storehelper.chooseMeat(foodChosen, amountChosen);
+                case 3 ->//milk
+                        storehelper.chooseMilk(foodChosen, amountChosen);
+                default -> System.out.println("Invalid input,try again");
             }
             //loop until player decides to finish
             System.out.println("Would you like to buy other food? : 1.Yes 2.No");
