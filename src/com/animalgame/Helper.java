@@ -176,7 +176,7 @@ public class Helper {
         String gameTied = "Game is tied. Good job for everyone!";
         Collections.sort(players,new GetResult());// players list sorted by money low to high
         System.out.println("Here are each player's money:\n");
-        for (int i=0; i<players.size()-1; i++){
+        for (int i=0; i<players.size(); i++){ // i<players.size()-1
             System.out.println(players.get(i).getPlayerName()+": "+players.get(i).money);
         }
         switch (numberOfPlayers) {
