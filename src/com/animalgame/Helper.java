@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+/**
+ * This class has methods for doing helpful things in game
+ *
+ * @author Rie, MiA
+ */
 public class Helper {
 
         public Scanner console;
@@ -15,7 +20,10 @@ public class Helper {
         console = new Scanner(System.in);
     }
 
-
+    /**
+     * This method creates a menu for display
+     * @param menuChoice Strings representing the choices you want
+     */
     public void createMenu(String ...menuChoice) {
         int counter = 1;
         System.out.println("Please enter the number representing your choice: ");
@@ -30,7 +38,9 @@ public class Helper {
     }
 
 
-
+    /**
+     * This method validates input of int:s
+     */
     public void validateInput () {
         while (!console.hasNextInt()) {
             System.out.println("Invalid input. Please choose a number.");
@@ -38,6 +48,10 @@ public class Helper {
         }
     }
 
+    /**
+     * This method return an int in chosen range
+     * @return int for choice made in terminal
+     */
     public int menuChoice() {
         validateInput();
         int menuChoice = console.nextInt();
@@ -49,6 +63,10 @@ public class Helper {
         return menuChoice;
     }
 
+    /**
+     * This method return an int in chosen range
+     * @return int for choice made in terminal
+     */
     public int numberOfRounds() {
         validateInput();
         int numberOfRounds = console.nextInt();
@@ -60,6 +78,10 @@ public class Helper {
         return numberOfRounds;
     }
 
+    /**
+     * This method return an int in chosen range
+     * @return int for choice made in terminal
+     */
     public int numberOfPlayers() {
         validateInput();
         int numberOfPlayers = console.nextInt();
@@ -71,6 +93,10 @@ public class Helper {
         return numberOfPlayers;
     }
 
+    /**
+     * This method return an int in chosen range
+     * @return int for choice made in terminal
+     */
     public int animalChoice() {
         validateInput();
         int animalChoice = console.nextInt();
@@ -81,6 +107,11 @@ public class Helper {
         }
         return animalChoice;
     }
+
+    /**
+     * This method return an int in chosen range
+     * @return int for choice made in terminal
+     */
     public int foodChoice() {
         validateInput();
         int foodChoice = console.nextInt();
@@ -92,6 +123,10 @@ public class Helper {
         return foodChoice;
     }
 
+    /**
+     * This method return an int in chosen range
+     * @return int for choice made in terminal
+     */
     public int sexChoice() {
         validateInput();
         int sexChoice = console.nextInt();
@@ -103,6 +138,10 @@ public class Helper {
         return sexChoice;
     }
 
+    /**
+     * This method return an int in chosen range
+     * @return int for choice made in terminal
+     */
     public int shopMore() {
             validateInput();
             int shopMore = console.nextInt();
@@ -115,6 +154,10 @@ public class Helper {
             return shopMore;
     }
 
+    /**
+     * This method return an int in chosen range
+     * @return int for choice made in terminal
+     */
     public int sellMore() {
         validateInput();
         int sellMore = console.nextInt();
@@ -127,6 +170,10 @@ public class Helper {
         return sellMore;
     }
 
+    /**
+     * This method return an int in chosen range
+     * @return int for choice made in terminal
+     */
     public int vegChoice(){
         validateInput();
         int vegChoice = console.nextInt();
@@ -137,6 +184,11 @@ public class Helper {
         }
         return vegChoice;
     }
+
+    /**
+     * This method return an int in chosen range
+     * @return int for choice made in terminal
+     */
     public int meatChoice(){
         validateInput();
         int meatChoice = console.nextInt();
@@ -147,6 +199,11 @@ public class Helper {
         }
         return meatChoice;
     }
+
+    /**
+     * This method return an int in chosen range
+     * @return int for choice made in terminal
+     */
     public int milkChoice(){
         validateInput();
         int milkChoice = console.nextInt();
