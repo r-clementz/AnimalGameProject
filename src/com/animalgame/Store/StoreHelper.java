@@ -106,9 +106,8 @@ public class StoreHelper {
         switch (vegChoice) {
             case 1://Carrot
                 if (foodChosen.contains("Carrot")) {
-                    int index = foodChosen.indexOf("Carrot");
-                    foodChosen.get(index).amount = foodChosen.get(index).amount + amount;
-                } else {
+                    foodChosen.get(foodChosen.indexOf("Carrot")).amount = foodChosen.get(foodChosen.indexOf("Carrot")).amount + amount;
+                } else if (!(foodChosen.contains("Carrot"))) {
                     foodChosen.add(new Veggies("Carrot", 3));
                     amountChosen.add(amount);
                 }
@@ -139,18 +138,12 @@ public class StoreHelper {
         int amount = decideAmountToBuy();
         switch (meatChoice ){
             case 1://Chicken
-                if(foodChosen.contains("Chicken")){
-                    int index = foodChosen.indexOf("Chicken");
-                    foodChosen.get(index).amount =  foodChosen.get(index).amount + amount;}
-                else{foodChosen.add(new Meat("Chicken", 12));
-                    amountChosen.add(amount);}
+                foodChosen.add(new Meat("Chicken", 12));
+                amountChosen.add(amount);
                 break;
             case 2: //Beef
-                if(foodChosen.contains("Beef")){
-                    int index = foodChosen.indexOf("Beef");
-                    foodChosen.get(index).amount =  foodChosen.get(index).amount + amount;}
-                else{foodChosen.add(new Meat("Beef", 25));
-                    amountChosen.add(amount);}
+                foodChosen.add(new Meat("Beef", 25));
+                amountChosen.add(amount);
                 break;
         }
     }
@@ -191,6 +184,7 @@ public class StoreHelper {
                 player.foodStock.add(foodChosen.get(i));// added food
                 int index = player.foodStock.indexOf(foodChosen.get(i));
                 player.foodStock.get(i).amount = amountChosen.get(i); //added amount
+
             }
         }
         System.out.println("Food is added to your list! Now you have " + player.money + "kr left");
