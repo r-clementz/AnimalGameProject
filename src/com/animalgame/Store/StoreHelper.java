@@ -17,48 +17,48 @@ public class StoreHelper {
         helper = new Helper();
     }
 
-    public void createNewAnimals(int choice, int choice2, ArrayList<Animal> animalChosen, String name) {
-        switch (choice) {
+    public void createNewAnimals(int animalChoice, int sexChoice, ArrayList<Animal> animalChosen, String name) {
+        switch (animalChoice) {
             case 1://Dog
-                if (choice2 == 1) { //male
+                if (sexChoice == 1) { //male
                     animalChosen.add(new Dog(name, "male"));
-                } else if (choice2 == 2) {
+                } else if (sexChoice == 2) {
                     animalChosen.add(new Dog(name, "female"));
                 } else {
                     System.out.println("Invalid input");
                 }
                 break;
             case 2://Cat
-                if (choice2 == 1) { //male
+                if (sexChoice == 1) { //male
                     animalChosen.add(new Cat(name, "male"));
-                } else if (choice2 == 2) {
+                } else if (sexChoice == 2) {
                     animalChosen.add(new Cat(name, "female"));
                 } else {
                     System.out.println("Invalid input");
                 }
                 break;
             case 3://Unicorn
-                if (choice2 == 1) { //male
+                if (sexChoice == 1) { //male
                     animalChosen.add(new Unicorn(name, "male"));
-                } else if (choice2 == 2) {
+                } else if (sexChoice == 2) {
                     animalChosen.add(new Unicorn(name, "female"));
                 } else {
                     System.out.println("Invalid input");
                 }
                 break;
             case 4: //Rabbit
-                if (choice2 == 1) { //male
+                if (sexChoice == 1) { //male
                     animalChosen.add(new Rabbit(name, "male"));
-                } else if (choice2 == 2) {
+                } else if (sexChoice == 2) {
                     animalChosen.add(new Rabbit(name, "female"));
                 } else {
                     System.out.println("Invalid input");
                 }
                 break;
             case 5: //Bat
-                if (choice2 == 1) { //male
+                if (sexChoice == 1) { //male
                     animalChosen.add(new Bat(name, "male"));
-                } else if (choice2 == 2) {
+                } else if (sexChoice == 2) {
                     animalChosen.add(new Bat(name, "female"));
                 } else {
                     System.out.println("Invalid input");
