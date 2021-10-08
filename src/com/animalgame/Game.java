@@ -43,7 +43,7 @@ public class Game {
         numberOfRounds = helper.numberOfRounds();
 
 
-        System.out.println("Thanks! We'll play for " + numberOfRounds + ", good luck!");
+        System.out.println("Thanks! We'll play for " + numberOfRounds + " rounds, good luck!");
 
         //Basic OUTER gameplay loop for chosen number of rounds
         for (int i = 1; i <= numberOfRounds; i++) {
@@ -99,7 +99,7 @@ public class Game {
 
 
         }
-
+        System.out.println("*".repeat(50));
         // compare players' money and get winner
         store.sellAllanimals(players);
         helper.getWinner(players, numberOfPlayers);
