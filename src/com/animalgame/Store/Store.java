@@ -66,25 +66,19 @@ public class Store {
             System.out.println("Please choose the number for food you'd like to buy.");
             System.out.println("1. Veggies 2. Meat 3. Milk");
             int foodChoice = helper.foodChoice();
-
-            System.out.println("How much you'd like to get?");
-            int amount = console.nextInt();
-            amountChosen.add(amount);
-
             switch (foodChoice) {
                 case 1: //veggie
-                    storehelper.chooseVeg(foodChosen,amount );
+                    storehelper.chooseVeg(foodChosen,amountChosen);
                     break;
                 case 2: //meat
-                    storehelper.chooseMeat(foodChosen,amount);
+                    storehelper.chooseMeat(foodChosen,amountChosen);
                     break;
                 case 3://milk
-                    storehelper.chooseMilk(foodChosen,amount);
+                    storehelper.chooseMilk(foodChosen,amountChosen);
                     break;
                 default:
                     System.out.println("Invalid input,try again");
             }
-
             //loop until player decides to finish
             System.out.println("Would you like to buy other food? : 1.Yes 2.No");
             int shopMore = helper.shopMore();

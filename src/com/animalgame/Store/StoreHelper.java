@@ -77,6 +77,11 @@ public class StoreHelper {
         }
 
     }
+    public int decideAmountToBuy(){
+        System.out.println("How much you'd like to get?");
+        int amount = console.nextInt();
+        return amount;
+    }
 
     public void checkMoneyAndAdd(int sum, Player player, ArrayList<Animal> animalChosen) {
         if (sum > player.money) {
@@ -94,9 +99,10 @@ public class StoreHelper {
     }
 
 
-    public void chooseVeg(ArrayList<Food> foodChosen, int amount) {
+    public void chooseVeg(ArrayList<Food> foodChosen, ArrayList<Integer>amountChosen) {
         System.out.println("1.Carrot (3kr) 2. Cabbage(5kr) 3.Potato (3kr)");
         int vegChoice = helper.vegChoice();
+        int amount = decideAmountToBuy();
         switch (vegChoice) {
             case 1://Carrot
                 if (foodChosen.contains("Carrot")) {
@@ -104,6 +110,7 @@ public class StoreHelper {
                     foodChosen.get(index).amount = foodChosen.get(index).amount + amount;
                 } else {
                     foodChosen.add(new Veggies("Carrot", 3));
+                    amountChosen.add(amount);
                 }
                 break;
             case 2: //Cabbage
@@ -112,6 +119,7 @@ public class StoreHelper {
                     foodChosen.get(index).amount = foodChosen.get(index).amount + amount;
                 } else {
                     foodChosen.add(new Veggies("Cabbage", 5));
+                    amountChosen.add(amount);
                 }
                 break;
             case 3://Potato
@@ -120,45 +128,52 @@ public class StoreHelper {
                     foodChosen.get(index).amount = foodChosen.get(index).amount + amount;
                 } else {
                     foodChosen.add(new Veggies("Potato", 3));
+                    amountChosen.add(amount);
                 }
         }
     }
 
-    public void chooseMeat(ArrayList<Food> foodChosen, int amount) {
+    public void chooseMeat(ArrayList<Food> foodChosen, ArrayList<Integer>amountChosen) {
         System.out.println("1.Chicken (12kr) 2. Beef(25kr)");
         int meatChoice = helper.meatChoice();
+        int amount = decideAmountToBuy();
         switch (meatChoice ){
             case 1://Chicken
                 if(foodChosen.contains("Chicken")){
                     int index = foodChosen.indexOf("Chicken");
                     foodChosen.get(index).amount =  foodChosen.get(index).amount + amount;}
-                else{foodChosen.add(new Meat("Chicken", 12));}
+                else{foodChosen.add(new Meat("Chicken", 12));
+                    amountChosen.add(amount);}
                 break;
             case 2: //Beef
                 if(foodChosen.contains("Beef")){
                     int index = foodChosen.indexOf("Beef");
                     foodChosen.get(index).amount =  foodChosen.get(index).amount + amount;}
-                else{foodChosen.add(new Meat("Beef", 25));}
+                else{foodChosen.add(new Meat("Beef", 25));
+                    amountChosen.add(amount);}
                 break;
         }
     }
 
     //NEED TO CHECK IF PLAYER CHOSE THAT FOOD BEFORE IN THE SAME ROUND
-    public void chooseMilk(ArrayList<Food> foodChosen, int amount) {
+    public void chooseMilk(ArrayList<Food> foodChosen, ArrayList<Integer>amountChosen) {
         System.out.println("1.Cow milk (10kr) 2.Oats milk(12kr)");
         int milkChoice = helper.milkChoice();
+        int amount = decideAmountToBuy();
         switch (milkChoice){
             case 1://milk
                 if(foodChosen.contains("Cow milk")){
                    int index = foodChosen.indexOf("Cow milk");
                    foodChosen.get(index).amount =  foodChosen.get(index).amount + amount;}
-                else{foodChosen.add(new Milk("Cow milk", 10));}
+                else{foodChosen.add(new Milk("Cow milk", 10));
+                    amountChosen.add(amount);}
                 break;
             case 2: //Oats
                 if(foodChosen.contains("Oats milk")){
                     int index = foodChosen.indexOf("Oats milk");
                     foodChosen.get(index).amount =  foodChosen.get(index).amount + amount;}
-                else{foodChosen.add(new Milk("Cow milk", 12));}
+                else{foodChosen.add(new Milk("Cow milk", 12));
+                    amountChosen.add(amount);}
                 break;
             }
         }
