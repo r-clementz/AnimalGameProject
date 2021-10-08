@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.Scanner;
 /**This Class generates methods of
  * what player can do in the game.
- * @author Rie,
+ * @author Rie, MiA
  * */
 
 public class Player {
