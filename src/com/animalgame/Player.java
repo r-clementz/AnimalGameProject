@@ -119,7 +119,7 @@ public class Player {
                 // show updated energy
                 System.out.println("Now " +animalList.get(indexPicked1).name + "'s health is " + animalList.get(indexPicked1).healthLevel);
             }
-            else if (animalPicked.healthLevel== animalPicked.getOriginalHL()) {
+            else if (animalPicked.healthLevel<= animalPicked.getOriginalHL()) {
                 System.out.println(animalPicked.name+ " is full now and can't eat! ");
             }
 
@@ -180,12 +180,12 @@ public class Player {
     }
 
     public void lostAnimal(int numberOfPlayers, ArrayList<Player> players) {
-        for (int p = 0; p < numberOfPlayers - 1; p++) {
-            for (int j = 0; j < animalList.size(); j++) {
-                int animalHL = players.get(p).animalList.get(j).healthLevel;
+        for (int p = 1; p < numberOfPlayers; p++) {
+            for (int j = 0; j < animalList.size()-1; j++) {
+                int animalHL = players.get(p-1).animalList.get(j).healthLevel;
                 if (animalHL == 0) {
-                    System.out.println(players.get(p).getPlayerName() + ", ");
-                    players.get(p).animalList.get(j).die(players.get(p));
+                    System.out.println(players.get(p-1).getPlayerName() + ", ");
+                    players.get(p-1).animalList.get(j).die(players.get(p));
                 }
             }
 
