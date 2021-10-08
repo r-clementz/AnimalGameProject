@@ -163,25 +163,16 @@ public class StoreHelper {
     public void payAndUpdateList(Player player, ArrayList<Food> foodChosen, ArrayList<Integer> amountChosen) {
         for (int i = 0; i < foodChosen.size() - 1; i++) {
             player.money = player.money - foodChosen.get(i).price * amountChosen.get(i); //pay
-
-            // food player bought added to the one already exist on the list
-            //checking current p's list
-            if (player.foodStock.contains(foodChosen.get(i))) { //checking current p's list
-                int index = player.foodStock.indexOf(foodChosen.get(i)); //get index for the food already existed
-                player.foodStock.get(index).amount = player.foodStock.get(index).amount + amountChosen.get(i);
-            }
-            else
-            {
-                player.foodStock.add(foodChosen.get(i));//food added
-                int index = player.foodStock.indexOf(foodChosen.get(i));
-                player.foodStock.get(index).amount = amountChosen.get(i); //added amount
-            }
-
-
-            System.out.println("Food is added to your list! Now you have " + player.money + "kr left");
+            player.foodStock.add(foodChosen.get(i));//food added
+            int index = player.foodStock.indexOf(foodChosen.get(i));
+            player.foodStock.get(index).amount = amountChosen.get(i); //added amount
         }
+
+
+        System.out.println("Food is added to your list! Now you have " + player.money + "kr left");
     }
 }
+
 
 
 
