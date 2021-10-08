@@ -142,7 +142,7 @@ public class StoreHelper {
         }
     }
 
-    
+
     public void chooseMilk(ArrayList<Food> foodChosen, ArrayList<Integer> amountChosen) {
         System.out.println("1.Cow milk (10kr) 2.Oats milk(12kr)");
         int milkChoice = helper.milkChoice();
