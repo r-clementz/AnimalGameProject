@@ -105,30 +105,22 @@ public class StoreHelper {
         int amount = decideAmountToBuy();
         switch (vegChoice) {
             case 1://Carrot
-                if (foodChosen.contains("Carrot")) {
-                    foodChosen.get(foodChosen.indexOf("Carrot")).amount = foodChosen.get(foodChosen.indexOf("Carrot")).amount + amount;
-                } else if (!(foodChosen.contains("Carrot"))) {
+
                     foodChosen.add(new Veggies("Carrot", 3));
                     amountChosen.add(amount);
-                }
+
                 break;
             case 2: //Cabbage
-                if (foodChosen.contains("Cabbage")) {
-                    int index = foodChosen.indexOf("Cabbage");
-                    foodChosen.get(index).amount = foodChosen.get(index).amount + amount;
-                } else {
+
                     foodChosen.add(new Veggies("Cabbage", 5));
                     amountChosen.add(amount);
-                }
+
                 break;
             case 3://Potato
-                if (foodChosen.contains("Potato")) {
-                    int index = foodChosen.indexOf("Potato");
-                    foodChosen.get(index).amount = foodChosen.get(index).amount + amount;
-                } else {
+
                     foodChosen.add(new Veggies("Potato", 3));
                     amountChosen.add(amount);
-                }
+
         }
     }
 
@@ -155,41 +147,30 @@ public class StoreHelper {
         int amount = decideAmountToBuy();
         switch (milkChoice){
             case 1://milk
-                if(foodChosen.contains("Cow milk")){
-                   int index = foodChosen.indexOf("Cow milk");
-                   foodChosen.get(index).amount =  foodChosen.get(index).amount + amount;}
-                else{foodChosen.add(new Milk("Cow milk", 10));
-                    amountChosen.add(amount);}
-                break;
+
+               foodChosen.add(new Milk("Cow milk", 10));
+                    amountChosen.add(amount);
+                    break;
             case 2: //Oats
-                if(foodChosen.contains("Oats milk")){
-                    int index = foodChosen.indexOf("Oats milk");
-                    foodChosen.get(index).amount =  foodChosen.get(index).amount + amount;}
-                else{foodChosen.add(new Milk("Cow milk", 12));
-                    amountChosen.add(amount);}
+                foodChosen.add(new Milk("Cow milk", 12));
+                    amountChosen.add(amount);
                 break;
             }
         }
 
     public void payAndUpdateList(Player player, ArrayList<Food> foodChosen, ArrayList<Integer> amountChosen) {
-        for (int i = 0; i < foodChosen.size(); i++) {
-            player.money = player.money - foodChosen.get(i).price; //pay
 
             // food player bought added to the one already exist on the list
-            if (player.foodStock.contains(foodChosen.get(i))) { //checking current p's list
-                int index = player.foodStock.indexOf(foodChosen.get(i));
-                int newAmount = player.foodStock.get(index).amount + amountChosen.get(i);
-                player.foodStock.get(index).amount = newAmount;
-            } else { // Food player bought is not in current list
-                player.foodStock.add(foodChosen.get(i));// added food
-                int index = player.foodStock.indexOf(foodChosen.get(i));
-                player.foodStock.get(i).amount = amountChosen.get(i); //added amount
 
-            }
+
+             //checking current p's list
+
+                // Food player bought is not in current list
+
+
+            System.out.println("Food is added to your list! Now you have " + player.money + "kr left");
         }
-        System.out.println("Food is added to your list! Now you have " + player.money + "kr left");
     }
-}
 
 
 
