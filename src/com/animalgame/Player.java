@@ -146,7 +146,7 @@ public class Player {
 
             //see if animal chosen fills the requirement to pair up (same animal, different sex)
             //same animal and same sex
-            if ((pair1.getAnimalsSex() == pair2.getAnimalsSex()) && (pair1.getClass() == pair2.getClass())) {
+            if ((pair1.getAnimalsSex().equals(pair2.getAnimalsSex())) && (pair1.getClass().equals(pair2.getClass())) ) {
                 System.out.println("You can't pair up the same sex!");
             }
             // different animals (animals are not in the same class)
