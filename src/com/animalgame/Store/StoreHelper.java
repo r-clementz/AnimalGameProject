@@ -161,7 +161,7 @@ public class StoreHelper {
     }
 
     public void payAndUpdateList(Player player, ArrayList<Food> foodChosen, ArrayList<Integer> amountChosen) {
-        for (int i = 0; i < foodChosen.size() - 1; i++) {
+        for (int i = 0; i < foodChosen.size() ; i++) {
             player.money = player.money - foodChosen.get(i).price * amountChosen.get(i); //pay
             player.foodStock.add(foodChosen.get(i));//food added
             int index = player.foodStock.indexOf(foodChosen.get(i));
